@@ -1,0 +1,33 @@
+-----*Maze Runers*-----
+[i]"//" para comentarios
+
+Tema: Escapar de un laberinto.
+
+*Reglas:*
+
+Tablero:
+
+ - Multijugador (2 o más jugadores por partida)
+  //de algún modo tener teclas predefinidas para los jugadores
+    o permitir su asicnación manual.//
+ - Tablero de nxn (uno elije) generado y con objetos aleatorios
+ - Al menos debe tener como objetos:
+   - obstaculos: impiden el paso de las fichas
+   - Trampas: aplican alguna penalizacion 
+  //uno puede sumarle dice..//
+  //quizas podamos meterle inventario al jugador?//
+ - *se debe poder recorrer todo el tablero
+ - *al menos tres trampas diferentes 
+
+Preparacion:
+
+ - Cada Jugador:
+  - 5 fichas disponibles (usa una o varias y todos deben tener     la misma cantidad)
+  - 
+
+
+
+
+
+
+   

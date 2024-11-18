@@ -1,0 +1,14 @@
+F:\+++Programación+++\Pro001\bin\Debug\net8.0\Pro001.exe
+F:\+++Programación+++\Pro001\bin\Debug\net8.0\Pro001.deps.json
+F:\+++Programación+++\Pro001\bin\Debug\net8.0\Pro001.runtimeconfig.json
+F:\+++Programación+++\Pro001\bin\Debug\net8.0\Pro001.dll
+F:\+++Programación+++\Pro001\bin\Debug\net8.0\Pro001.pdb
+F:\+++Programación+++\Pro001\obj\Debug\net8.0\Pro001.GeneratedMSBuildEditorConfig.editorconfig
+F:\+++Programación+++\Pro001\obj\Debug\net8.0\Pro001.AssemblyInfoInputs.cache
+F:\+++Programación+++\Pro001\obj\Debug\net8.0\Pro001.AssemblyInfo.cs
+F:\+++Programación+++\Pro001\obj\Debug\net8.0\Pro001.csproj.CoreCompileInputs.cache
+F:\+++Programación+++\Pro001\obj\Debug\net8.0\Pro001.dll
+F:\+++Programación+++\Pro001\obj\Debug\net8.0\refint\Pro001.dll
+F:\+++Programación+++\Pro001\obj\Debug\net8.0\Pro001.pdb
+F:\+++Programación+++\Pro001\obj\Debug\net8.0\Pro001.genruntimeconfig.cache
+F:\+++Programación+++\Pro001\obj\Debug\net8.0\ref\Pro001.dll
