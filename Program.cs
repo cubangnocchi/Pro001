@@ -16,35 +16,51 @@ internal class Program
         Console.WriteLine("Logic");
         Maze.Testing();
         Cell.Testing();
+        Item.Testing();
+        MapObject.Testing();
         Console.WriteLine("Visual");
         Screen.Testing();
         Camera.Testing();        
         Console.WriteLine("----------------------");
     }
     private static void StartingMenue(){
-        bool menueOpen = true;
-        string menueOption = "";
-        while(menueOpen){
+        /**
+           this is temporal... some day this gonna be seen through Screen.cs 
+           and maybe I will need some kind of Menue.cs or something... maybe 
+           a private class...................... think about it
+        **/
+        bool menue_Open = true;    
+        while(menue_Open){
             Console.WriteLine(" ");
             Console.WriteLine("------[MENUE]-----");
             Console.WriteLine(" ");
             Console.WriteLine("[1] PLAY");
             Console.WriteLine("[2] TEST MODE");
+            Console.WriteLine("[3] Exit");
             Console.WriteLine(" ");
             Console.WriteLine("Write the option number and press [Enter]");
             Console.WriteLine(" ");
-            menueOption = Console.ReadLine();
-            if(menueOption == "1"){
+
+            ConsoleKeyInfo auxKey = Console.ReadKey();
+            char menueOption = auxKey.KeyChar;
+
+            if(menueOption == '1')
+            {
                 Console.WriteLine("not available");
-                menueOpen = false;
-                
+                menue_Open = false;             
             }
-            else if(menueOption == "2"){
+            else if(menueOption == '2')
+            {
                 Console.WriteLine(" ");
                 TestMenue();
-                menueOpen = false;
+                menue_Open = false;
             }
-            else{
+            else if(menueOption == '3')
+            {
+                menue_Open = false;                
+            }
+            else
+            {
                 Console.WriteLine("something goes wrong");
             } 
 

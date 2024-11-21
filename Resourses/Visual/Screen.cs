@@ -2,9 +2,28 @@ using System;
 namespace Resourses.Visual
 {
     public class Screen{
-        //public void Screen(int width, int height){
+        /**                        +
+                                   +
+                                   +
+                                   +
+                                   +
+                                   +
+                                   +
+                                   +
+        ++++++ IMPORTANTE: dos caracteres hacen un cuadrado ++++++
+                                   +
+                                   +
+                                   +
+                                   +
+                                   +
+                                   +
+                                   +
+                                   +
 
-        //}
+        public void Screen(int width, int height){
+
+        }
+        **/
         public static void Testing() => Console.WriteLine("- Screen loaded correctly");
         public static void ResolutionTest()
         {
