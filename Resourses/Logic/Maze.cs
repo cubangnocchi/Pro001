@@ -1,5 +1,5 @@
 using System;
-namespace Resourses.Logic{
+namespace Resourses.Logic;
 public class Maze
 {
     Cell[,] maze;
@@ -34,6 +34,6 @@ public class Maze
     //}
 }
 
-}
+
 
     

@@ -1,15 +1,21 @@
 ﻿using System;
 using Resourses.Logic;
 using Resourses.Visual;
+
 internal class Program
 {
     private static void Main(string[] args)
     {
         Console.WriteLine("-----Starting Game-----");
         ResoursesLoadingTest();
-        StartingMenue();
+        ExperimentalMenue();
 
     }
+
+    /*
+    haz el pinche menú principal con la clase implementada
+    ah
+    */
 
     private static void ResoursesLoadingTest(){
         Console.WriteLine("ResoursesLoadingTest:");
@@ -17,6 +23,7 @@ internal class Program
         Maze.Testing();
         Cell.Testing();
         Item.Testing();
+        Menue.Testing();
         MapObject.Testing();
         Console.WriteLine("Visual");
         Screen.Testing();
@@ -70,5 +77,29 @@ internal class Program
     private static void TestMenue(){
         Console.WriteLine(" ");
 
+    }
+
+    public static void ExperimentalMenue()
+    {
+        Menue.OptionMethod[] methods = new Menue.OptionMethod[]
+        {
+            Experiment01,
+            Experiment02,
+            Caption.Experiment03,
+            CloseAplication
+        };
+        string[] lalala = ["Exp01", "Exp02", "Exp03", "Exit"];
+        Menue mainMenue = new Menue("Main Menu", ['1', '2', '3', 'x'], lalala, methods);
+        while(true){
+            mainMenue.Print();
+            char input = Caption.GetKey_asChar();
+            mainMenue.Option(input);
+        }
+    }
+    public static void Experiment01() => Console.WriteLine("opcion 1 seleccionada");
+    public static void Experiment02() => Console.WriteLine("opcion 2 seleccionada");
+    public static void CloseAplication()
+    {
+        Environment.Exit(0);
     }
 }

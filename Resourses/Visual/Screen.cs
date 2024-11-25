@@ -1,7 +1,7 @@
 using System;
-namespace Resourses.Visual
+namespace Resourses.Visual;
+public class Screen
 {
-    public class Screen{
         /**                        +
                                    +
                                    +
@@ -24,18 +24,17 @@ namespace Resourses.Visual
 
         }
         **/
-        public static void Testing() => Console.WriteLine("- Screen loaded correctly");
-        public static void ResolutionTest()
+    public static void Testing() => Console.WriteLine("- Screen loaded correctly");
+    public static void ResolutionTest()
+    {
+        Console.WriteLine("+");
+        for (int i = 0; i < 10; i++)
         {
-            Console.WriteLine("+");
-            for (int i = 0; i < 10; i++)
-            {
-                
-            }
-            Console.WriteLine("+");
+            
         }
+        Console.WriteLine("+");
+    }
         
 
         
-    }
 }

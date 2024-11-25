@@ -1,6 +1,5 @@
 using System;
-namespace Resourses.Logic
-{
+namespace Resourses.Logic;
 public class Cell
 {
     private bool walkable;
@@ -47,4 +46,4 @@ public class Cell
 
     //Q do I need some kind of private class for making the cells work...
 }
-}    
+
