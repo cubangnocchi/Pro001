@@ -2,13 +2,19 @@
 using Resourses.Logic;
 using Resourses.Visual;
 
+
 internal class Program
 {
     private static void Main(string[] args)
     {
         Console.WriteLine("-----Starting Game-----");
         ResoursesLoadingTest();
-        ExperimentalMenue();
+
+        //Screen.CambiarTamanoTexto(80, 25);
+        Console.WriteLine("Hola, mundo!");
+        ConsoleKeyInfo a = Console.ReadKey();
+
+        //ExperimentalMenue();
 
     }
 
@@ -20,15 +26,19 @@ internal class Program
     private static void ResoursesLoadingTest(){
         Console.WriteLine("ResoursesLoadingTest:");
         Console.WriteLine("Logic");
-        Maze.Testing();
         Cell.Testing();
         Item.Testing();
-        Menue.Testing();
         MapObject.Testing();
+        Maze.Testing();
+        Menue.Testing();
         Console.WriteLine("Visual");
         Screen.Testing();
         Camera.Testing();        
         Console.WriteLine("----------------------");
+        
+
+        
+        
     }
     private static void StartingMenue(){
         /**

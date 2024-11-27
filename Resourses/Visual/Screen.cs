@@ -34,6 +34,18 @@ public class Screen
         }
         Console.WriteLine("+");
     }
+
+    /*public static void SizeChange(int ancho, int alto)
+    {
+        // Cambiar el tamaño de la ventana de la consola
+        Console.SetWindowSize(ancho, alto);
+        
+        // Cambiar el tamaño del buffer de la consola
+        Console.SetBufferSize(ancho, alto);
+        
+        // Cambiar el tamaño de la fuente (esto puede no funcionar en todas las plataformas)
+        Console.WriteLine("El tamaño de la fuente de la consola no se puede cambiar directamente en .NET.");
+    }*/
         
 
         

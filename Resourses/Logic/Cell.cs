@@ -3,26 +3,26 @@ namespace Resourses.Logic;
 public class Cell
 {
     private bool walkable;
-    private TypeOfCell typeOfCell;
+    private TypeOf typeOfCell;
 
     //[i] constructors:
     
     public Cell(){
         //[i] empty or preset cell
         bool walkable = true;
-        typeOfCell = TypeOfCell.presetFloor;
+        typeOfCell = TypeOf.presetFloor;
 
     }
-    public Cell(TypeOfCell theTypeOfCell)
+    public Cell(TypeOf theTypeOfCell)
     {
         //revisar como crear celldas de n tipos
         typeOfCell = theTypeOfCell;
 
-        if (typeOfCell == TypeOfCell.presetFloor)
+        if (typeOfCell == TypeOf.presetFloor)
         {
             bool walkable = true;            
         }
-        if (typeOfCell == TypeOfCell.presetWall)
+        if (typeOfCell == TypeOf.presetWall)
         {
             bool walkable = false;
         }
@@ -30,18 +30,18 @@ public class Cell
 
         //[i] methods for extracting information:
         public bool isWalkable() => walkable;
-        public TypeOfCell getTypeOfCell() => typeOfCell;
+        public TypeOf getTypeOfCell() => typeOfCell;
     
 
     public static void Testing() => Console.WriteLine("- Cell loaded correctly");
 
     //[i] resourses for making the cells work properly
 
-    public enum TypeOfCell
+    public enum TypeOf
     {
         presetFloor,  //0
         presetWall,   //1
-        presetDoor    //2
+        //presetDoor    //2 maybe this can be a Map object that interacts with its cell
     }
 
     //Q do I need some kind of private class for making the cells work...

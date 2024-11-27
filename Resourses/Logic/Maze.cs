@@ -29,10 +29,12 @@ public class Maze
         
 
     }
+
     //private void GenetateTutorial(){
 
     //}
 }
+
 
 
 
