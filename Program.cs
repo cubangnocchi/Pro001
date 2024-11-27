@@ -11,7 +11,7 @@ internal class Program
         ResoursesLoadingTest();
 
         //Screen.CambiarTamanoTexto(80, 25);
-        Console.WriteLine("Hola, mundo!");
+        Console.WriteLine("⁅⁅⁆⁆¦¦‖⁑⁂⁗⁁⁜※⁋īīĳĹ↑↓↼⇀⇖■▣▦□▬▬▮○◔◑◕●◍◉◜◝◞◟◤◥◢◣◧◫◷◱◰◼◾◭◮ⅧⅮↇↂ");
         ConsoleKeyInfo a = Console.ReadKey();
 
         //ExperimentalMenue();
