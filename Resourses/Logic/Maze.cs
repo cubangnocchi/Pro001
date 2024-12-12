@@ -2,30 +2,58 @@ using System;
 namespace Resourses.Logic;
 public class Maze
 {
-    Cell[,] maze;
-    string name; 
-    int seed;
+    Cell[,] mazeCells; //maybe this should be changed by a room[,]
+                       //consider only using Rooms as a tooll
+                       //or maybe rooms makes easier the work for visual
 
-    public Maze(string theName, int width, int height){
+    Room[,] mazeRooms;
+    string name; 
+    string seed;
+
+    /*public Maze(string theName, int width, int height){
         maze= new Cell[width, height];
         name = theName;
         Generator();
     }
-    public Maze(string theName, int width, int height, int theSeed){
-        maze= new Cell[width, height];
+    public Maze(string theName, int width, int height, int roomScuareSize){
+        maze= new Cell[(width*roomScuareSize), (height*roomScuareSize)];
+        name = theName;
+        Generator();
+    }*/
+
+    public Maze(string theName, int width, int height, int roomScuareSize){
+        mazeRooms = new Room[width,height];
+        name = theName;
+        Generator();
+    }
+    
+    /*public Maze(string theName, int width, int height, string theSeed){
+        mazeCells = new Cell[width, height];
         name = theName;
         seed = theSeed;
         GeneratorFromSeed();
-    }
+    }*/
 
     public static void Testing() => Console.WriteLine("- Maze loaded correctly");
     
     //[i] maze generation methods:
 
-    private void Generator(){        
-
+    private void Generator(){
+        //prueba hacerlo recurcivo jeje...
+        for(int i=0; i<10/*(mazeRooms.Length(1)*mazeRooms.Length(2))*/; i++)
+        {
+            //acá va el metodo de hacer recorridos conectando habitaciones y modificándolas
+            Connector();
+            //valora el sumarle obstáculos
+        }        
+        
     }
     private void GeneratorFromSeed(){
+        
+    }
+
+    private void Connector(/*position for starting the path, path number, number for counting*/)
+    {
         
 
     }
