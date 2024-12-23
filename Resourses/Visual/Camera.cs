@@ -7,6 +7,8 @@ public class Camera{
     an image for the player to see what his sharacter can see.  I will start with
     a 2D senital vew of the maze but at the end if I have enough time I will make
     a 3d one.
+
+       Also create a constructor for making the kind of camera you need.. you may need more kind of cameras...
     **/ 
     public static void Testing() => Console.WriteLine("- Camera loaded correctly"); //boberia xD
 

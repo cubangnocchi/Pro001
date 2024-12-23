@@ -34,6 +34,11 @@ public class Maze
         GeneratorFromSeed();
     }*/
 
+    public Maze()
+    {
+        //haz uno de prueba pa otras cosas....
+    }
+
     public static void Testing() => Console.WriteLine("- Maze loaded correctly");
     
     //[i] maze generation methods:
@@ -51,10 +56,24 @@ public class Maze
     private void GeneratorFromSeed(){
         
     }
+    
 
-    private void Connector(/*position for starting the path, path number, number for counting*/)
+    //revisa bien lo de los nombres...
+    private void Connector(/*position for starting the path, path number, number for counting*/) //reviiiiisa los apuuuntes -_-#
     {
-        
+        if(mazeRooms.GetLength(0)*mazeRooms.GetLength(1) == 0/*here I need a counter...*/) //de algún 
+        {
+            /*simply end this work....*/
+        }
+        else
+        {
+            /*
+            - evalua si el recorrido mismo
+            
+            
+            */
+        }
+
 
     }
 

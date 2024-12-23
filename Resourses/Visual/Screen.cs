@@ -23,29 +23,28 @@ public class Screen
         public void Screen(int width, int height){
 
         }
+        try them to make a flexible version
+
+
         **/
     public static void Testing() => Console.WriteLine("- Screen loaded correctly");
-    public static void ResolutionTest()
+    public static void ResolutionTest(int width, int height)
     {
-        Console.WriteLine("+");
-        for (int i = 0; i < 10; i++)
-        {
-            
+        Console.WriteLine("");
+        for (int i = 0; i < height; i++)
+        {            
+            for (int j = 0; j < width; j++)
+            {
+                Console.Write("[]");
+            }
+            Console.WriteLine("");            
         }
-        Console.WriteLine("+");
     }
 
-    /*public static void SizeChange(int ancho, int alto)
+    public static void ScreenRefresh()
     {
-        // Cambiar el tamaño de la ventana de la consola
-        Console.SetWindowSize(ancho, alto);
-        
-        // Cambiar el tamaño del buffer de la consola
-        Console.SetBufferSize(ancho, alto);
-        
-        // Cambiar el tamaño de la fuente (esto puede no funcionar en todas las plataformas)
-        Console.WriteLine("El tamaño de la fuente de la consola no se puede cambiar directamente en .NET.");
-    }*/
+
+    }
         
 
         

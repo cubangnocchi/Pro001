@@ -7,14 +7,26 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Console.WriteLine("-----Starting Game-----");
-        ResoursesLoadingTest();
+        //Console.WriteLine("-----Starting Game-----");
+        //ResoursesLoadingTest();
 
         //Screen.CambiarTamanoTexto(80, 25);
-        Console.WriteLine("⁅⁅⁆⁆¦¦‖⁑⁂⁗⁁⁜※⁋īīĳĹ↑↓↼⇀⇖■▣▦□▬▬▮○◔◑◕●◍◉◜◝◞◟◤◥◢◣◧◫◷◱◰◼◾◭◮ⅧⅮↇↂ");
-        ConsoleKeyInfo a = Console.ReadKey();
+       // Console.WriteLine("⁅⁅⁆⁆¦¦‖⁑⁂⁗⁁⁜※⁋īīĳĹ↑↓↼⇀⇖■▣▦□▬▬▮○◔◑◕●◍◉◜◝◞◟◤◥◢◣◧◫◷◱◰◼◾◭◮ⅧⅮↇↂ");
+        
 
         //ExperimentalMenue();
+
+        Screen.ResolutionTest(60,30);
+
+        Console.WindowWidth = 121;
+        Console.WindowHeight = 31;
+        
+
+        ConsoleKeyInfo a = Console.ReadKey(true);
+        Console.WriteLine("width: "+ Console.WindowWidth +" height: " + Console.WindowHeight);
+        a = Console.ReadKey(true);
+
+        //120, 9000
 
     }
 
