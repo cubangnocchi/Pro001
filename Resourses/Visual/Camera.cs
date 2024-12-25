@@ -2,6 +2,10 @@ using System;
 namespace Resourses.Visual;
 public class Camera{
 
+    /*
+    ++++++ Create some pixels for cells, map objects, etc...
+    */
+
     /**  
        The idea of this class is to have all the methods nessesary for generating
     an image for the player to see what his sharacter can see.  I will start with

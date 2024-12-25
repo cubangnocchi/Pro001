@@ -1,4 +1,5 @@
 ﻿using System;
+using Spectre.Console;
 using Resourses.Logic;
 using Resourses.Visual;
 
@@ -15,6 +16,15 @@ internal class Program
         
 
         //ExperimentalMenue();
+
+        Console.WriteLine("A");
+        Color colorFondo = new Color(255, 255, 255);
+        Color colorTexto = new Color(0, 0, 200);
+        Style style = new Style(colorTexto, colorFondo);
+        AnsiConsole.Markup($"[bold {style}]B[/]");
+        Console.Write("C");
+
+
 
         Screen.ResolutionTest(60,30);
 
@@ -36,6 +46,7 @@ internal class Program
     */
 
     private static void ResoursesLoadingTest(){
+        //[i]-
         Console.WriteLine("ResoursesLoadingTest:");
         Console.WriteLine("Logic");
         Cell.Testing();
