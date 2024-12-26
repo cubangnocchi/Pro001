@@ -129,11 +129,15 @@ public class Maze
                         //testing prosses...
                         
                         //----change walls of bouth------
+                        //logicRooms[row,col]
+                        //mazeRooms[row,col].Create();
 
                         //recursive proces
                         PathMaker(row+dir[0],col+dir[1],counter-1);
 
-
+                        //+++++ array de direccioneeee
+                        //for(...i<4)
+                        //  ... (qeu avance de dos en dos)
 
 
                     }
