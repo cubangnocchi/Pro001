@@ -2,12 +2,17 @@
 using Spectre.Console;
 using Resourses.Logic;
 using Resourses.Visual;
+using PRO001;
 
 
 internal class Program
 {
     private static void Main(string[] args)
     {
+        MiniTest.Run();
+
+
+
         //Console.WriteLine("-----Starting Game-----");
         //ResoursesLoadingTest();
 
@@ -17,10 +22,11 @@ internal class Program
 
         //ExperimentalMenue();
 
+        /*
         Console.WriteLine("A");
-        Color colorFondo = new Color(255, 255, 255);
-        Color colorTexto = new Color(0, 0, 200);
-        Style style = new Style(colorTexto, colorFondo);
+        var colorFondo = new Color(255, 255, 255);
+        var colorTexto = new Color(0, 0, 200);
+        var style = new Style(colorTexto, colorFondo);
         AnsiConsole.Markup($"[bold {style}]B[/]");
         Console.Write("C");
 
@@ -37,6 +43,7 @@ internal class Program
         a = Console.ReadKey(true);
 
         //120, 9000
+        */
 
     }
 

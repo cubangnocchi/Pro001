@@ -1,6 +1,6 @@
 using System;
 using Spectre.Console;
-//using Colorful.Console;
+using Colorful;
 
 namespace Resourses.Visual;
 public class Screen
@@ -21,6 +21,17 @@ public class Screen
             this.width = ending[0] - stating[0];
             this.height = ending[1] - stating[1];
             elementImage = new Image(width, height);
+            /*            +
+                          +
+                          +
+            +++++hay info de mas jaja... 
+            solo necesito el desplazamiento dela imagen
+                          +
+                          +
+                          +
+                          +
+                          
+            */
         }
         public Image GetImage(Image reference)
         {
@@ -37,6 +48,18 @@ public class Screen
     private ScreenElement[] screenElements;
 
     public Screen(){
+
+    }
+    public enum ScreenType
+    {
+        MainMenue,
+        SetingsMenue,
+        TestingMenue,
+        CharacterSelection,
+        InGameScreen,
+        PlayerStats,
+        ChangeTurn,
+
 
     }
     
@@ -65,17 +88,17 @@ public class Screen
 
 
         **/
-    public static void Testing() => Console.WriteLine("- Screen loaded correctly");
+    public static void Testing() => System.Console.WriteLine("- Screen loaded correctly");
     public static void ResolutionTest(int width, int height)
     {
-        Console.WriteLine("");
+        System.Console.WriteLine("");
         for (int i = 0; i < height; i++)
         {            
             for (int j = 0; j < width; j++)
             {
-                Console.Write("[]");
+                System.Console.Write("[]");
             }
-            Console.WriteLine("");            
+            System.Console.WriteLine("");            
         }
     }
 

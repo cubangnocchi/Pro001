@@ -1,12 +1,16 @@
 using System;
+using System.Runtime.InteropServices;
+using Colorful;
+using Spectre.Console.Rendering;
 namespace Resourses.Logic;
 public class Maze
 {
-    Cell[,] mazeCells; //maybe this should be changed by a room[,]
+    //Cell[,] mazeCells; //maybe this should be changed by a room[,]
                        //consider only using Rooms as a tooll
                        //or maybe rooms makes easier the work for visual
 
     Room[,] mazeRooms;
+    LogicRoom[,] logicRooms;
     string name; 
     string seed;
 
@@ -21,10 +25,25 @@ public class Maze
         Generator();
     }*/
 
-    public Maze(string theName, int width, int height, int roomScuareSize){
-        mazeRooms = new Room[width,height];
+    /*               +
+                     +
+                     +
+    + + + Room ahora es otra clase... + + +
+                     +
+                     +
+                     +
+    
+    */
+
+    public Maze(string theName, int rows, int cols, int roomSize){
+        mazeRooms = new Room[rows,cols];
+        logicRooms = new LogicRoom[rows,cols];
         name = theName;
-        Generator();
+        Generator(rows, cols, roomSize);
+    }
+    public Maze(string theName, int size, int roomSize): this(theName, size, size, roomSize)
+    {
+        //creates an scuare maze
     }
     
     /*public Maze(string theName, int width, int height, string theSeed){
@@ -39,42 +58,206 @@ public class Maze
         //haz uno de prueba pa otras cosas....
     }
 
-    public static void Testing() => Console.WriteLine("- Maze loaded correctly");
+    public static void Testing() => System.Console.WriteLine("- Maze loaded correctly");
     
     //[i] maze generation methods:
 
-    private void Generator(){
-        //prueba hacerlo recurcivo jeje...
-        for(int i=0; i<10/*(mazeRooms.Length(1)*mazeRooms.Length(2))*/; i++)
+    private void Generator(int width, int height, int roomSize){
+
+        //prepare the Rooms
+        for(int i = 0; i<width; i++)
+        {
+            for(int j = 0; j< height; j++)
+            {
+                this.mazeRooms[i,j] = new Room(roomSize);
+            }
+
+        }
+        /*for(int i=0; i<10 (mazeRooms.GetLength(1)*mazeRooms.GetLength(2)); i++)
         {
             //acá va el metodo de hacer recorridos conectando habitaciones y modificándolas
-            Connector();
+            
             //valora el sumarle obstáculos
-        }        
+        }
+        */
+        //prueba hacerlo recurcivo jeje... (iterarlo sale mejor jiji...?)
+        int[,] connectedRoomsPosition = new int[width,height];
+        PathMaker(0,0, (width*height));        
         
     }
-    private void GeneratorFromSeed(){
+    private void GeneratorFromSeed()
+    {
         
     }
     
 
     //revisa bien lo de los nombres...
-    private void Connector(/*position for starting the path, path number, number for counting*/) //reviiiiisa los apuuuntes -_-#
+    private void PathMaker()
     {
-        if(mazeRooms.GetLength(0)*mazeRooms.GetLength(1) == 0/*here I need a counter...*/) //de algún 
+
+    }
+
+    private void PathMaker(int row, int col, int counter) //reviiiiisa los apuuuntes -_-# //path number
+    {
+        if(counter != 0)
         {
-            /*simply end this work....*/
-        }
-        else
-        {
-            /*
-            - evalua si el recorrido mismo
-            
-            
-            */
-        }
+            logicRooms[row,col].Connect();
+
+            if(ExistUnconnectedCloseRoom(row, col))
+            {
+                bool[] closeRooms = UnconnectedCloseRooms(row, col);
+                int howManyTrues = HowManyTrues(closeRooms);
+
+                Random random = new Random();
+                int option = random.Next(0, howManyTrues);
 
 
+                int j = 0;
+                for(int i = 0; i<4; i++)
+                {
+                    if(j==howManyTrues)
+                    {
+                        
+                        int[] dir = NumberToDirection(i);
+
+                        //make some modifications to the rooms
+                        //for making posible the connection
+                        //like taking down some walls, you know..
+                        //remember the mapObject thing..
+
+                        //temporal room change for litle rooms in
+                        //testing prosses...
+                        
+                        //----change walls of bouth------
+
+                        //recursive proces
+                        PathMaker(row+dir[0],col+dir[1],counter-1);
+
+
+
+
+                    }
+                    if(closeRooms[i]) j++;
+                    
+                }
+
+            }
+            else
+            {
+
+            }
+        }
+        
+
+
+    }
+    /*                   +
+                         +
+                         +
+                         +
+    + + + + hazte un array de rireccioneeeeeee!!!! + + +
+                         +
+                         +
+                         +
+                         +
+    asi te quitas asumirlas todo el tiempo ._.
+    es muyyyyyyyyyyy tedioooooso
+    ah!
+    
+    */
+    private int[] NumberToDirection(int num)
+    {
+        if(num == 0)
+        {
+            return [-1,0];
+        }
+        if(num == 1)
+        {
+            return [0,-1];
+        }
+        if(num == 2)
+        {
+            return [+1,0];
+        }
+        if(num == 3)
+        {
+            return [0,+1];
+        }
+        return [0,0];
+        
+        
+    }
+
+    private int HowManyTrues(bool[] bools)
+    {
+        int counter = 0;
+        for(int i = 0; i < bools.Length; i++)
+        {
+            if(bools[i])
+            {
+                counter++;
+            }            
+        }
+        return counter;
+        
+    }
+
+    private bool[] UnconnectedCloseRooms(int row, int col)
+    {
+        bool[] closeRooms = [false, false, false, false]; 
+        
+        if (row - 1 >= 0)
+        {
+            closeRooms[0] = !logicRooms[row -1, col].IsConnected();
+        }
+        if (col - 1 >= 0)
+        {
+            closeRooms[1] = !logicRooms[row, col -1].IsConnected();
+        }
+        if (row + 1 <= logicRooms.GetLength(0))
+        {
+            closeRooms[2] = !logicRooms[row + 1, col].IsConnected();
+
+        }
+        if (col + 1 <= logicRooms.GetLength(1))
+        {
+            closeRooms[3] = !logicRooms[row, col + 1].IsConnected();
+        }
+        
+        return closeRooms;
+    }
+    private bool ExistUnconnectedCloseRoom(int i, int j)
+    {
+        bool[] closeRooms = UnconnectedCloseRooms(i,j);
+        for(int k = 0; k < 4; k++)
+        {
+            if(closeRooms[k])
+            {
+                return true;
+            }
+        }
+        return false;
+        
+    }
+
+
+    private int[] ConnectedCloseToUnconnected()
+    {
+        for (int i = 0; i < logicRooms.GetLength(0); i++)
+        {
+            for (int j = 0; j < logicRooms.GetLength(0); j++)
+            {
+                if (logicRooms[i, j].IsConnected())
+                {                    
+                    if(ExistUnconnectedCloseRoom(i, j))
+                    {
+                        return [i,j];
+                    }
+                }
+
+            }
+        }
+        return[0,0];
     }
 
     //private void GenetateTutorial(){
