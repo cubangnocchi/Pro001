@@ -1,10 +1,13 @@
 using System;
+using Resourses.Logic;
 namespace Resourses.Visual;
 public class Camera{
 
     /*
     ++++++ Create some pixels for cells, map objects, etc...
     */
+    Pixel wall = new Pixel ('[',']');
+    Pixel floor = new Pixel(' ',' ');
 
     /**  
        The idea of this class is to have all the methods nessesary for generating
@@ -17,9 +20,25 @@ public class Camera{
     public static void Testing() => Console.WriteLine("- Camera loaded correctly"); //boberia xD
 
     //--------------------[i]-Here the methods for Map based vew-----------------------------------------------------------------
-
-    public static Image AllMapFixed()
+    
+    // + + Tip: for full maze vew use room vew hehe...
+    public Image CameraTest(Maze maze)
     {
+        Image exit = new Image(15,15);
+        for (int i = 0; i<5; i++)
+        {
+            for(int j = 0; j<5; j++)
+            {
+
+            }
+        }
+
+
+    }
+    public static Image AllMapFixed(Maze maze)
+    {
+        
+        
         return new Image(1,1);//pa que no de error xd????
     }
     // public static Image RayTracedVewInMap(){}
@@ -34,16 +53,11 @@ public class Camera{
     //---------------------[i]-Here the methods for Room based vew-----------------------------------------------------------------
 
     //[!]-remember also thinking in beag rooms formed of some rooms... 
-    public static Image RoomAll()
+    public static Image RoomAll(Room room)
     {
+        
         return new Image(1,1);
     }
-
-    /*public static Image AllMap(int x, int y)
-    {
-        //for vewing all the map but changin map position instead of the player
-    }
-    */
 
     // public static Image RayTracedVewInMap(){}
     // public static Image RayTracedVewInRoom(){}

@@ -19,6 +19,10 @@ public class Pixel
         this.charsColors = new Color[2];
         this.chars = new char[2];        
     }
+    public Pixel(char leftChar, char rightChar)
+    {
+        this.chars = [leftChar, rightChar];
+    }
     public Pixel(char leftChar, char rightChar, Color leftbackGroundColor, Color rightbackGroundColor, Color lefCharColor, Color rightCharColor)
     {
         this.backGroundColors = [leftbackGroundColor,rightbackGroundColor];

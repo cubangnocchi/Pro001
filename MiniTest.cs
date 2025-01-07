@@ -33,6 +33,8 @@ class MiniTest
     public static void PreMadeMaze()
     {
         // [i]-Creating pre-made maze
+        Maze preMadeMaze = new Maze();
+        
         
 
     }

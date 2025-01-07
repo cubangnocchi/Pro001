@@ -2,6 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using Colorful;
 using Spectre.Console.Rendering;
+
 namespace Resourses.Logic;
 public class Maze
 {
@@ -40,6 +41,7 @@ public class Maze
         logicRooms = new LogicRoom[rows,cols];
         name = theName;
         Generator(rows, cols, roomSize);
+        
     }
     public Maze(string theName, int size, int roomSize): this(theName, size, size, roomSize)
     {
@@ -55,7 +57,7 @@ public class Maze
 
     public Maze()
     {
-        //haz uno de prueba pa otras cosas....
+        TestMazeGenerator();
     }
 
     public static void Testing() => System.Console.WriteLine("- Maze loaded correctly");
@@ -85,6 +87,27 @@ public class Maze
         PathMaker(0,0, (width*height));        
         
     }
+
+    private void TestMazeGenerator()
+    {
+        Room walled = new Room(3);
+        LogicRoom logicRoom = new LogicRoom();
+        walled.Create(logicRoom);
+        this.mazeRooms = new Room[5,5];
+
+        for(int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j<5; i++)
+            {
+                if(i == 0 || i == 5 || j == 0 || j == 5)
+                {
+                    this.mazeRooms[i,j] = walled;
+                }
+            }
+        }
+
+        
+    }
     private void GeneratorFromSeed()
     {
         
@@ -99,6 +122,9 @@ public class Maze
 
     private void PathMaker(int row, int col, int counter) //reviiiiisa los apuuuntes -_-# //path number
     {
+
+        Direction direction = new Direction();
+
         if(counter != 0)
         {
             logicRooms[row,col].Connect();
@@ -160,6 +186,8 @@ public class Maze
                          +
                          +
     + + + + hazte un array de rireccioneeeeeee!!!! + + +
+                         +
+    + + + + usa lee para saber donde colocar objetos jejejejej + + +
                          +
                          +
                          +

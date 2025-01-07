@@ -4,7 +4,12 @@ namespace Resourses.Logic;
 
 public class Room
 {
+    //[i]-Room parameters
     private Cell[,] roomCells;
+
+    int roomSize;
+
+    //[i]-Room constructors
 
     public Room() : this(9) 
     {
@@ -13,8 +18,20 @@ public class Room
 
     public Room(int size)
     {
-        roomCells = new Cell[size, size];        
+        roomCells = new Cell[size, size];
+        roomSize = size;        
     }
+
+    //[i]-Get parameters
+
+    public int GetSize() => roomSize;
+
+    //[i]-Set parameters
+    //
+    //++Idea... change a wall by using the "wasd" directions
+    //          array... 
+
+    //[i]-Room building methods
 
     public void Create(LogicRoom logicRoom)
     {

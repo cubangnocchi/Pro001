@@ -3,10 +3,18 @@ namespace Resourses.Visual;
 
 public class Image
 {
+    //[i]-Parameters
     private Pixel[,] pixels;
+
+    //[i]-Constructors
     public Image(int width, int height)
     {
         pixels = new Pixel[width,height];
+    }
+
+    public Image(int size)
+    {
+        Image(size, size);
     }
     public Image()
     {
@@ -25,6 +33,8 @@ public class Image
         return (Dimention != 0|| Dimention !=1) ? -1 : pixels.GetLength(Dimention);
 
     }
+
+    //[i]-Operations
     public void Copy(Image a)
     {
         this.pixels = new Pixel[a.GetLength(0), a.GetLength(1)];
@@ -55,7 +65,7 @@ public class Image
     }    
     //[i]-Operations with Images
 
-    public static Image AddLayer(Image a, Image b, int right, int down)
+    public static Image AddLayer(Image a, Image b, int col, int row)
     {
         Image c = Image.CreateCopy(a);
 
@@ -68,9 +78,9 @@ public class Image
         {
             for(int j = 0; j<b.GetLength(1); j++)
             {
-                if(b.GetPixel(i,j) != null || a.InRange(i+down, j+right))
+                if(b.GetPixel(i,j) != null || a.InRange(i+row, j+col))
                 {
-                    c.SetPixel(i+down, j+right, b.GetPixel(i,j));
+                    c.SetPixel(i+row, j+col, b.GetPixel(i,j));
                 }                
             }
         }
@@ -84,7 +94,9 @@ public class Image
 
     private bool InRange(int i, int j)
     {
-        return i < pixels.GetLength(0) && j < pixels.GetLength(1);
+        return i < pixels.GetLength(0) && 
+               j < pixels.GetLength(1) &&
+               i >= 0 && j >= 0;
     }
 
     
