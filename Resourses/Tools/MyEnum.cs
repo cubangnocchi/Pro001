@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection.Emit;
-namespace Resourses.Logic;
+
+namespace Resourses.Tools;
 
 //[i]-Dynamic enum for relating n numbers with n strings
 public class MyEnum

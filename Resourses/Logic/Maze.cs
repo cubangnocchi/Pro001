@@ -2,6 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using Colorful;
 using Spectre.Console.Rendering;
+using Resourses.Tools;
 
 namespace Resourses.Logic;
 public class Maze
@@ -59,6 +60,10 @@ public class Maze
     {
         TestMazeGenerator();
     }
+
+    //[i] get parameters methods
+
+    public Room GetRoom(int i, int j) => this.mazeRooms[i, j];
 
     public static void Testing() => System.Console.WriteLine("- Maze loaded correctly");
     

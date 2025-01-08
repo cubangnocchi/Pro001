@@ -1,5 +1,9 @@
 using System;
 using System.Drawing;
+//using Spectre.Console;
+//using Colorful;
+
+using SyCl = System.Console;
 namespace Resourses.Visual;
 
 public class Pixel
@@ -29,6 +33,25 @@ public class Pixel
         this.charsColors = [lefCharColor, rightCharColor];
         this.chars = [leftChar, rightChar];
     } 
+
+    public void Print()
+    {
+        if (this.chars == null){
+            Console.Write("  ");
+        }
+        else{
+            SyCl.Write(chars);
+        }   
+
+        //add the colors and all that later like this:
+        /*
+        if( style and all that is not null )
+                      |
+                      V
+        Spectre.Write(chars[0], --colores y cosas--);
+        S..        ...     [1]          ...         ;
+        */        
+    }
 
     
 }    

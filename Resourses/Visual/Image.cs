@@ -12,9 +12,9 @@ public class Image
         pixels = new Pixel[width,height];
     }
 
-    public Image(int size)
+    public Image(int size) : this(size, size)
     {
-        Image(size, size);
+        //[i]-Creates an scuare image
     }
     public Image()
     {
@@ -35,6 +35,21 @@ public class Image
     }
 
     //[i]-Operations
+
+
+    public void Print()
+    {
+        for(int i = 0; i < pixels.GetLength(0); i++)
+        {
+            Console.WriteLine("");
+            for (int j = 0; j < pixels.GetLength(1); j++)
+            {
+                pixels[i,j].Print();
+            }           
+
+        }
+
+    }
     public void Copy(Image a)
     {
         this.pixels = new Pixel[a.GetLength(0), a.GetLength(1)];

@@ -1,5 +1,7 @@
 ﻿using System;
+using Resourses.Tools;
 namespace Resourses.Logic;
+
 public class Direction
 {
     //[i]-Parameters

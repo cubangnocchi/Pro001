@@ -21,10 +21,26 @@ public class Room
         roomCells = new Cell[size, size];
         roomSize = size;        
     }
+    public Room(int[,] intCells)
+    {
+        roomCells = new Cell[intCells.GetLength(0), intCells.GetLength(1)];
+        for (int i = 0; i < intCells.GetLength(0); i++)
+        {
+            for (int j = 0; j < intCells.GetLength(1); j++)
+            {
+                if (intCells[i, j] == 1)
+                {
+                    roomCells[i, j].ChangeType(Cell.TypeOfCell.presetWall);
+                }            
+            }
+        }
+    }
 
     //[i]-Get parameters
 
     public int GetSize() => roomSize;
+
+    public Cell GetCell(int i, int j) => roomCells[i,j];
 
     //[i]-Set parameters
     //

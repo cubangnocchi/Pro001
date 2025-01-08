@@ -22,11 +22,11 @@ class MiniTest
         Menue MainMenue = new Menue("Main Menue", optionKeys, optionsNames, optionMethods);
         //[i]-Printing menue (pre Image visuals...)
         MainMenue.Print();
-        while(true)
-        {
+        //while(true)
+        //{
             char optionkey = Caption.GetKey_asChar();
             MainMenue.Option(optionkey);
-        }
+        //}
         
     }
 
@@ -34,8 +34,11 @@ class MiniTest
     {
         // [i]-Creating pre-made maze
         Maze preMadeMaze = new Maze();
-        
-        
+        // [i]-Simulate what the screen should do
+        Console.Clear();
+        Console.WriteLine("Maze");
+        Camera.CameraTest(preMadeMaze).Print();
+        Run();        
 
     }
 
