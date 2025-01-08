@@ -63,6 +63,16 @@ public class Image
     public static Image CreateCopy(Image a)
     {
         Image b = new (a.GetLength(0), a.GetLength(1));
+        /*
+        Unhandled exception. System.OverflowException: Arithmetic operation resulted in an overflow.
+        at Resourses.Visual.Image..ctor(Int32 width, Int32 height) in F:\+++Programación+++\Pro001\Resourses\Visual\Image.cs:line 12
+        at Resourses.Visual.Image.CreateCopy(Image a) in F:\+++Programación+++\Pro001\Resourses\Visual\Image.cs:line 65
+        at Resourses.Visual.Image.AddLayer(Image a, Image b, Int32 col, Int32 row) in F:\+++Programación+++\Pro001\Resourses\Visual\Image.cs:line 82
+        at Resourses.Visual.Camera.CameraTest(Maze maze) in F:\+++Programación+++\Pro001\Resourses\Visual\Camera.cs:line 51
+        at PRO001.MiniTest.PreMadeMaze() in F:\+++Programación+++\Pro001\MiniTest.cs:line 53
+        at PRO001.MiniTest.Run() in F:\+++Programación+++\Pro001\MiniTest.cs:line 36
+        at Program.Main(String[] args) in F:\+++Programación+++\Pro001\Program.cs:line 12
+        */
 
         for (int i = 0; i<a.GetLength(0); i++)
         {
