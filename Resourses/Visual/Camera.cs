@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 using Resourses.Logic;
 using Resourses.Tools;
 using Resourses.Visual;
@@ -82,8 +83,8 @@ public class Camera{
 
     //[!]-remember also thinking in beag rooms formed of some rooms... 
     public static Image RoomAll(Room room)
-    {
-        Image output = new Image(room.GetSize());
+    {        
+        Image output = new(room.GetSize());
         
         Func<Tx.Txtr, Pixel> Txtr = Tx.GetTxtr;    
 

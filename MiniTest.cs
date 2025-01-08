@@ -12,6 +12,8 @@ class MiniTest
     {
         
         //[i]-Creating Menue
+
+        /*
         char[] optionKeys = ['1', '2', 'x'];
         string[] optionsNames = ["pre-made Maze", "generated Maze", "Exit"];
         Menue.OptionMethod[] optionMethods = new Menue.OptionMethod[]
@@ -30,6 +32,8 @@ class MiniTest
             char optionkey = keyInfo.KeyChar;
             MainMenue.Option(optionkey);
         }
+        */
+        PreMadeMaze();
         
         
         
@@ -39,10 +43,12 @@ class MiniTest
 
     public static void PreMadeMaze()
     {
+        //Console.Clear();
+        Console.WriteLine("Creating maze");
         // [i]-Creating pre-made maze
         Maze preMadeMaze = new Maze();
         // [i]-Simulate what the screen should do
-        Console.Clear();
+        
         Console.WriteLine("Maze");
         Camera.CameraTest(preMadeMaze).Print();
                
