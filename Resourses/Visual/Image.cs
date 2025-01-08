@@ -16,10 +16,7 @@ public class Image
     {
         //[i]-Creates an scuare image
     }
-    public Image()
-    {
-        //Just an empty Image (check if this is necessary)
-    }
+    
     //[i]-Acces to parameters
     public void SetPixel(int i, int j, Pixel thePixel)
     {

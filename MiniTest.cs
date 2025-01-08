@@ -10,6 +10,7 @@ class MiniTest
 
     public static void Run()
     {
+        
         //[i]-Creating Menue
         char[] optionKeys = ['1', '2', 'x'];
         string[] optionsNames = ["pre-made Maze", "generated Maze", "Exit"];
@@ -18,17 +19,23 @@ class MiniTest
             PreMadeMaze,
             GeneratedMaze,
             Program.CloseAplication,
+            
         };
         Menue MainMenue = new Menue("Main Menue", optionKeys, optionsNames, optionMethods);
         //[i]-Printing menue (pre Image visuals...)
-        MainMenue.Print();
-        //while(true)
-        //{
-            char optionkey = Caption.GetKey_asChar();
+        while(true)
+        {
+            MainMenue.Print();
+            ConsoleKeyInfo keyInfo = Console.ReadKey(true);         
+            char optionkey = keyInfo.KeyChar;
             MainMenue.Option(optionkey);
-        //}
+        }
+        
+        
         
     }
+
+    
 
     public static void PreMadeMaze()
     {
@@ -38,7 +45,7 @@ class MiniTest
         Console.Clear();
         Console.WriteLine("Maze");
         Camera.CameraTest(preMadeMaze).Print();
-        Run();        
+               
 
     }
 

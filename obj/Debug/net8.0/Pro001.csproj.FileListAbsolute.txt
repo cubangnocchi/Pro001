@@ -16,3 +16,4 @@ F:\+++Programación+++\Pro001\bin\Debug\net8.0\Spectre.Console.dll
 F:\+++Programación+++\Pro001\obj\Debug\net8.0\Pro001.csproj.AssemblyReference.cache
 F:\+++Programación+++\Pro001\obj\Debug\net8.0\Pro001.csproj.Up2Date
 F:\+++Programación+++\Pro001\bin\Debug\net8.0\Colorful.Console.dll
+f:\+++Programación+++\Pro001\obj\Debug\net8.0\Pro001.sourcelink.json

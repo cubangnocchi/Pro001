@@ -95,16 +95,16 @@ public class Maze
 
     private void TestMazeGenerator()
     {
-        Room walled = new Room(3);
+        Room walled = new(3);
         LogicRoom logicRoom = new LogicRoom();
         walled.Create(logicRoom);
         this.mazeRooms = new Room[5,5];
 
-        for(int i = 0; i < 5; i++)
+        for(int i = 1; i < 5; i++)
         {
-            for (int j = 0; j<5; i++)
+            for (int j = 1; j < 5; i++)
             {
-                if(i == 0 || i == 5 || j == 0 || j == 5)
+                if(i == 0 || i == 4 || j == 0 || j == 4)
                 {
                     this.mazeRooms[i,j] = walled;
                 }

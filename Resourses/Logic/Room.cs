@@ -19,6 +19,13 @@ public class Room
     public Room(int size)
     {
         roomCells = new Cell[size, size];
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                roomCells[i, j] = new Cell();
+            }
+        }
         roomSize = size;        
     }
     public Room(int[,] intCells)
