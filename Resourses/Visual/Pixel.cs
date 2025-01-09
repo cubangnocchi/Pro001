@@ -21,7 +21,7 @@ public class Pixel
     {
         this.backGroundColors = new Color[2];
         this.charsColors = new Color[2];
-        this.chars = new char[2];        
+        this.chars = [' ',' '];        
     }
     public Pixel(char leftChar, char rightChar)
     {

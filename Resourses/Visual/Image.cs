@@ -7,9 +7,18 @@ public class Image
     private Pixel[,] pixels;
 
     //[i]-Constructors
-    public Image(int width, int height)
+    public Image(int height, int width)
     {
-        pixels = new Pixel[width,height];
+        pixels = new Pixel[height, width];
+
+        for (int y =  0; y  < height; y++)
+        {
+            for (int x = 0; x  < width; x++)
+            {
+                pixels[y, x] = new Pixel();
+
+            }
+        }
     }
 
     public Image(int size) : this(size, size)
@@ -27,7 +36,8 @@ public class Image
     }
     public int GetLength(int Dimention)
     {
-        return (Dimention != 0|| Dimention !=1) ? -1 : pixels.GetLength(Dimention);
+
+        return (Dimention != 0 && Dimention !=1) ? -1 : pixels.GetLength(Dimention);
 
     }
 
@@ -100,7 +110,7 @@ public class Image
         {
             for(int j = 0; j<b.GetLength(1); j++)
             {
-                if(b.GetPixel(i,j) != null || a.InRange(i+row, j+col))
+                if(b.GetPixel(i,j) != null && a.InRange(i+row, j+col))
                 {
                     c.SetPixel(i+row, j+col, b.GetPixel(i,j));
                 }                

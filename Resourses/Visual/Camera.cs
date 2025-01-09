@@ -41,14 +41,18 @@ public class Camera{
     public static Image CameraTest(Maze maze)
     {
         Image exit = new Image(15,15);
-        Camera aux = new Camera();
+        
 
-      
+
         for (int i = 0; i<5; i++)
         {
             for(int j = 0; j<5; j++)
             {
+                Console.WriteLine("i = " + i + " |  j" + j + " | i*3= " + (i*3) + " | j*3= " + (j*3));
+                exit.Print();
+                
                 exit = Image.AddLayer(exit, Camera.RoomAll(maze.GetRoom(i,j)), i*3, j*3);
+                
                 //this way I can add the Image of a room by
                 //multiplying its position in the maze by 
                 //the room size...
