@@ -51,9 +51,57 @@ class MiniTest
         
         Console.WriteLine("Maze");
         Camera.CameraTest(preMadeMaze).Print();
+
+        ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+
+        //testing free movement
+
+        Console.Clear();
+
+        Player player = new("Juanito", 6, 6);
+        Image playerImage = new(1);
+        playerImage.SetPixel(0,0,Textures.GetTxtr(Textures.Txtr.player1));
+
+        Menue.OptionMethod[] optionMethods = 
+        {
+            player.MoveUp,
+            player.MoveDown,
+            player.MoveLeft,
+            player.MoveRight,
+            Program.CloseAplication
+        };
+
+        Menue miniTest = new("PreMadeMazeTest",
+                            ['w','s','a','d','x'],
+                            ["up","down","left","right","exit"],
+                            optionMethods);
+        
+        while(true)
+        {
+            Console.Clear();
+            
+            Image.AddLayer(Camera.CameraTest(preMadeMaze),
+                       playerImage,
+                       player.GetRow(),
+                       player.GetCol()).Print();
+            Console.WriteLine("");
+            miniTest.Print();
+            miniTest.Option(Caption.GetKey_asChar());
+
+
+
+        }
+
+        
+
+        
+
+        
                
 
     }
+
+    
 
     public static void GeneratedMaze()
     {

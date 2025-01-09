@@ -1,6 +1,6 @@
 ﻿using System;
 using Resourses.Tools;
-namespace Resourses.Logic;
+namespace Resourses.Tools;
 
 public class Direction
 {
