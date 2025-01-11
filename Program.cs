@@ -138,6 +138,12 @@ internal class Program
     }
     public static void Experiment01() => Console.WriteLine("opcion 1 seleccionada");
     public static void Experiment02() => Console.WriteLine("opcion 2 seleccionada");
+    
+    public static void ClearConsole()
+    {
+        Console.Clear();
+        AnsiConsole.Clear();
+    }
     public static void CloseAplication()
     {
         Environment.Exit(0);

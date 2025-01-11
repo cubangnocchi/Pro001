@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\network\\cc\\ProjectTobari\\Pro001\\Pro001.csproj": {}
+    "F:\\+++Programación+++\\Pro001\\Pro001.csproj": {}
   },
   "projects": {
-    "C:\\network\\cc\\ProjectTobari\\Pro001\\Pro001.csproj": {
+    "F:\\+++Programación+++\\Pro001\\Pro001.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\network\\cc\\ProjectTobari\\Pro001\\Pro001.csproj",
+        "projectUniqueName": "F:\\+++Programación+++\\Pro001\\Pro001.csproj",
         "projectName": "Pro001",
-        "projectPath": "C:\\network\\cc\\ProjectTobari\\Pro001\\Pro001.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\network\\cc\\ProjectTobari\\Pro001\\obj\\",
+        "projectPath": "F:\\+++Programación+++\\Pro001\\Pro001.csproj",
+        "packagesPath": "C:\\Users\\Marco\\.nuget\\packages\\",
+        "outputPath": "F:\\+++Programación+++\\Pro001\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Marco\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -47,6 +47,10 @@
               "target": "Package",
               "version": "[1.2.15, )"
             },
+            "Spectre": {
+              "target": "Package",
+              "version": "[0.0.1, )"
+            },
             "Spectre.Console": {
               "target": "Package",
               "version": "[0.49.1, )"
@@ -68,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

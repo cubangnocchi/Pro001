@@ -78,12 +78,14 @@ class MiniTest
         
         while(true)
         {
-            Console.Clear();
+            
+            
             
             Image.AddLayer(Camera.CameraTest(preMadeMaze),
                        playerImage,
                        player.GetRow(),
                        player.GetCol()).Print();
+            Console.WriteLine("");
             Console.WriteLine("");
             miniTest.Print();
             miniTest.Option(Caption.GetKey_asChar());
