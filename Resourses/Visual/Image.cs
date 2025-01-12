@@ -97,14 +97,14 @@ public class Image
     }    
     //[i]-Operations with Images
 
-    public static Image AddLayer(Image a, Image b, int col, int row)
+    public static Image AddLayer(Image a, Image b, int row, int col)
     {
         Image c = Image.CreateCopy(a);
 
-        if (a.GetLength(0) < b.GetLength(0) || a.GetLength(1) < b.GetLength(1))
+        /*if (a.GetLength(0) < b.GetLength(0) || a.GetLength(1) < b.GetLength(1))
         {
             return a;
-        }           
+        }*/           
         
         for (int i = 0; i<b.GetLength(0); i++)
         {

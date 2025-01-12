@@ -141,8 +141,10 @@ internal class Program
     
     public static void ClearConsole()
     {
+        //no work?! aaaaaaaaaaaaaaaaaaaaaaaaaaaaa
         Console.Clear();
         AnsiConsole.Clear();
+        
     }
     public static void CloseAplication()
     {

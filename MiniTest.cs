@@ -33,7 +33,7 @@ class MiniTest
             MainMenue.Option(optionkey);
         }
         */
-        PreMadeMaze();
+        PreMadeMaze001();
         
         
         
@@ -41,7 +41,7 @@ class MiniTest
 
     
 
-    public static void PreMadeMaze()
+    public static void PreMadeMaze001()
     {
         //Console.Clear();
         Console.WriteLine("Creating maze");
@@ -56,7 +56,7 @@ class MiniTest
 
         //testing free movement
 
-        Console.Clear();
+        
 
         Player player = new("Juanito", 6, 6);
         Image playerImage = new(1);
@@ -78,7 +78,7 @@ class MiniTest
         
         while(true)
         {
-            
+            Program.ClearConsole();
             
             
             Image.AddLayer(Camera.CameraTest(preMadeMaze),
@@ -89,6 +89,7 @@ class MiniTest
             Console.WriteLine("");
             miniTest.Print();
             miniTest.Option(Caption.GetKey_asChar());
+            
 
 
 
@@ -102,7 +103,13 @@ class MiniTest
                
 
     }
-
+    
+    public static void PaintingRooms()
+    {
+        int[,] metaRoom = new int[5,5];
+        //metaRoom = 
+        Room room = new();
+    }
     
 
     public static void GeneratedMaze()
