@@ -5,7 +5,7 @@ using Spectre.Console.Rendering;
 using Resourses.Tools;
 
 namespace Resourses.Logic;
-public class Maze
+public partial class Maze
 {
     //Cell[,] mazeCells; //maybe this should be changed by a room[,]
                        //consider only using Rooms as a tooll
@@ -404,6 +404,8 @@ public class Maze
     miraver si encuentras como hacer que dos cosas ocurran en paralelo...
     */
 }
+
+
 
 
 

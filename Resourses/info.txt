@@ -1,0 +1,37 @@
+﻿Resourses
+{
+    [i]-Contains all the things the 
+        game manager needs for
+        working
+    Logic
+    {
+        [i]-Contains the game Logic
+
+        Maze
+        {
+            [i] Complex class maze:
+             |-Maze (instanse elements)
+             |-MazeGenerator (building methods)
+            Rooms
+            {
+                [i] Complex class Room
+                 |-LogicRoom (for building prosses)
+                 |-Room (Cell[,])                 
+            }
+            Elements
+            {
+                [i] Contains:
+                - Cell (basic unit of the maze)
+                - Item ()
+            }
+
+        Player
+        {
+            
+        }
+
+            
+        }
+
+    }
+}
