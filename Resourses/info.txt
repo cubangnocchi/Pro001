@@ -24,14 +24,15 @@
                 - Cell (basic unit of the maze)
                 - Item ()
             }
+        }
 
         Player
         {
-            
+
         }
 
             
-        }
+        
 
     }
 }

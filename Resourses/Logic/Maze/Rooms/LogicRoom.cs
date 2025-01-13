@@ -5,51 +5,60 @@ busca como chucha se creó el "public partial class"
 */
 
     
-public class LogicRoom
+public partial class Room
 {
     //Cell[,] roomCells; //maybe this should be a task of the Maze to transalate rooms to cells? 
                          //maybe the trabslation proceso most be in hands of this class?
                          //              from Room to cell's....
                          //what if I dont need cels ._. uh... 
     //TypeOfRoom typeOfRoom; 
-    bool leftWall;
-    bool rightWall;
-    bool upWall;
-    bool downWall;
-
-    bool connected;
+    bool[] walls = new bool[4];
+    bool[] connected = new bool[4];
 
 
     //[i]-remember this ones are for building the maze... 
     //maybe this should be saved by the maze? 
     int route;
-    int path;
+    int path;  //this should be changed becouse of lee...
 
     //[i]-Constructors
-    public LogicRoom(bool leftWall, bool rightWall, bool upWall, bool downWall)
+    public LogicRoom(bool[] theWalls)
     {
-        this.leftWall = leftWall;
-        this.rightWall = rightWall;
-        this.upWall = upWall;
-        this.downWall = downWall;
-        this.connected = false;
+        walls = theWalls;
+        connected[0] = !theWalls[0];
+        connected[1] = !theWalls[1];  
+        connected[2] = !theWalls[2];  
+        connected[3] = !theWalls[3];          
     }
-    public LogicRoom():this(true, true, true, true)
+    public LogicRoom():this([true, true, true, true])
     {
         //create a closed room
     }
     
     //[i]-Get parameters
-    public bool IsConnected() => connected;
-    public bool IsLeftWall() => leftWall;
-    public bool IsRightWall() => rightWall;
-    public bool IsUpWall() => upWall;
-    public bool IsDownWall() => downWall;
+    
     //[i]-Change parameters
-    public void Connect()
+    public void Connect(int dir)
     {
-        connected = true;
+        if(dir < 0 || dir > 3)
+        {
+            throw new ArgumentException ("No valid parameter");
+        }
+        connected[dir] = true;     
     }
+    public void Disconect(int dir)
+    {
+        if(dir < 0 || dir > 3)
+        {
+            throw new ArgumentException ("No valid parameter");
+        }
+        connected[dir] = true;
+
+    }
+
+
+
+    
 
     /*
     /*

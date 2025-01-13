@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 namespace Resourses.Logic;
 
-public class Room
+public partial class Room
 {
     //[i]-Room parameters
     private Cell[,] roomCells;
