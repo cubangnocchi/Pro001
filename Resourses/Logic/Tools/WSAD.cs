@@ -3,6 +3,9 @@ namespace Resourses.Tools;
 //this is basically a copy of directions
 //whem I learn how to use inheritance I will aply it... maybe
 //lets see...
+
+//ta mal XD ... problema con tema instancia y to eso... 
+//static needed to work properly
 public class WSAD
 {
     MyEnum dirEnum = new MyEnum(['w','s','a','d']);

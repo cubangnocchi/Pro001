@@ -7,6 +7,8 @@ using Resourses.Tools;
 namespace Resourses.Logic;
 public partial class Maze
 {
+    //[i] - WSAD... ah... this no look gut :'c
+    Direction wsad = new();
     
     //[i] - Here I will put all the methods nessesary for
     //      for building the maze.
@@ -33,7 +35,7 @@ public partial class Maze
                                //wsad as a class? how can I
                                //have an instanse of this available
                                //everywhere...
-                               //lets see
+                               //lets see... WSAD as a parameter!!!!
 
         int[] randNearStep = RandNearUnconnected_DirStep(startPos);
         int[] nextPos = [startPos[0] + randNearStep[0], startPos[1] + randNearStep[1]];
