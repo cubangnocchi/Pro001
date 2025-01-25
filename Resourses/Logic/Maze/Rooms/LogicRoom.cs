@@ -1,3 +1,6 @@
+using System;
+using Resourses.Tools;
+
 namespace Resourses.Logic;
 
 /*
@@ -22,38 +25,51 @@ public partial class Room
     int path;  //this should be changed becouse of lee...
 
     //[i]-Constructors
-    public LogicRoom(bool[] theWalls)
+
+    // -- for now logic constructors are not used 
+    
+
+    
+    //[i]-Get parameters
+
+    public bool IsConnected()
+    {
+        for(int i = 0; i < 4; i++)
+        {
+            if (connected[i])
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public bool IsConnected(int n)
+    {
+        return connected[n];
+    }
+
+    
+    
+    //[i]-Change parameters
+    public void Connect(int dir)
+    {
+        Excpt.InRange(0,3,dir);
+        connected[dir] = true;     
+    }
+    public void Disconect(int dir)
+    {
+        Excpt.InRange(0,3,dir);        
+        connected[dir] = true;
+    }
+
+    public void SetLogicWalls(bool[] theWalls)
     {
         walls = theWalls;
         connected[0] = !theWalls[0];
         connected[1] = !theWalls[1];  
         connected[2] = !theWalls[2];  
         connected[3] = !theWalls[3];          
-    }
-    public LogicRoom():this([true, true, true, true])
-    {
-        //create a closed room
-    }
-    
-    //[i]-Get parameters
-    
-    //[i]-Change parameters
-    public void Connect(int dir)
-    {
-        if(dir < 0 || dir > 3)
-        {
-            throw new ArgumentException ("No valid parameter");
-        }
-        connected[dir] = true;     
-    }
-    public void Disconect(int dir)
-    {
-        if(dir < 0 || dir > 3)
-        {
-            throw new ArgumentException ("No valid parameter");
-        }
-        connected[dir] = true;
-
     }
 
 

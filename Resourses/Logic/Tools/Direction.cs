@@ -1,5 +1,4 @@
 ﻿using System;
-using Resourses.Tools;
 namespace Resourses.Tools;
 
 public class Direction
@@ -93,6 +92,7 @@ public class Direction
         {
             exit[i] = directions[n*dimentions + i];
         }
+        
         
         return exit;
 

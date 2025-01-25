@@ -37,7 +37,7 @@ public partial class Room
             {
                 if (intCells[i, j] == 1)
                 {
-                    roomCells[i, j].ChangeType(Cell.TypeOfCell.presetWall);
+                    roomCells[i, j].ChangeType(Cell.TypeOfCell.Wall);
                 }            
             }
         }
@@ -62,7 +62,7 @@ public partial class Room
         {
             for (int i = 0; i < roomCells.GetLength(0); i++)
             {
-                roomCells[i, 0].ChangeType(Cell.TypeOfCell.presetWall);
+                roomCells[i, 0].ChangeType(Cell.TypeOfCell.Wall);
             }
             //esto se puede optimizar tambien
             //incluso multiplicando y sumando por el array de direccione
@@ -73,21 +73,21 @@ public partial class Room
         {
             for (int i = 0; i < roomCells.GetLength(0); i++)
             {
-                roomCells[i, roomCells.GetLength(0)-1].ChangeType(Cell.TypeOfCell.presetWall);
+                roomCells[i, roomCells.GetLength(0)-1].ChangeType(Cell.TypeOfCell.Wall);
             }
         }
         if(logicRoom.IsUpWall())
         {
             for (int i = 0; i < roomCells.GetLength(0); i++)
             {
-                roomCells[0, i].ChangeType(Cell.TypeOfCell.presetWall);
+                roomCells[0, i].ChangeType(Cell.TypeOfCell.Wall);
             }
         }
         if(logicRoom.IsDownWall())
         {
             for (int i = 0; i < roomCells.GetLength(0); i++)
             {
-                roomCells[roomCells.GetLength(0)-1, i].ChangeType(Cell.TypeOfCell.presetWall);
+                roomCells[roomCells.GetLength(0)-1, i].ChangeType(Cell.TypeOfCell.Wall);
             }
         }
         //create a method to walk trough a row, col, diagonal

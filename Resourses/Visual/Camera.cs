@@ -93,11 +93,11 @@ public class Camera{
         {
             for(int j = 0; j<room.GetSize(); j++)
             {
-                if (room.GetCell(i, j).getTypeOfCell() == Cell.TypeOfCell.presetWall) 
+                if (room.GetCell(i, j).getTypeOfCell() == Cell.TypeOfCell.Wall) 
                 {
                     output.SetPixel(i, j, Txtr(Tx.Txtr.wall));
                 }
-                else if (room.GetCell(i, j).getTypeOfCell() == Cell.TypeOfCell.presetFloor) 
+                else if (room.GetCell(i, j).getTypeOfCell() == Cell.TypeOfCell.Floor) 
                 {
                     output.SetPixel(i, j, Txtr(Tx.Txtr.floor));
                 }                

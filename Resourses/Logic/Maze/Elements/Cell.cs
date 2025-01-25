@@ -10,7 +10,7 @@ public class Cell
     public Cell(){
         //[i] empty or preset cell
         bool walkable = true;
-        typeOfCell = TypeOfCell.presetFloor;
+        typeOfCell = TypeOfCell.Floor;
 
     }
     public Cell(TypeOfCell theTypeOfCell)
@@ -26,11 +26,11 @@ public class Cell
     {
         typeOfCell = theTypeOfCell;
 
-        if (typeOfCell == TypeOfCell.presetFloor)
+        if (typeOfCell == TypeOfCell.Floor)
         {
             walkable = true;            
         }
-        if (typeOfCell == TypeOfCell.presetWall)
+        if (typeOfCell == TypeOfCell.Wall)
         {
             walkable = false;
         }
@@ -48,9 +48,9 @@ public class Cell
 
     public enum TypeOfCell
     {
-        presetFloor,  //0
-        presetWall,   //1
-        //presetDoor    //2 maybe this can be a Map object that interacts with its cell
+        Floor,  //0
+        Wall,   //1
+        //Door    //2 maybe this can be a Map object that interacts with its cell
         //maybe the door should be a map opject added to the wall cell that modifies it's properties
     }
 

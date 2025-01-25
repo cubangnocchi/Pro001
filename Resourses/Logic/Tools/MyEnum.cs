@@ -18,8 +18,8 @@ public class MyEnum
     public MyEnum(string[] theElements, int[] theNumbers)
     {
         //[i]-Exeption management
-        if ((theElements == null ||
-             theNumbers == null) ||
+        if (theElements == null ||
+            theNumbers == null  ||
             theNumbers.Length != theElements.Length)
         {
             throw new ArgumentException

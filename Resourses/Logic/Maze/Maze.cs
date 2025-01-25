@@ -12,9 +12,8 @@ public partial class Maze
                        //or maybe rooms makes easier the work for visual
 
     Room[,] mazeRooms;
-    LogicRoom[,] logicRooms;
-    string name; 
-    string seed;
+    //string name; 
+    //string seed;
 
     /*public Maze(string theName, int width, int height){
         maze= new Cell[width, height];
@@ -37,14 +36,19 @@ public partial class Maze
     
     */
 
-    public Maze(string theName, int rows, int cols, int roomSize){
+    public Maze(int rows, int cols, int roomSize)
+    {
         mazeRooms = new Room[rows,cols];
-        logicRooms = new LogicRoom[rows,cols];
-        name = theName;
-        Generator(rows, cols, roomSize);
-        
+
+        for(int i = 0; i < rows; i++)
+        {
+           for (int j = 0; j < cols; j++)
+           {
+               mazeRooms[i,j] = new Room(roomSize);
+           }
+        }
     }
-    public Maze(string theName, int size, int roomSize): this(theName, size, size, roomSize)
+    public Maze( int size, int roomSize): this(size, size, roomSize)
     {
         //creates an scuare maze
     }
@@ -58,7 +62,7 @@ public partial class Maze
 
     public Maze()
     {
-        TestMazeGenerator();
+        //TestMazeGenerator();
     }
 
     //[i] get parameters methods
@@ -69,61 +73,9 @@ public partial class Maze
 
     public static void Testing() => System.Console.WriteLine("- Maze loaded correctly");
     
-    //[i] maze generation methods:
+    //[i] maze generation methods: are now in the other file
 
-    private void Generator(int width, int height, int roomSize){
-
-        //prepare the Rooms
-        for(int i = 0; i<width; i++)
-        {
-            for(int j = 0; j< height; j++)
-            {
-                this.mazeRooms[i,j] = new Room(roomSize);
-            }
-
-        }
-        /*for(int i=0; i<10 (mazeRooms.GetLength(1)*mazeRooms.GetLength(2)); i++)
-        {
-            //acá va el metodo de hacer recorridos conectando habitaciones y modificándolas
-            
-            //valora el sumarle obstáculos
-        }
-        */
-        //prueba hacerlo recurcivo jeje... (iterarlo sale mejor jiji...?)
-        int[,] connectedRoomsPosition = new int[width,height];
-        PathMaker(0,0, (width*height));        
-        
-    }
-
-    private void TestMazeGenerator()
-    {
-        Room walled = new(3);
-        LogicRoom logicRoom = new LogicRoom();
-        walled.Create(logicRoom);
-        this.mazeRooms = new Room[5,5];
-
-        for(int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < 5; j++)
-            {
-                if(i == 0 || i == 4 || j == 0 || j == 4)
-                {
-                    this.mazeRooms[i,j] = walled;
-                }
-                else
-                {
-                    this.mazeRooms[i,j] = new();
-                }
-            }
-        }
-
-        
-    }
-    private void GeneratorFromSeed()
-    {
-        
-    }
-
+    
     //[i]-Get info
     public Cell GetCell(int col, int row)
     {
@@ -167,17 +119,14 @@ public partial class Maze
 
         //jutst in case... specialy for the compilator that 
         //dont belive in me haha
-        return new Cell(Cell.TypeOfCell.presetWall);
+        return new Cell(Cell.TypeOfCell.Wall);
 
     }
     
 
     //revisa bien lo de los nombres...
-    private void PathMaker()
-    {
 
-    }
-
+/*
     private void PathMaker(int row, int col, int counter) //reviiiiisa los apuuuntes -_-# //path number
     {
 
@@ -243,7 +192,7 @@ public partial class Maze
                          +
                          +
                          +
-    + + + + hazte un array de rireccioneeeeeee!!!! + + +
+    + + + + hazte un array de direccioneeeeeee!!!! + + +
                          +
     + + + + usa lee para saber donde colocar objetos jejejejej + + +
                          +
@@ -255,6 +204,8 @@ public partial class Maze
     ah!
     
     */
+
+    /*
     private int[] NumberToDirection(int num)
     {
         if(num == 0)
