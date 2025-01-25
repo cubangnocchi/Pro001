@@ -25,20 +25,28 @@ public partial class Maze
     {
 
     }
+
     private void PathMaker(int[] startPos)
     {
-        
-        int[] nextPos = RandNearUnconnectedDir(startPos);
-        if(nextPos[0] == -1)
+        //this ALL most be OPTIMIZED... what a maze XDDDDD...
+        Direction dir = new(); //and this... I should have the 
+                               //wsad as a class? how can I
+                               //have an instanse of this available
+                               //everywhere...
+                               //lets see
+
+        int[] randNearStep = RandNearUnconnected_DirStep(startPos);
+        int[] nextPos = [startPos[0] + randNearStep[0], startPos[1] + randNearStep[1]];
+
+        if(nextPos == startPos)
         {
-            PathMaker(UnconnectedRoomDir());
+            nextPos = UnconnectedRoomDir();
+            if(nextPos[0] != -1 && nextPos[1] != -1) PathMaker(nextPos);
         }
         else
         {
-            Connecter();
+            Connecter(startPos, dir.GetInt(randNearStep));
             PathMaker(nextPos);
-
-
         }
 
     }
@@ -60,11 +68,13 @@ public partial class Maze
         
     }
 
-    private int[] RandNearUnconnectedDir(int[] dir)
+    private int[] RandNearUnconnected_DirStep(int[] dir)
     {
+        //return wsad dir int[] 
+        //of the next room
         
 
-        return [-1,-1];
+        return [0,0];
 
     }
 

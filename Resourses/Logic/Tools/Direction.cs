@@ -95,10 +95,24 @@ public class Direction
         
         
         return exit;
+    }
 
-         
+    public int GetInt(int[] dir)
+    {
+        for(int i = 0; i < (directions.Length/dimentions); i++)
+        {
+            if(dir[0] == directions[i*dimentions] &&
+               dir[1] == directions[(i*dimentions) + 1])
+            {
+                return i;
+            }
+
+        }
+
+        return -1;
 
     }
+
 
     //[i]-Set Parameters Methods
 
