@@ -113,6 +113,11 @@ public class Direction
 
     }
 
+    public int[] GetDirsArr()
+    {
+        return directions;
+    }
+
 
     //[i]-Set Parameters Methods
 

@@ -40,9 +40,12 @@ public partial class Maze
         int[] randNearStep = RandNearUnconnected_DirStep(startPos);
         int[] nextPos = [startPos[0] + randNearStep[0], startPos[1] + randNearStep[1]];
 
+
         if(nextPos == startPos)
         {
-            nextPos = UnconnectedRoomDir();
+            // + + + rememer that next starting pos is con 
+            //       near to uncon
+            nextPos = ConNearUnconRoomDir();
             if(nextPos[0] != -1 && nextPos[1] != -1) PathMaker(nextPos);
         }
         else
@@ -53,13 +56,15 @@ public partial class Maze
 
     }
 
-    private int[] UnconnectedRoomDir()
+    private int[] ConNearUnconRoomDir()
     {
         for(int i = 0; i < mazeRooms.GetLength(0); i++)
         {
             for(int j = 0; j < mazeRooms.GetLength(1); j++)
             {
-                if(mazeRooms[i,j].IsConnected())
+                int[] unconArr = UnconRoom_DirStep([i,j]);
+                //make a tool for (arr == arr)
+                if(mazeRooms[i,j].IsConnected() && !( unconArr == [0,0,0,0,0,0,0,0])) //usa el m'etodo que vas a crear en tools
                 {
                     return [i,j];
                 }
@@ -70,10 +75,45 @@ public partial class Maze
         
     }
 
+    public int[] UnconRoom_DirStep(int[] pos)
+    {
+        //method for geting the DirStep of near
+        //
+        int[] exit = wsad.GetDirsArr();
+
+        for(int i = 0; i < 4; i++)
+        {
+            //+ + + + make a method for InRange
+            //+ + + + make a Tool, maybe... 
+            if((pos[0] + wsad.GetDir(i)[0]) < 0 ||
+               (pos[0] + wsad.GetDir(i)[0]) > mazeRooms.GetLength(0) ||
+               (pos[1] + wsad.GetDir(i)[1]) < 0 ||
+               (pos[1] + wsad.GetDir(i)[1]) > mazeRooms.GetLength(1) ||
+                mazeRooms[pos[0] + wsad.GetDir(i)[0],
+                          pos[1] + wsad.GetDir(i)[1]].IsConnected())
+            {
+                exit[i*2] = 0;
+                exit[(i*2)+1] = 0;
+            }
+
+        }
+        
+        return exit;
+    }
+
     private int[] RandNearUnconnected_DirStep(int[] dir)
     {
         //return wsad dir int[] 
         //of the next room
+
+        //I have an Idea... make [0,0] all the 
+        //non available room directions...
+
+        //if intArr == 0,0,0,0,...
+        //   return 0,0
+        
+        //+ + + +now all that up there is in other method
+        //+ + + + now make the random thing 
         
 
         return [0,0];
