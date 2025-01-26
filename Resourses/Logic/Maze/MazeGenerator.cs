@@ -64,7 +64,7 @@ public partial class Maze
             {
                 int[] unconArr = UnconRoom_DirStep([i,j]);
                 //make a tool for (arr == arr)
-                if(mazeRooms[i,j].IsConnected() && !( unconArr == [0,0,0,0,0,0,0,0])) //usa el m'etodo que vas a crear en tools
+                if(mazeRooms[i,j].IsConnected() && !TL.ArrEqual( unconArr,[0,0,0,0,0,0,0,0])) //usa el m'etodo que vas a crear en tools
                 {
                     return [i,j];
                 }
@@ -77,21 +77,22 @@ public partial class Maze
 
     public int[] UnconRoom_DirStep(int[] pos)
     {
+        Direction wsad = new();
         //method for geting the DirStep of near
-        //
+        //unconected rooms
         int[] exit = wsad.GetDirsArr();
 
+        //each i value is a wsad direction
         for(int i = 0; i < 4; i++)
         {
-            //+ + + + make a method for InRange
-            //+ + + + make a Tool, maybe... 
-            if((pos[0] + wsad.GetDir(i)[0]) < 0 ||
-               (pos[0] + wsad.GetDir(i)[0]) > mazeRooms.GetLength(0) ||
-               (pos[1] + wsad.GetDir(i)[1]) < 0 ||
-               (pos[1] + wsad.GetDir(i)[1]) > mazeRooms.GetLength(1) ||
-                mazeRooms[pos[0] + wsad.GetDir(i)[0],
-                          pos[1] + wsad.GetDir(i)[1]].IsConnected())
+            //get the position of an step
+            int[] newPos = TL.PosStep(pos, i);
+
+            //checks if the position dont exits or is connected
+            if(TL.PosStepInRange(pos, mazeRooms.GetLength(0), mazeRooms.GetLength(1), i) ||
+               mazeRooms[newPos[0], newPos[1]].IsConnected())
             {
+                //the step in that direction will be 0,0
                 exit[i*2] = 0;
                 exit[(i*2)+1] = 0;
             }
