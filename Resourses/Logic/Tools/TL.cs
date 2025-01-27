@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 namespace Resourses.Tools;
 
 /*
@@ -29,6 +30,40 @@ public class TL
         }
         return false;
 
+    }
+
+    public static int[] AddArr(int[] a, int[] b) 
+    {
+        if (a.Length != b.Length) throw new ArgumentException("TL.AddArr no valid parameters. Arrays with the same length expected.");
+        
+        int[] output = new int[a.Length];
+
+        for(int i = 0; i < a.Length; i++)
+        {
+            output[i] = a[i] + b[i];
+        } 
+
+        return output;
+    }
+
+    public static int CountArrInArrFixed(int[] arr, int[] find)
+    {
+        if(arr.Length < find.Length || arr.Length%find.Length != 0) return -1;
+
+        int exit = 0;
+        int count;
+
+        for(int i = 0; i < (arr.Length/find.Length); i++)
+        {
+            count = 0;
+            for(int j = 0; j < find.Length; j++)
+            {
+                if(arr[(i*find.Length) + j] == find[j]) count++;
+            }
+            if(count == find.Length) exit++;
+        }
+
+        return exit;
     }
 
     //[i]-General array[,] methods
