@@ -2558,19 +2558,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\JJ-PC\\.nuget\\packages\\": {}
+    "C:\\Users\\Marcos\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\+++Prog\\PRO001\\Pro001\\Pro001.csproj",
+      "projectUniqueName": "D:\\+PProjects\\Pro001\\Pro001.csproj",
       "projectName": "Pro001",
-      "projectPath": "C:\\+++Prog\\PRO001\\Pro001\\Pro001.csproj",
-      "packagesPath": "C:\\Users\\JJ-PC\\.nuget\\packages\\",
-      "outputPath": "C:\\+++Prog\\PRO001\\Pro001\\obj\\",
+      "projectPath": "D:\\+PProjects\\Pro001\\Pro001.csproj",
+      "packagesPath": "C:\\Users\\Marcos\\.nuget\\packages\\",
+      "outputPath": "D:\\+PProjects\\Pro001\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\JJ-PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Marcos\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"

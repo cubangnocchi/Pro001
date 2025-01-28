@@ -121,9 +121,18 @@ public partial class Maze
         
         int dice = new Random().Next(0, optionsNum);
         // + + here there are a lot of unnecessary things...
+        int unnecessaryCounter = 0;
         for(int i = 0; i < 4; i++)
         {
-            
+            // + + 
+            if(optionsDir[i*2] != 0 && optionsDir[(i*2)+1] != 0)
+            {
+                unnecessaryCounter++;
+                if(unnecessaryCounter == dice)
+                {
+                    return [optionsDir[i*2],optionsDir[(i*2)+1]];
+                }
+            }
         }
 
         return [0,0];
