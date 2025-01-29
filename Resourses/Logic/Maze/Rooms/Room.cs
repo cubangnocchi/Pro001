@@ -56,44 +56,56 @@ public partial class Room
 
     //[i]-Room building methods
 
-    public void Create(LogicRoom logicRoom)
+    public void Build()
     {
-        if (logicRoom.IsLeftWall())
-        {
-            for (int i = 0; i < roomCells.GetLength(0); i++)
-            {
-                roomCells[i, 0].ChangeType(Cell.TypeOfCell.Wall);
-            }
-            //esto se puede optimizar tambien
-            //incluso multiplicando y sumando por el array de direccione
-            //jejeje
+        WallMaker();
 
-        }
-        if (logicRoom.IsRightWall())
+        
+        
+    }
+
+    private void WallMaker()
+    {
+        
+        for(int i = 0; i < 4; i++)
         {
-            for (int i = 0; i < roomCells.GetLength(0); i++)
+            if(walls[i])
             {
-                roomCells[i, roomCells.GetLength(0)-1].ChangeType(Cell.TypeOfCell.Wall);
+                for(int j = 0; j < roomCells.GetLength(0); j++)
+                {
+                    int[] sw = WallSwitch(i, j); 
+                    roomCells[sw[0], sw[1]].ChangeType(Cell.TypeOfCell.Wall);
+                }
+
+                if(connected[i])
+                {
+                    int[] sw = WallSwitch(i, roomCells.GetLength(0)/2);
+                    roomCells[sw[0], sw[1]].ChangeType(Cell.TypeOfCell.Floor);
+                }
+
             }
-        }
-        if(logicRoom.IsUpWall())
-        {
-            for (int i = 0; i < roomCells.GetLength(0); i++)
+            else
             {
-                roomCells[0, i].ChangeType(Cell.TypeOfCell.Wall);
+                int[] sw = WallSwitch(i, 0);
+                roomCells[sw[0], sw[1]].ChangeType(Cell.TypeOfCell.Wall);
             }
+            
         }
-        if(logicRoom.IsDownWall())
-        {
-            for (int i = 0; i < roomCells.GetLength(0); i++)
-            {
-                roomCells[roomCells.GetLength(0)-1, i].ChangeType(Cell.TypeOfCell.Wall);
-            }
-        }
-        //create a method to walk trough a row, col, diagonal
+
+        
+
+        //[!]TASK create a method to walk trough a row, col, diagonal
         //lineal functiun...
         //
-        //add this to Tools.cs
+        //add this to Tools
+    }
+
+    private int[] WallSwitch(int i, int j)
+    {
+        int l =  roomCells.GetLength(0) - 1;
+
+        return i % 2 == 0 ? (i == 0 ? [0, j] : [j, 0]) : //up and left
+                            (i == 1 ? [l, j] : [j, l]) ; //down and right
     }    
 
 }
