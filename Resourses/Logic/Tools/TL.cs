@@ -7,8 +7,6 @@ namespace Resourses.Tools;
 
 Features: 
 - 
-
-
 */
 
 public class TL
@@ -16,7 +14,7 @@ public class TL
     //[i]-int array methods
     public static bool ArrEqual(int[] a, int[] b)
     {
-        //returns true if bouth are equal
+        //returns true if both are equal
         if(a.Length == b.Length)
         {
             for(int i = 0; i < a.Length; i++)
@@ -29,7 +27,6 @@ public class TL
             return true;
         }
         return false;
-
     }
 
     public static int[] AddArr(int[] a, int[] b) 
@@ -70,6 +67,7 @@ public class TL
     public static bool PosInRange(int[] pos, int rows, int cols)
     {
         //check if a pos is in range
+        if(pos.Length != 2) throw new ArgumentException("Position array must contain exactly two elements.");
         if(pos[0] < 0 || pos[1] < 0 ||
            pos[0] >= rows || pos[1] >= cols)
         {
@@ -92,22 +90,19 @@ public class TL
     {
         Direction wsad = new();
         
-        return 
-        [
+        return new int[] {
             //make the step, changing pos with the direction int
             pos[0] + wsad.GetDir(step)[0],
             pos[1] + wsad.GetDir(step)[1],
-        ];
+        };
     }
 
     public static int[] PosStep(int[] pos, int[] step)
     {
-        return 
-        [
-        //make the step by changing pos
-        pos[0] + step[0],
-        pos[1] + step[1],
-        ];
+        return new int[] {
+            //make the step by changing pos
+            pos[0] + step[0],
+            pos[1] + step[1],
+        };
     }
-
 }

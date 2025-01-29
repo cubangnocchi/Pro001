@@ -25,6 +25,9 @@ public partial class Maze
 
     public void BuildMazeLogic()
     {
+        PathMaker([0,0]);
+
+        
 
     }
 

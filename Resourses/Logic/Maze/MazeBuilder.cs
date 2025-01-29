@@ -78,7 +78,17 @@ public partial class Maze
     }
     private void Builder()
     {
+        //standard maze builder
 
+        for(int i = 0; i < mazeRooms.GetLength(0); i++)
+        {
+            for(int j = 0; j < mazeRooms.GetLength(1); j++)
+            {
+                //build the rooms 
+                mazeRooms[i,j].Build();
+            }
+        }
+            
     }
 
     

@@ -79,6 +79,8 @@ public partial class Maze
     //[i]-Get info
     public Cell GetCell(int col, int row)
     {
+        //!!!!! use % and /
+
         //[i]-returns a Cell from its position in the maze.
         //-------------------------------------------------
         
@@ -123,6 +125,10 @@ public partial class Maze
 
     }
     
+    public int[] GetSize()
+    {
+        return [mazeRooms.GetLength(0), mazeRooms.GetLength(1)];
+    }
 
     //revisa bien lo de los nombres...
 

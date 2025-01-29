@@ -10,6 +10,8 @@ public class Player
     int row;
     int col;
 
+    int[] mazeRoomPos;
+
     //Skill[] skils; ??
     //or should I make some kind of true/false array where 
     //each position is an skill :eyesEmote: :drop:
@@ -24,12 +26,12 @@ public class Player
     public Player(string theName)
     {
         this.name = theName;
+        this.mazeRoomPos = [0,0];
     }
-    public Player(string theName, int theRow, int theCol)
+    public Player(string theName, int theMapRow, int theMapCol)
     {
         this.name = theName;
-        this.row = theRow;
-        this.col = theCol;
+        this.mazeRoomPos = [theMapRow,theMapCol];
     }
 
     //[i]-Get parameters
@@ -37,6 +39,7 @@ public class Player
     public int[] Position() => [this.row, this.col];
     public int  GetRow() => this.row;
     public  int GetCol() => this.col;
+    public int[] GetMazeRoomPos() => this.mazeRoomPos;
 
 
     //[i]-Set parameters
@@ -47,23 +50,43 @@ public class Player
         SetRow(theRow); SetCol(theCol);
     }
     public void SetRow(int theRow) => this.row = theRow;
-    public void SetCol(int theCol)  => this.col = theCol;
+    public void SetCol(int theCol) => this.col = theCol;
+
+    public void SetRoom(int theRow, int theCol) => this.mazeRoomPos = [theRow,theCol];
 
     //[i]-Movement methods
 
-    public void MoveUp()
+    public void MoveUp(Maze maze)
     {
-        this.row -= 1; 
+        //maybe this all should be in thre game manager...
+        
+        if(row == 0 && mazeRoomPos[0] != 0)
+        {
+            mazeRoomPos[0] --;
+            row = maze.GetRoom(mazeRoomPos[0],mazeRoomPos[1]).GetSize() - 1;
+        }
+        else if(row != 0)
+        {
+            this.row -= 1; 
+        }
     }
-    public void MoveDown()
+    public void MoveDown(Maze maze)
     {
-        this.row += 1;
+        if(row == maze.GetRoom(mazeRoomPos[0],mazeRoomPos[1]).GetSize() - 1)
+        {
+
+
+        }
+        {
+            this.row += 1;
+        }
+        
     }
-    public void MoveLeft()
+    public void MoveLeft(Maze maze)
     {
         this.col -= 1;
     }
-    public void MoveRight()
+    public void MoveRight(Maze maze)
     {
         this.col += 1;
     }
