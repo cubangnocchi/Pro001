@@ -49,6 +49,8 @@ public partial class Room
 
     public Cell GetCell(int i, int j) => roomCells[i,j];
 
+    public Cell GetCell(int[] pos) => roomCells[pos[0], pos[0]];
+
     //[i]-Set parameters
     //
     //++Idea... change a wall by using the "wasd" directions

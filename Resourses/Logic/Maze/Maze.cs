@@ -70,6 +70,7 @@ public partial class Maze
     
 
     public Room GetRoom(int i, int j) => this.mazeRooms[i, j];
+    public Room GetRoom(int[] dir) => this.mazeRooms[dir[0], dir[1]];
 
     public static void Testing() => System.Console.WriteLine("- Maze loaded correctly");
     
