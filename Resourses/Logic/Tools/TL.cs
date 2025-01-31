@@ -105,18 +105,23 @@ public class TL
             pos[1] + step[1],
         };
     }
-    
+
     /// <summary> Make a step outside an space, if the step is outside the space, return the position in other space </summary>
     /// <param name="pos">The position to step from</param>
     /// <param name="space">The space to step in or out</param>
     /// <param name="step">The step to make</param>
     public static int[] PosStepOutside(int[] pos, int[] space, int step)
     {
-                Direction wsad = new();
+        Direction wsad = new();
+        int[] stepArr = wsad.GetDir(step);
 
         int[] output = new int[2];
-        output[0] = pos[0] + (PosStepInRange(pos, space[0], space[1], step) ? 0 : space[0] - 1);
-        output[0] = pos[1] + (PosStepInRange(pos, space[0], space[1], step) ? 0 : space[1] - 1);
+
+        output[0] = pos[0] + (PosStepInRange(pos, space[0], space[1], step) ? 0 : 
+                              ((stepArr[0] < 0)? space[0] - 1 : -(space[0] - 1 )));
+        
+        output[0] = pos[1] + (PosStepInRange(pos, space[0], space[1], step) ? 0 : 
+                              ((stepArr[1] < 0)? space[1] - 1 : -(space[0] - 1 )));
 
         return output;
     }

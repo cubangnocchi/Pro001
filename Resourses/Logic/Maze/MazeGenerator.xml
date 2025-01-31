@@ -1,0 +1,79 @@
+
+<documentation>
+    <class name="Maze">
+        <summary>
+            Represents a maze and contains methods for building and managing the maze structure.
+        </summary>
+        <method name="Build">
+            <summary>
+                Initiates the maze building process.
+            </summary>
+            <returns>
+                void
+            </returns>
+        </method>
+        <method name="BuildMazeLogic">
+            <summary>
+                Constructs the logical structure of the maze, including rooms and connections.
+            </summary>
+            <returns>
+                void
+            </returns>
+        </method>
+        <method name="PathMaker">
+            <summary>
+                Recursively creates paths in the maze starting from a given position.
+            </summary>
+            <param name="startPos" type="int[]">
+                The starting position for path creation.
+            </param>
+            <returns>
+                void
+            </returns>
+        </method>
+        <method name="ConNearUnconRoomDir">
+            <summary>
+                Finds a direction to an unconnected room.
+            </summary>
+            <returns>
+                int[] - The coordinates of the unconnected room.
+            </returns>
+        </method>
+        <method name="UnconRoom_DirStep">
+            <summary>
+                Gets the direction steps of nearby unconnected rooms.
+            </summary>
+            <param name="pos" type="int[]">
+                The current position to check for unconnected rooms.
+            </param>
+            <returns>
+                int[] - An array representing the direction steps.
+            </returns>
+        </method>
+        <method name="RandNearUnconnected_DirStep">
+            <summary>
+                Randomly selects a direction to an unconnected room.
+            </summary>
+            <param name="pos" type="int[]">
+                The current position to evaluate.
+            </param>
+            <returns>
+                int[] - The direction to the next unconnected room.
+            </returns>
+        </method>
+        <method name="Connecter">
+            <summary>
+                Connects the current room with the next room in the specified direction.
+            </summary>
+            <param name="pos" type="int[]">
+                The current position of the room.
+            </param>
+            <param name="dirInt" type="int">
+                The direction to connect to.
+            </param>
+            <returns>
+                void
+            </returns>
+        </method>
+    </class>
+</documentation>
