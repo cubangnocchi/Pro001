@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pro001</name>
+    </assembly>
+    <members>
+        <member name="M:Resourses.Logic.Player.Move(System.Int32,Resourses.Logic.Maze)">
+            <summary> Move the player in the direction given by the int </summary>
+            <param name="theDir">The direction to move in</param>
+            <param name="maze">The maze to move in</param>
+            <!--aaaa-->
+        </member>
+        <member name="M:Resourses.Tools.TL.PosStepOutside(System.Int32[],System.Int32[],System.Int32)">
+            <summary> Make a step outside an space, if the step is outside the space, return the position in other space </summary>
+            <param name="pos">The position to step from</param>
+            <param name="space">The space to step in or out</param>
+            <param name="step">The step to make</param>
+        </member>
+        <member name="M:Resourses.Visual.Camera.Testing">
+                   The idea of this class is to have all the methods nessesary for generating
+                an image for the player to see what his sharacter can see.  I will start with
+                a 2D senital vew of the maze but at the end if I have enough time I will make
+                a 3d one.
+            
+                   Also create a constructor for making the kind of camera you need.. 
+                   you may need more kind of cameras...
+            
+                   for now the Camera dont need instanses
+                *
+        </member>
+        <member name="M:Resourses.Visual.Screen.Testing">
+                                   +
+                                               +
+                                               +
+                                               +
+                                               +
+                                               +
+                                               +
+                                               +
+                    ++++++ IMPORTANTE: dos caracteres hacen un cuadrado ++++++
+                                               +
+                                               +
+                                               +
+                                               +
+                                               +
+                                               +
+                                               +
+                                               +
+            
+                    public void Screen(int width, int height){
+            
+                    }
+                    try them to make a flexible version
+            
+            
+                    *
+        </member>
+    </members>
+</doc>

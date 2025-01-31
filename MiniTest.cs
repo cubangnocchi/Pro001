@@ -61,7 +61,7 @@ class MiniTest
         Player player = new("Juanito", 6, 6);
         Image playerImage = new(1);
         playerImage.SetPixel(0,0,Textures.GetTxtr(Textures.Txtr.player1));
-
+/*
         Menue.OptionMethod[] optionMethods = 
         {
             player.MoveUp,
@@ -95,7 +95,7 @@ class MiniTest
 
         }
 
-        
+        */
 
         
 

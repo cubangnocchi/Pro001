@@ -36,3 +36,5 @@ c:\network\cc\ProjectTobari\Pro001\obj\Debug\net8.0\refint\Pro001.dll
 c:\network\cc\ProjectTobari\Pro001\obj\Debug\net8.0\Pro001.pdb
 C:\network\cc\ProjectTobari\Pro001\obj\Debug\net8.0\Pro001.genruntimeconfig.cache
 C:\network\cc\ProjectTobari\Pro001\obj\Debug\net8.0\ref\Pro001.dll
+F:\+++Programación+++\Pro001\bin\Debug\net8.0\Pro001.xml
+F:\+++Programación+++\Pro001\obj\Debug\net8.0\Pro001.xml

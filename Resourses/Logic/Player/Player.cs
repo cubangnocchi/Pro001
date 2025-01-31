@@ -75,12 +75,13 @@ public class Player
         Move(3, maze);
     }
 
+    /// <summary> Move the player in the direction given by the int </summary>
+    /// <param name="theDir">The direction to move in</param>
+    /// <param name="maze">The maze to move in</param>
+    /// <!--aaaa-->
     public void Move(int theDir, Maze maze)
     {
-        /// <summary> Move the player in the direction given by the int </summary>
-        /// <param name="theDir">The direction to move in</param>
-        /// <param name="maze">The maze to move in</param>
-        /// <!--aaaa-->
+        
         Direction wsad = new();
         int[] dir = wsad.GetDir(theDir);
         int roomSize = maze.GetRoom(mazeRoomPos[0], mazeRoomPos[1]).GetSize();
