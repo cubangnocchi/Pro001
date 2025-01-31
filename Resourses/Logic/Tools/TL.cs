@@ -105,4 +105,22 @@ public class TL
             pos[1] + step[1],
         };
     }
+
+    public static int[] PosStepOutside(int[] pos, int[] space, int step)
+    {
+        /// <summary> Make a step outside an space, if the step is outside the space, return the position in other space </summary>
+        /// <param name="pos">The position to step from</param>
+        /// <param name="space">The space to step in or out</param>
+        /// <param name="step">The step to make</param>
+        Direction wsad = new();
+
+        int[] output = new int[2];
+        output[0] = pos[0] + (PosStepInRange(pos, space[0], space[1], step) ? 0 : space[0] - 1);
+        output[0] = pos[1] + (PosStepInRange(pos, space[0], space[1], step) ? 0 : space[1] - 1);
+
+        Logic.Player a = new Logic.Player("juan", 1, 2);
+        a.Move(1, new Logic.Maze());
+        return output;
+    }
+
 }

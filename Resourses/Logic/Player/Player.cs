@@ -57,48 +57,30 @@ public class Player
 
     //[i]-Movement methods
 
+
     public void MoveUp(Maze maze)
     {
-        //maybe this all should be in thre game manager...
-        //change movement with a Move(int dir) 
-
-        
-        if(row == 0 && mazeRoomPos[0] != 0 && 
-           maze.GetRoom(mazeRoomPos[0] - 1, mazeRoomPos[1]).GetCell(maze.GetRoom(mazeRoomPos[0],mazeRoomPos[1]).GetSize() - 1, col).isWalkable())
-        {
-            mazeRoomPos[0] --;
-            row = maze.GetRoom(mazeRoomPos[0],mazeRoomPos[1]).GetSize() - 1;
-        }
-        else if(row != 0 && maze.GetRoom(mazeRoomPos[0] - 1, mazeRoomPos[1]).GetCell(row - 1, col).isWalkable())
-        {
-            this.row -= 1; 
-        }
+        Move(0, maze);
     }
     public void MoveDown(Maze maze)
     {
-        if(row == maze.GetRoom(mazeRoomPos[0],mazeRoomPos[1]).GetSize() - 1
-           && mazeRoomPos[0] != maze.GetSize()[0] - 1
-           && )
-        {
-
-
-        }
-        {
-            this.row += 1;
-        }
-        
+        Move(1, maze);
     }
     public void MoveLeft(Maze maze)
     {
-        this.col -= 1;
+        Move(2, maze);
     }
     public void MoveRight(Maze maze)
     {
-        this.col += 1;
+        Move(3, maze);
     }
 
     public void Move(int theDir, Maze maze)
     {
+        /// <summary> Move the player in the direction given by the int </summary>
+        /// <param name="theDir">The direction to move in</param>
+        /// <param name="maze">The maze to move in</param>
+        /// <!--aaaa-->
         Direction wsad = new();
         int[] dir = wsad.GetDir(theDir);
         int roomSize = maze.GetRoom(mazeRoomPos[0], mazeRoomPos[1]).GetSize();
@@ -108,12 +90,16 @@ public class Player
         {
             row += dir[0]; col += dir[1];
         }
-        else if(TL.PosStepInRange(mazeRoomPos, maze.GetSize()[0], maze.GetSize()[0], theDir) &&
-                ) //check the next pos and its walkability XD
+        else if(TL.PosStepInRange(mazeRoomPos, maze.GetSize()[0], maze.GetSize()[1], theDir)  ) 
         {
-
+            if(maze.GetRoom(TL.PosStep(mazeRoomPos, theDir)).GetCell
+               (TL.PosStepOutside([row, col], [roomSize, roomSize], theDir)).isWalkable())
+            {
+                mazeRoomPos = TL.PosStep(mazeRoomPos, theDir);
+                row = TL.PosStepOutside([row, col], [roomSize, roomSize], theDir)[0];
+                col = TL.PosStepOutside([row, col], [roomSize, roomSize], theDir)[1];
+            }
         }
-
     }
 
 

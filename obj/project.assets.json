@@ -2558,19 +2558,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Marcos\\.nuget\\packages\\": {}
+    "C:\\Users\\Marco\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\+PProjects\\Pro001\\Pro001.csproj",
+      "projectUniqueName": "F:\\+++Programación+++\\Pro001\\Pro001.csproj",
       "projectName": "Pro001",
-      "projectPath": "D:\\+PProjects\\Pro001\\Pro001.csproj",
-      "packagesPath": "C:\\Users\\Marcos\\.nuget\\packages\\",
-      "outputPath": "D:\\+PProjects\\Pro001\\obj\\",
+      "projectPath": "F:\\+++Programación+++\\Pro001\\Pro001.csproj",
+      "packagesPath": "C:\\Users\\Marco\\.nuget\\packages\\",
+      "outputPath": "F:\\+++Programación+++\\Pro001\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Marcos\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Marco\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -2628,7 +2628,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
