@@ -4,7 +4,7 @@
 
 > Nuclear winter is hard, let's see if getting inside that bunker will help...
 **DOWN STAIRS, BUNKER** is a multiplayer game where you and your friends will 
-have to explore, try to survive and arrive to the next level in a procedurally generated bunker builded like a maze full of puzzle-like challenges where teamwork is needed.
+have to explore, try to survive, and arrive at the next level in a procedurally generated bunker built like a maze full of puzzle-like challenges where teamwork is needed.
 
 ## How to run it:
 > ⚠️ *Currently in development; there is nothing to run yet.* 
@@ -19,12 +19,17 @@ have to explore, try to survive and arrive to the next level in a procedurally g
    ```
 
 2. Open the project directory in your console.
-3. You will need [.NET 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0 "click for downloading dotnet8.0") intalled for the next step.
+3. You will need [.NET 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0 "click for downloading dotnet8.0") installed for the next step.
 4. Use the following commands in order to run it successfully: 
 
    ```bash
    dotnet add package Spectre.Console
    ```
+
+   ```bash
+   dotnet add package Colorful
+   ```
+   
   
    ```bash
    dotnet run
@@ -93,7 +98,7 @@ have to explore, try to survive and arrive to the next level in a procedurally g
         >
         > Partial class Maze responsible for building the maze by placing procedurally MapObjects like doors, obstacles, traps, and more in order to follow a logic established by an enumerated taxonomy of mazes. 
         >
-        > Lee's algorithm will be used for inteligent location of mapObjects
+        > Lee's algorithm will be used for intelligent location of mapObjects.
 
       - **[MazeGenerator.cs](./Resourses/Logic/Maze/MazeGenerator.cs)**
         > [⚠️] untested
@@ -104,12 +109,12 @@ have to explore, try to survive and arrive to the next level in a procedurally g
         > Contains classes for various elements within the maze.
 
         - **[Cell.cs](./Resourses/Logic/Maze/Elements/Cell.cs)**
-          > Represents individual cells in the maze. They can be a wall or a floor cell, and they can be walcable or not.
+          > Represents individual cells in the maze. They can be a wall or a floor cell, and they can be walkable or not.
 
         - **[Item.cs](./Resourses/Logic/Maze/Elements/Item.cs)** 
           > [⚠️] not implemented. 
           >
-          > Defines items that can be found in the maze, collected and used by the player.
+          > Defines items that can be found in the maze, collected, and used by the player.
 
         - **[MapObject.cs](./Resourses/Logic/Maze/Elements/MapObject.cs)**:
           > [⚠️] not implemented. 
@@ -117,23 +122,23 @@ have to explore, try to survive and arrive to the next level in a procedurally g
           > Represents objects that can be placed in the maze. They can be doors, obstacles, traps, ventilation fences, terminals, boxes...
           > #
       - **[Rooms/](./Resourses/Logic/Maze/Rooms/)** 
-        > Contains the Room class, divided in partial classes.
+        > Contains the Room class, divided into partial classes.
 
         - **[LogicRoom.cs](./Resourses/Logic/Maze/Rooms/LogicRoom.cs)**
           > Defines logic parameters and methods for the Room, aiming to the maze generation. It has properties for its position, size, and connections to other rooms.
           >
-          > [⚠️] some things nid to be chahged
+          > [⚠️] some things need to be changed.
 
         - **[Room.cs](./Resourses/Logic/Maze/Rooms/Room.cs)** 
-          > Represents a room in the maze. Consist in a bidimentional array of cells
+          > Represents a room in the maze. Consists of a bidimensional array of cells.
           >
-          > [⚠️] MapObject unimplemented
+          > [⚠️] MapObject unimplemented.
 
     - **[Player/](./Resourses/Logic/Player/)** 
       > Contains player-related logic.
 
       - **[Player.cs](./Resourses/Logic/Player/Player.cs)** 
-        > Defines the player character, habilities, inventory and its interactions.
+        > Defines the player character, abilities, inventory, and its interactions.
         >
         > [⚠️] only the movement and constructor methods are implemented.
 
@@ -142,9 +147,9 @@ have to explore, try to survive and arrive to the next level in a procedurally g
 
       - **[Direction.cs](./Resourses/Logic/Tools/Direction.cs)**
         > Defines directions used for movement and relative position references.
-        > Contains a [constructor](./Resourses/Logic/Tools/Direction.cs#L50) with preset values for the most used directions (up, down, left, right) associated with their corresponding vector values and the clasic WSAD characters.
+        > Contains a [constructor](./Resourses/Logic/Tools/Direction.cs#L50) with preset values for the most used directions (up, down, left, right) associated with their corresponding vector values and the classic WSAD characters.
         >
-        > [⚠️] the generaliced version of the constructor is not implemented.
+        > [⚠️] the generalized version of the constructor is not implemented.
 
       - **[Excpt.cs](./Resourses/Logic/Tools/Excpt.cs)** 
         > Likely contains exception handling utilities for optimized error management. Example: [Exception](./Resourses/Logic/Tools/Excpt.cs#L14) for out of range exceptions.
@@ -154,27 +159,43 @@ have to explore, try to survive and arrive to the next level in a procedurally g
         > Defines custom enumerations for dynamic use.
 
       - **[Nest.cs](./Resourses/Logic/Tools/Nest.cs)**
-        > [⚠️] not implemented. (Just thiking about otomation of nested loops)
+        > [⚠️] not implemented. (Just thinking about automation of nested loops)
 
       - **[TL.cs](./Resourses/Logic/Tools/TL.cs)**
         > TL Tools, a class for general use methods. Adds more operations to the arrays, and position operations.
 
   - **[Sound/](./Resourses/Sound/)** 
     > This directory likely contains sound-related files.
+
     - **[SoundManager](./Resourses/Sound/SoundManager)**
-      > Manages sound effects and music within the game.
-  - **Visual/**: Contains files related to the visual representation of the game.
-    - **[Camera.cs](./Resourses/Visual/Camera.cs)**: Manages camera behavior and positioning.
-    - **[Image.cs](./Resourses/Visual/Image.cs)**: Handles image loading and rendering.
-    - **[Pixel.cs](./Resourses/Visual/Pixel.cs)**: Likely deals with pixel-level operations or effects.
-    - **[TextBox.cs](./Resourses/Visual/TextBox.cs)**: Manages text display within the game.
-    - **[Textures.cs](./Resourses/Visual/Textures.cs)**: Handles texture loading and management.
-    - **Interface/**: Contains files for the user interface.
-      - **[Caption.cs](./Resourses/Visual/Interface/Caption.cs)**: Manages captions or labels in the UI.
-      - **[Screen.cs](./Resourses/Visual/Interface/Screen.cs)**: Handles screen management and transitions.
+      > [⚠️] not implemented. Manages sound effects and music within the game.
 
-## Contributing:
-- [Add guidelines for contributing to the project, if applicable.]
+  - **[Visual/](./Resourses/Visual/)** 
+    > Contains files related to the visual representation and interface of the game in the console.
 
-## License:
-- [Include license information if applicable.]
+    - **[Camera.cs](./Resourses/Visual/Camera.cs)**: 
+      > Manages camera behavior and positioning. Generates an [image](./Resourses/Visual/Image.cs) of the map depending on the kind of camera and player position (if needed).
+
+    - **[Image.cs](./Resourses/Visual/Image.cs)**
+      > Handles image building and [printing](./Resourses/Visual/Image.cs#L47). Consists of a two-dimensional array of [pixels](./Resourses/Visual/Pixel.cs). 
+
+    - **[Pixel.cs](./Resourses/Visual/Pixel.cs)**
+      > Represents a single pixel that consists of two characters, background color, and character color. (In the console, two characters something near to a square)
+      >
+      > [⚠️] Colors are not implemented yet.
+
+    - **[TextBox.cs](./Resourses/Visual/TextBox.cs)**
+      > [⚠️] will manage text display within the game.
+
+    - **[Textures.cs](./Resourses/Visual/Textures.cs)**: 
+      > Handles texture loading and management. Consists of saved values for pixels that represent cells, objects, the player...
+
+    - **[Interface/](./Resourses/Visual/Interface/)**
+      > Contains files for the user interface.
+      - **[Caption.cs](./Resourses/Visual/Interface/Caption.cs)**
+        > Manages captions of keys and more user interactions with the UI.
+        >
+        > [⚠️] Only key caption is implemented.
+
+      - **[Screen.cs](./Resourses/Visual/Interface/Screen.cs)**
+        > Handles screen management, size, refresh, and transitions. Consists of an image made of other images of objects like the Camera, TextBox, and Menus. Contains the whole console visual.
