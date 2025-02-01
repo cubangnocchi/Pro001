@@ -7,7 +7,8 @@
 have to explore, survive, and try to arrive at the next level in a procedurally generated bunker built like a maze full of puzzle-like challenges where teamwork is needed.
 
 ## ⏩How to run it:
-> ⚠️ *Currently in development; there is nothing to run yet.* 
+> [!Warning]
+> *Currently in development; there is nothing to run yet.* 
 >
 > *A testing version is **coming soon**, very soon.* 
 > ###### _veeery soon..._ 
@@ -54,7 +55,7 @@ have to explore, survive, and try to arrive at the next level in a procedurally 
   | a|walk left|
   | d|walk right|
   | e|interact with object|
-  > ⚠️ more actions will be implemented
+  > [⚠️] more actions will be implemented
 
 ### Actual stage of the project:
 - Working on the first test version where you can explore a procedurally generated maze.
@@ -74,7 +75,7 @@ have to explore, survive, and try to arrive at the next level in a procedurally 
 **[GameManager](./GameManager.cs)**
 > [⚠️] Not implemented
 >
-> Responsible for managing menus 
+> Responsible for managing [Logic](.//Resourses/Logic/) and [Visual]() Resoruses, integrating menues, players, turns, levels and interface.
 
 ### [Resourses/](./Resourses/) 
 > This is the main directory containing all game-related files and assets.
