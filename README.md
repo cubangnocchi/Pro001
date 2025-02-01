@@ -6,6 +6,15 @@
 **DOWN STAIRS, BUNKER** is a multiplayer game where you and your friends will 
 have to explore, survive, and try to arrive at the next level in a procedurally generated bunker built like a maze full of puzzle-like challenges where teamwork is needed.
 
+## 📑Table of Contents
+- [DOWN STAIRS, BUNKER](#-down-stairs-bunker--_)
+- [How to Run It](#how-to-run-it)
+- [How to Play](#-how-to-play-it)
+- [Actual Stage of the Project](#actual-stage-of-the-project)
+- [Code Structure and How It Works](#-code-structure-and-how-it-works)
+  - [General Review](#general-review)
+  - [Structure](#structure)
+
 ## ⏩How to run it:
 > [!Warning]
 > *Currently in development; there is nothing to run yet.* 
