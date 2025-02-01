@@ -1,12 +1,12 @@
-﻿# DOWN STAIRS, BUNKER 
+﻿# ⚙ DOWN STAIRS, BUNKER '-_
 
 > **by Cuban Gnocchi Games 🥟** 
 
 > Nuclear winter is hard, let's see if getting inside that bunker will help...
 **DOWN STAIRS, BUNKER** is a multiplayer game where you and your friends will 
-have to explore, try to survive, and arrive at the next level in a procedurally generated bunker built like a maze full of puzzle-like challenges where teamwork is needed.
+have to explore, survive, and try to arrive at the next level in a procedurally generated bunker built like a maze full of puzzle-like challenges where teamwork is needed.
 
-## How to run it:
+## ⏩How to run it:
 > ⚠️ *Currently in development; there is nothing to run yet.* 
 >
 > *A testing version is **coming soon**, very soon.* 
@@ -37,7 +37,7 @@ have to explore, try to survive, and arrive at the next level in a procedurally 
 
 5. **Enjoy the game**!
 
-## How to play it:
+## 🎮 How to play it:
 - Instructions will be given to the user in the game.
 - Menu keys:
   |**key**|**what it do**|
@@ -59,7 +59,7 @@ have to explore, try to survive, and arrive at the next level in a procedurally 
 ### Actual stage of the project:
 - Working on the first test version where you can explore a procedurally generated maze.
 
-## Code structure and how it works:
+## 🛠 Code structure and how it works:
 
 ### General review:
 > 
@@ -199,3 +199,5 @@ have to explore, try to survive, and arrive at the next level in a procedurally 
 
       - **[Screen.cs](./Resourses/Visual/Interface/Screen.cs)**
         > Handles screen management, size, refresh, and transitions. Consists of an image made of other images of objects like the Camera, TextBox, and Menus. Contains the whole console visual.
+#
+Thanks for reading ;D
