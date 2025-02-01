@@ -65,6 +65,10 @@ public partial class Room
 
     public void SetLogicWalls(bool[] theWalls)
     {
+
+        //[i] + + + + big problem in here, fix for 
+        // proper maze building to avoid logic problems 
+        // and null  references
         walls = theWalls;
         connected[0] = !theWalls[0];
         connected[1] = !theWalls[1];  

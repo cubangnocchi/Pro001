@@ -14,5 +14,7 @@ public class Excpt
     public static void InRange(int min, int max, int var)
     {
         if(var < min || var > max) Exp("out of range");
+        // + + + + explain in the message why its out of range
+        // + + + + check the logic of < > <= >= ...
     }
 }
