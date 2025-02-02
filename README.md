@@ -37,10 +37,13 @@ have to explore, survive, and try to arrive at the next level in a procedurally 
    ```
 
    ```bash
+   dotnet add package Spectre.Console.Cli
+   ```
+
+   ```bash
    dotnet add package Colorful
    ```
    
-  
    ```bash
    dotnet run
    ```

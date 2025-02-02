@@ -99,16 +99,20 @@ public class Direction
 
     public int GetInt(int[] dir)
     {
+        Console.WriteLine(" ");
+        Console.WriteLine("GetInt debug");
+        Console.WriteLine("dir = [" + dir[0] + ", " + dir[1] + "]");
         for(int i = 0; i < (directions.Length/dimentions); i++)
         {
             if(dir[0] == directions[i*dimentions] &&
                dir[1] == directions[(i*dimentions) + 1])
             {
+                Console.WriteLine("return " + i);
                 return i;
             }
 
         }
-
+        Console.WriteLine("return " + -1);
         return -1;
 
     }

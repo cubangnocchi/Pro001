@@ -47,6 +47,8 @@ public partial class Maze
                mazeRooms[i,j] = new Room(roomSize);
            }
         }
+
+        
     }
     public Maze( int size, int roomSize): this(size, size, roomSize)
     {

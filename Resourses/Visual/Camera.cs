@@ -67,9 +67,20 @@ public class Camera{
     }
     public static Image AllMapFixed(Maze maze)
     {
+        int roomSize = maze.GetRoom(0,0).GetSize();
+        Image output = new(maze.GetSize()[0]*roomSize,
+                           maze.GetSize()[1]*roomSize);
+        
+        for(int i = 0; i < maze.GetSize()[0]; i++)
+        {
+            for(int j = 0; j < maze.GetSize()[1]; j++)
+            {
+                output = Image.AddLayer(output, Camera.RoomAll(maze.GetRoom(i,j)), i*roomSize, j*roomSize);
+            }
+        }
         
         
-        return new Image(1,1);//pa que no de error xd????
+        return output;
     }
     // public static Image RayTracedVewInMap(){}
 

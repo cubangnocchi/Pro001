@@ -54,26 +54,26 @@ public partial class Room
     //[i]-Change parameters
     public void Connect(int dir)
     {
-        Excpt.InRange(0,3,dir);
         connected[dir] = true;     
     }
     public void Disconect(int dir)
-    {
-        Excpt.InRange(0,3,dir);        
-        connected[dir] = true;
+    {       
+        connected[dir] = false;
     }
 
-    public void SetLogicWalls(bool[] theWalls)
+    public void SetStartingLogicWalls(bool[] theWalls)
     {
-
-        //[i] + + + + big problem in here, fix for 
-        // proper maze building to avoid logic problems 
-        // and null  references
         walls = theWalls;
         connected[0] = !theWalls[0];
         connected[1] = !theWalls[1];  
         connected[2] = !theWalls[2];  
         connected[3] = !theWalls[3];          
+    }
+
+    public void SetWall(int wallPos, bool wallBool)
+    {
+        if(wallBool == false) connected[wallPos] = true;
+        walls[wallPos] = wallBool;
     }
 
 
@@ -167,6 +167,26 @@ public partial class Room
         []              []
         []              []
         [][][][][][][][][]
+
+        5x5
+
+        [][]==[][]
+        []      []
+        ##      ||
+        []      []
+        [][]##[][]
+
+        7*7
+
+        [][][]==[][][]
+        []          []
+        [][)        []
+        []      ()  ||
+        []          []
+        []          []
+        [][][]##[][][]
+
+        ## for fences?
 
         what about this for the floor...
         |_|_|_|_|_

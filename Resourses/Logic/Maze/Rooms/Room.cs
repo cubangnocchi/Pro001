@@ -11,9 +11,9 @@ public partial class Room
 
     //[i]-Room constructors
 
-    public Room() : this(9) 
+    public Room() : this(7) 
     {
-        //create a simple 9x9 room
+        //create a simple 7x7 room
     }
 
     public Room(int size)
@@ -26,7 +26,10 @@ public partial class Room
                 roomCells[i, j] = new Cell();
             }
         }
-        roomSize = size;        
+        roomSize = size;  
+
+        SetStartingLogicWalls([true, true, true, true]);
+
     }
     public Room(int[,] intCells)
     {
@@ -61,9 +64,6 @@ public partial class Room
     public void Build()
     {
         WallMaker();
-
-        
-        
     }
 
     private void WallMaker()
@@ -102,6 +102,12 @@ public partial class Room
         //add this to Tools
     }
 
+    /// <summary>
+    /// Method used to get positions in a wall as a one dimentional arr
+    /// </summary>
+    /// <param name="i">direction of the wall</param>
+    /// <param name="j">psition in the wall line</param>
+    /// <returns>int[] position of the position in a wall</returns>
     private int[] WallSwitch(int i, int j)
     {
         int l =  roomCells.GetLength(0) - 1;

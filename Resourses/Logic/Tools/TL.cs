@@ -48,19 +48,23 @@ public class TL
         if(arr.Length < find.Length || arr.Length%find.Length != 0) return -1;
 
         int exit = 0;
-        int count;
+        int count = 0;
 
-        for(int i = 0; i < (arr.Length/find.Length); i++)
+        for (int i = 0; i <= arr.Length - find.Length; i += find.Length)
         {
-            count = 0;
-            for(int j = 0; j < find.Length; j++)
+            bool match = true;
+            for (int j = 0; j < find.Length; j++)
             {
-                if(arr[(i*find.Length) + j] == find[j]) count++;
+                if (arr[i + j] != find[j])
+                {
+                    match = false;
+                    break;
+                }
             }
-            if(count == find.Length) exit++;
-        }
+            if (match) count++;
+    }
 
-        return exit;
+    return count;
     }
 
     //[i]-General array[,] methods
