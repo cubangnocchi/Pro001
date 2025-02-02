@@ -56,8 +56,8 @@ public class Direction
                     "a",
                     "d"];
 
-        directions = [ 1, 0,
-                      -1, 0,
+        directions = [-1, 0,
+                       1, 0,
                        0,-1,
                        0, 1];
 

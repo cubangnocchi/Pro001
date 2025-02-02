@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using Resourses.Tools;
+using Resourses.Visual;
 namespace Resourses.Logic;
 
 public partial class Room

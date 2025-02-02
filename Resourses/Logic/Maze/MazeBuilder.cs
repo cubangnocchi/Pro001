@@ -85,6 +85,8 @@ public partial class Maze
             for(int j = 0; j < mazeRooms.GetLength(1); j++)
             {
                 //build the rooms 
+                System.Console.WriteLine(" ");
+                System.Console.WriteLine($"Building room {i},{j}");
                 mazeRooms[i,j].Build();
             }
         }

@@ -76,7 +76,6 @@ public class Camera{
             for(int j = 0; j < maze.GetSize()[1]; j++)
             {
                 output = Image.AddLayer(output, Camera.RoomAll(maze.GetRoom(i,j)), i*roomSize, j*roomSize);
-                output.Print();
             }
         }
         

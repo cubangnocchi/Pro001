@@ -21,7 +21,7 @@ class MiniTest
 
     public static void GeneratedMaze001()
     {
-        Maze maze = new(3, 5);
+        Maze maze = new(4, 7);
         maze.Create(Maze.Type.Standard);
 
         Camera.AllMapFixed(maze).Print();
