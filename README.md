@@ -18,7 +18,7 @@ have to explore, survive, and try to arrive at the next level in a procedurally 
 ## ⏩How to run it:
 > [!Warning]
 >
-> *Currently in development; there is only a test of maze generation and visuals to run.* 
+> *Currently in development; there is only a test of maze generation and player movement with some bugs to run.* 
 > *A working version available to play is **coming soon**, very soon.* 
 > ###### _veeery soon..._ 
 
