@@ -21,8 +21,8 @@ public partial class Room
 
     //[i]-remember this ones are for building the maze... 
     //maybe this should be saved by the maze? 
-    int route;
-    int path;  //this should be changed becouse of lee...
+    //int route;
+    //int path;  //this should be changed becouse of lee...
 
     //[i]-Constructors
 
@@ -84,9 +84,7 @@ public partial class Room
     /*
     maybe I should add some kind of linked refference or something
     */
-
-    
-    
+ 
 
     //------Important!!!!! make separate the simple logical and the complex room like methods and all that----------------------------------------------------------------------------------------------
     //------this just if you decide to do bouth, the "boolean walls room" and the "Cell[,] room"

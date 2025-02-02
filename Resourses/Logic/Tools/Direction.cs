@@ -99,9 +99,9 @@ public class Direction
 
     public int GetInt(int[] dir)
     {
-        Console.WriteLine(" ");
-        Console.WriteLine("GetInt debug");
-        Console.WriteLine("dir = [" + dir[0] + ", " + dir[1] + "]");
+        //Console.WriteLine(" ");
+        //Console.WriteLine("GetInt debug");
+        //Console.WriteLine("dir = [" + dir[0] + ", " + dir[1] + "]");
         for(int i = 0; i < (directions.Length/dimentions); i++)
         {
             if(dir[0] == directions[i*dimentions] &&
@@ -112,7 +112,7 @@ public class Direction
             }
 
         }
-        Console.WriteLine("return " + -1);
+        //Console.WriteLine("return " + -1);
         return -1;
 
     }
