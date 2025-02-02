@@ -1,58 +1,56 @@
 using System;
-using System.Drawing;
-//using Spectre.Console;
-//using Colorful;
+using Spectre.Console;
 
-using SyCl = System.Console;
-namespace Resourses.Visual;
-
-public class Pixel
+namespace Resourses.Visual
 {
-    //[i]-Parameters
-    char[] chars;
-    Color[] backGroundColors;
-    Color[] charsColors;
+    public class Pixel
+    {
+        private Color[] backGroundColors;
+        private Color[] charsColors;
+        private string[] chars;
 
-    //I should change this for style[] and thats it...
-
-    //[i]-Constructors
-    
-    public Pixel()
-    {
-        this.backGroundColors = new Color[2];
-        this.charsColors = new Color[2];
-        this.chars = [' ',' '];        
-    }
-    public Pixel(char leftChar, char rightChar)
-    {
-        this.chars = [leftChar, rightChar];
-    }
-    public Pixel(char leftChar, char rightChar, Color leftbackGroundColor, Color rightbackGroundColor, Color lefCharColor, Color rightCharColor)
-    {
-        this.backGroundColors = [leftbackGroundColor,rightbackGroundColor];
-        this.charsColors = [lefCharColor, rightCharColor];
-        this.chars = [leftChar, rightChar];
-    } 
-
-    public void Print()
-    {
-        if (this.chars == null){
-            Console.Write("  ");
+        public Pixel()
+        {
+            this.backGroundColors = new Color[2] { Color.Black, Color.Black };
+            this.charsColors = new Color[2] { Color.White, Color.White };
+            this.chars = new string[2] { " ", " " };
         }
-        else{
-            SyCl.Write(chars);
-        }   
 
-        //add the colors and all that later like this:
-        /*
-        if( style and all that is not null )
-                      |
-                      V
-        Spectre.Write(chars[0], --colores y cosas--);
-        S..        ...     [1]          ...         ;
-        */        
+        public Pixel(string leftChar, string rightChar)
+        {
+            this.backGroundColors = new Color[2] { Color.Black, Color.Black };
+            this.charsColors = new Color[2] { Color.White, Color.White };
+            this.chars = new string[2] { leftChar, rightChar };
+        }
+
+        public Pixel(string leftChar, string rightChar, Color leftbackGroundColor, Color rightbackGroundColor, Color lefCharColor, Color rightCharColor)
+        {
+            this.backGroundColors = new Color[2] { leftbackGroundColor, rightbackGroundColor };
+            this.charsColors = new Color[2] { lefCharColor, rightCharColor };
+            this.chars = new string[2] { leftChar, rightChar };
+        }
+
+        public void Print()
+        {
+            if (this.chars == null)
+            {
+                Console.Write("  ");
+            }
+            else
+            {
+                // Ensure colors are initialized
+                if (this.charsColors == null)
+                {
+                    this.charsColors = new Color[2] { Color.White, Color.White };
+                }
+                if (this.backGroundColors == null)
+                {
+                    this.backGroundColors = new Color[2] { Color.Black, Color.Black };
+                }
+
+                AnsiConsole.Write($"[rgb({backGroundColors[0].R},{backGroundColors[0].G},{backGroundColors[0].B})][on rgb({charsColors[0].R},{charsColors[0].G},{charsColors[0].B})]{Markup.Escape(chars[0])}[/][/]"); 
+                AnsiConsole.Write($"[rgb({backGroundColors[1].R},{backGroundColors[1].G},{backGroundColors[1].B})][on rgb({charsColors[1].R},{charsColors[1].G},{charsColors[1].B})]{Markup.Escape(chars[1])}[/][/]"); 
+            }
+        }
     }
-
-    
-}    
- 
+}
