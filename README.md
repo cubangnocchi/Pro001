@@ -17,9 +17,9 @@ have to explore, survive, and try to arrive at the next level in a procedurally 
 
 ## ⏩How to run it:
 > [!Warning]
-> *Currently in development; there is nothing to run yet.* 
 >
-> *A testing version is **coming soon**, very soon.* 
+> *Currently in development; there is only a test of maze generation and visuals to run.* 
+> *A working version available to play is **coming soon**, very soon.* 
 > ###### _veeery soon..._ 
 
 1. Clone the [repository](https://github.com/cubangnocchi/Pro001 "repository link") using **git bash**.
@@ -114,9 +114,7 @@ have to explore, survive, and try to arrive at the next level in a procedurally 
         > Lee's algorithm will be used for intelligent location of mapObjects.
 
       - **[MazeGenerator.cs](./Resourses/Logic/Maze/MazeGenerator.cs)**
-        > [⚠️] untested
-        > 
-        > Partial class Maze that contains algorithms for generating maze logic by connecting rooms in a random and [recursive](./Resourses/Logic/Maze/MazeGenerator.cs#L34) way.
+        > Partial class Maze that contains algorithms for generating maze logic by connecting rooms in a random and [recursive](./Resourses/Logic/Maze/MazeGenerator.cs#L32) way. 
       
       - **[Elements/](./Resourses/Logic/Maze/Elements/)**
         > Contains classes for various elements within the maze.
@@ -139,8 +137,6 @@ have to explore, survive, and try to arrive at the next level in a procedurally 
 
         - **[LogicRoom.cs](./Resourses/Logic/Maze/Rooms/LogicRoom.cs)**
           > Defines logic parameters and methods for the Room, aiming to the maze generation. It has properties for its position, size, and connections to other rooms.
-          >
-          > [⚠️] some things need to be changed.
 
         - **[Room.cs](./Resourses/Logic/Maze/Rooms/Room.cs)** 
           > Represents a room in the maze. Consists of a bidimensional array of cells.
@@ -193,9 +189,7 @@ have to explore, survive, and try to arrive at the next level in a procedurally 
       > Handles image building and [printing](./Resourses/Visual/Image.cs#L47). Consists of a two-dimensional array of [pixels](./Resourses/Visual/Pixel.cs). 
 
     - **[Pixel.cs](./Resourses/Visual/Pixel.cs)**
-      > Represents a single pixel that consists of two characters, background color, and character color. (In the console, two characters something near to a square)
-      >
-      > [⚠️] Colors are not implemented yet.
+      > Represents a single pixel that consists of two characters, background color, and character color. (In the console, two characters are something near to a square).
 
     - **[TextBox.cs](./Resourses/Visual/TextBox.cs)**
       > [⚠️] will manage text display within the game.
@@ -212,5 +206,7 @@ have to explore, survive, and try to arrive at the next level in a procedurally 
 
       - **[Screen.cs](./Resourses/Visual/Interface/Screen.cs)**
         > Handles screen management, size, refresh, and transitions. Consists of an image made of other images of objects like the Camera, TextBox, and Menus. Contains the whole console visual.
+        >
+        > [⚠️] Not fully implemented.
 #
 Thanks for reading ;D

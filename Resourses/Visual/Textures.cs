@@ -16,11 +16,21 @@ namespace Resourses.Visual
         {
             return txtr switch
             {
-                Txtr.wall => new Pixel("[", "]", new Color(50,50,50), new Color(50,50,50), new Color(255,255,255), new Color(255,255,255)),
-                Txtr.floor => new Pixel(" ", " ", new Color(170,170,170), new Color(170,170,170), new Color(0,0,0), new Color(0,0,0)),
-                Txtr.player1 => new Pixel("(", ")", new Color(0, 0, 0), new Color(0, 0, 0), new Color(255, 255, 255), new Color(255, 255, 255)), // Added background color
+                //cells
+                Txtr.wall => new Pixel("[", "]", new Color(50,50,50), new Color(50,50,50), new Color(100,100,100), new Color(100,100,100)),
+                Txtr.floor => new Pixel("_", "|", new Color(170,170,170), new Color(170,170,170), new Color(150,150,150), new Color(150,150,150)),
+               
+                //players
+                Txtr.player1 => new Pixel(" ", " ", new Color(0, 0, 255), new Color(0, 0, 255), new Color(255, 255, 255), new Color(255, 255, 255)),
+
+                //MapObjects
+                //Enemies
+                //Items
+
+
                 _ => new Pixel(),
             };
         }
     }
 }
+

@@ -31,8 +31,6 @@ public partial class Maze
 
     private void PathMaker(int[] startPos)
     {
-        //System.Console.WriteLine("PathMaker debug");
-        //System.Console.WriteLine("startPos = ["+ startPos[0] + ", " + startPos[1] +"]");
         
         //this ALL most be OPTIMIZED... what a maze XDDDDD...
         Direction dir = new(); //and this... I should have the 
@@ -42,27 +40,17 @@ public partial class Maze
                                //lets see... WSAD as a parameter!!!!
 
         int[] randNearStep = RandNearUnconnected_DirStep(startPos);
-        //System.Console.WriteLine("PathMaker debug");
-        //System.Console.WriteLine("randNearStep = ["+ randNearStep[0] + ", " + randNearStep[1] +"]");
         int[] nextPos = [startPos[0] + randNearStep[0], startPos[1] + randNearStep[1]];
-        //System.Console.WriteLine("nextPos = ["+ nextPos[0] + ", " + nextPos[1] +"]");
-        //System.Console.WriteLine(" ");
-
 
         if(TL.ArrEqual(startPos, nextPos))
         {
             // + + + rememer that next starting pos is con 
             //       near to uncon
-            //System.Console.WriteLine("(nextPos == startPos is true)");
             nextPos = ConNearUnconRoomPos();
-            //System.Console.WriteLine("nextPos = ["+ nextPos[0] + ", " + nextPos[1] +"]");
-            //System.Console.WriteLine(" ");
             if(!TL.ArrEqual(nextPos, [-1,-1])) PathMaker(nextPos);
         }
         else
         {
-            //System.Console.WriteLine("(nextPos == startPos is false)");
-            //System.Console.WriteLine(" ");
             Connecter(startPos, dir.GetInt(randNearStep));
             PathMaker(nextPos);
         }
