@@ -121,13 +121,66 @@ public class TL
 
         int[] output = new int[2];
 
+        // Calculate new position
+        int newRow = pos[0] + stepArr[0];
+        int newCol = pos[1] + stepArr[1];
+
+        /*
         output[0] = pos[0] + (PosStepInRange(pos, space[0], space[1], step) ? 0 : 
                               ((stepArr[0] < 0)? space[0] - 1 : -(space[0] - 1 )));
         
-        output[0] = pos[1] + (PosStepInRange(pos, space[0], space[1], step) ? 0 : 
+        output[1] = pos[1] + (PosStepInRange(pos, space[0], space[1], step) ? 0 : 
                               ((stepArr[1] < 0)? space[1] - 1 : -(space[0] - 1 )));
+        */
+        
+        /*
+        if (output[0] < 0)
+        {
+            output[0] = space[0] - 1;
+        }
+        else if (output[0] >= space[0])
+        {
+            output[0] = 0;
+        }
 
-        return output;
-    }
+        if (output[1] < 0)
+        {
+            output[1] = space[1] - 1;
+        }
+        else if (output[1] >= space[1])
+        {
+           output[1] = 0;
+        }
+        */
+
+        // Check if the new position is outside the current space
+        if (newRow < 0)
+        {
+            output[0] = space[0] - 1;
+        }
+        else if (newRow >= space[0])
+        {
+            output[0] = 0;
+        }
+        else
+        {
+            output[0] = newRow;
+        }
+
+        if (newCol < 0)
+        {
+            output[1] = space[1] - 1;
+        }
+        else if (newCol >= space[1])
+        {
+            output[1] = 0;
+        }
+        else
+        {
+            output[1] = newCol;
+        }
+
+            return output;
+        }
 
 }

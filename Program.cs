@@ -2,7 +2,8 @@
 using Spectre.Console;
 using Resourses.Logic;
 using Resourses.Visual;
-using PRO001;
+using Pro001;
+namespace Pro001;
 
 
 internal class Program

@@ -9,7 +9,7 @@ public class Cell
     
     public Cell(){
         //[i] empty or preset cell
-        bool walkable = true;
+        this.walkable = true;
         typeOfCell = TypeOfCell.Floor;
 
     }
