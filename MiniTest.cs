@@ -29,6 +29,7 @@ class MiniTest
 
     public static void MovementTest001()
     {
+        
         Maze maze = new(5, 7);
         maze.Create(Maze.Type.Standard);
 
