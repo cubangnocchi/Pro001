@@ -21,7 +21,7 @@ namespace Resourses.Visual
                 Txtr.floor => new Pixel("_", "|", new Color(170,170,170), new Color(170,170,170), new Color(150,150,150), new Color(150,150,150)),
                
                 //players
-                Txtr.player1 => new Pixel(" ", " ", new Color(0, 0, 255), new Color(0, 0, 255), new Color(255, 255, 255), new Color(255, 255, 255)),
+                Txtr.player1 => new Pixel("m", "e", new Color(0, 0, 255), new Color(0, 0, 255), new Color(255, 255, 255), new Color(255, 255, 255)),
 
                 //MapObjects
                 //Enemies

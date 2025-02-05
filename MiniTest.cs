@@ -21,7 +21,7 @@ class MiniTest
 
     public static void GeneratedMaze001()
     {
-        Maze maze = new(4, 7);
+        Maze maze = new(10, 8, 7);
         maze.Create(Maze.Type.Standard);
         Camera.AllMapFixed(maze).Print();
 
@@ -29,7 +29,7 @@ class MiniTest
 
     public static void MovementTest001()
     {
-        Maze maze = new(4, 7);
+        Maze maze = new(5, 7);
         maze.Create(Maze.Type.Standard);
 
         Player player1 = new("Pepe", 0,0);
@@ -44,7 +44,8 @@ class MiniTest
         Menue menue = new Menue("-----options-----", ['w','s','a','d','x'],
                                 ["move up", "move down", "move left", "move right", "exit"],
                                 new Menue.OptionMethod[]{player1.MoveUp(maze), player1.MoveDown(maze), player1.MoveLeft(maze), player1.MoveRight(maze), Program.CloseAplication});
-        */
+        */ //problem with methods that needs parameters...
+
 
         while (true)
         {
@@ -77,7 +78,7 @@ class MiniTest
                 Program.CloseAplication();
             }
 
-            //Program.ClearConsole();
+            Program.ClearConsole();
 
             
         }

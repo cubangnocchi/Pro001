@@ -18,8 +18,8 @@ have to explore, survive, and try to arrive at the next level in a procedurally 
 ## ⏩How to run it:
 > [!Warning]
 >
-> *Currently in development; there is only a test of maze generation and player movement with some bugs to run.* 
-> *A working version available to play is **coming soon**, very soon.* 
+> *Currently in development; there a test of maze generation and player movement available to run.* 
+> *A version where you can play is **coming soon**, very soon.* 
 > ###### _veeery soon..._ 
 
 1. Clone the [repository](https://github.com/cubangnocchi/Pro001 "repository link") using **git bash**.
@@ -51,7 +51,7 @@ have to explore, survive, and try to arrive at the next level in a procedurally 
 5. **Enjoy the game**!
 
 ## 🎮 How to play it:
-- Instructions will be given to the user in the game.
+- Instructions will be given to the user in the game in future versions.
 - Menu keys:
   |**key**|**what it do**|
   |--|--|
@@ -70,19 +70,17 @@ have to explore, survive, and try to arrive at the next level in a procedurally 
   > [⚠️] more actions will be implemented
 
 ### Actual stage of the project:
-- Working on the first test version where you can explore a procedurally generated maze.
+- Working test version where you can explore a procedurally generated maze.
+- Currently working in turns dynamics for multiplayer and player movement optimization.
 
 ## 🛠 Code structure and how it works:
 
 ### General review:
-> 
 
 ### Structure:
 
 **[Program.cs](./Program.cs)**
 > Starting point. Here is called the [GameManager](./GameManager.cs) or the temporal [tester](./MiniTest.cs).
->
-> [⚠️] Here will be called the first test when ready.
 
 **[GameManager](./GameManager.cs)**
 > [⚠️] Not implemented
