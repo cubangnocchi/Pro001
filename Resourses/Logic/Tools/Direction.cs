@@ -107,7 +107,7 @@ public class Direction
             if(dir[0] == directions[i*dimentions] &&
                dir[1] == directions[(i*dimentions) + 1])
             {
-                Console.WriteLine("return " + i);
+                //Console.WriteLine("return " + i);
                 return i;
             }
 
