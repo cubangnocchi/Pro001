@@ -1,10 +1,11 @@
 using System;
 using Resourses.Visual;
 using Resourses.Logic;
+using Resourses.Tools;
 using Pro001;
 using Spectre.Console;
 
-namespace Logic;
+namespace Resourses.GameManager;
 
 public partial class GameManager
 {
@@ -16,14 +17,18 @@ public partial class GameManager
             ["New Game", "Load Game", "Information", "Exit"],
             [NewGame, LoadGame, Information, Program.CloseAplication]);
         
+
+            
+
         while(true)
         {
             Program.ClearConsole();
 
             mainMenue.Print();
-
-            mainMenue.Option(Caption.GetKey_asChar());
+            mainMenue.OptionLoop();
         }
+
+        
     }
 
     public static void NewGame()
@@ -33,7 +38,7 @@ public partial class GameManager
 
     public static void LoadGame()
     {
-        
+        Program.Sorry();
     }
 
     public static void Information()

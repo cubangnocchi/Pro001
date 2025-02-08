@@ -18,6 +18,11 @@
             <param name="maze">The maze to move in</param>
             <!--aaaa-->
         </member>
+        <member name="M:Resourses.Tools.Menue.OptionLoop">
+            <summary>
+            This loop will repeat it self until a valid key is presed.
+            </summary>
+        </member>
         <member name="M:Resourses.Tools.TL.PosStepOutside(System.Int32[],System.Int32[],System.Int32)">
             <summary> Make a step outside an space, if the step is outside the space, return the position in other space </summary>
             <param name="pos">The position to step from</param>

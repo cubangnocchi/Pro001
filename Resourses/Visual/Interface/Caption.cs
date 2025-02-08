@@ -1,5 +1,5 @@
 using System;
-namespace Resourses.Logic;
+namespace Resourses.Visual;
 
 public class Caption
 {

@@ -1,8 +1,11 @@
 using System;
+using System.Linq.Expressions;
 using System.Numerics;
 using System.Runtime.InteropServices.Marshalling;
-using Resourses.Tools;
-namespace Resourses.Logic;
+using Resourses.Visual;
+using Resourses.Logic;
+
+namespace Resourses.Tools;
 
 public class Menue
 {
@@ -53,13 +56,37 @@ public class Menue
         }        
     }
 
+    public void Option(int theOption)
+    {
+        this.OptionMethods[theOption]?.Invoke();
+
+    }
+
+    /// <summary>
+    /// This loop will repeat it self until a valid key is presed.
+    /// </summary>
+    public void OptionLoop()
+    {
+        bool loop = true;
+        while(loop)
+        {
+            int theOption = this.OptionExist(Caption.GetKey_asChar());
+            if(theOption != -1) 
+            {
+                loop = false;
+                this.Option(theOption);
+            }
+        }
+    }
+
+
     /*
     them try some kind of methods for adding and deleting
     options... like a dinamic list... or directly make
     parameters as lis? mmmmm... nah...  I'll do it later
     */
 
-    private int OptionExist(char theInput){
+    public int OptionExist(char theInput){
         //preset value for non valid option
         int optionPosition = -1;
         for(int i = 0; i < this.optionsKeys.Length; i++)
