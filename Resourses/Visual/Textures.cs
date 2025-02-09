@@ -10,6 +10,7 @@ namespace Resourses.Visual
             wall,
             floor,
             player1,
+            player2,
         }
 
         public static Pixel GetTxtr(Txtr txtr)
@@ -22,13 +23,14 @@ namespace Resourses.Visual
                
                 //players
                 Txtr.player1 => new Pixel("m", "e", new Color(0, 0, 255), new Color(0, 0, 255), new Color(255, 255, 255), new Color(255, 255, 255)),
-
+                Txtr.player2 => new Pixel("(", ":", new Color(0, 255, 0), new Color(0, 255, 0), new Color(0, 0, 0), new Color(0, 0, 0)),
+                
                 //MapObjects
                 //Enemies
                 //Items
 
 
-                _ => new Pixel(),
+                _ => new Pixel()
             };
         }
     }

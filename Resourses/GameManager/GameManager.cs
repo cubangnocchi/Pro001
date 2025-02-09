@@ -33,6 +33,9 @@ public partial class GameManager
 
     public static void NewGame()
     {
+        //Somewhere.SelectCharacter
+
+        
 
     }
 
