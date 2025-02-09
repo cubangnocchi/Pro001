@@ -170,6 +170,7 @@ class MiniTest
             
             for(int i = 0; i < 10; i++)
             {
+                /*
                 outputImage = Image.AddLayer(new Image(15,15),
                                      Camera.RoomFixed(maze.GetRoom(players[who].GetMazeRoomPos())),
                                      7 - players[who].GetRow(), 7 - players[who].GetCol());
@@ -203,9 +204,15 @@ class MiniTest
                 }
 
                 outputImage.Print();
+                */
+
+                Camera.Room(maze.GetRoom(players[who].GetMazeRoomPos()), players[who],
+                            (who == 0? [players[1]] : [players[0]])).Print();
+
                 Console.WriteLine(" ");
                 Console.WriteLine("player: " + (who + 1));
                 Console.WriteLine("turn:   " + turn);
+           
                 Console.WriteLine($"movements you have [{10 - i}]");
 
 
