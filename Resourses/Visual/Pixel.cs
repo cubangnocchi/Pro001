@@ -1,4 +1,5 @@
 using System;
+using System.Xml;
 using Spectre.Console;
 
 namespace Resourses.Visual
@@ -51,6 +52,13 @@ namespace Resourses.Visual
                 AnsiConsole.Markup($"[rgb({charsColors[0].R},{charsColors[0].G},{charsColors[0].B})][on rgb({backGroundColors[0].R},{backGroundColors[0].G},{backGroundColors[0].B})]{Markup.Escape(chars[0])}[/][/]"); 
                 AnsiConsole.Markup($"[rgb({charsColors[1].R},{charsColors[1].G},{charsColors[1].B})][on rgb({backGroundColors[1].R},{backGroundColors[1].G},{backGroundColors[1].B})]{Markup.Escape(chars[1])}[/][/]"); 
             }
+        }
+
+        public Image ToImage()
+        {
+            Image output = new Image(1,1);
+            output.SetPixel(0,0,this);
+            return output;
         }
     }
 }

@@ -7,21 +7,7 @@ using Tx = Resourses.Visual.Textures;
 
 namespace Resourses.Visual;
 
-
-
-
-
-
 public class Camera{
-
-    /*
-    ++++++ textures are managed by textures ...
-    */
-    
-
-    
-
-
     /**  
        The idea of this class is to have all the methods nessesary for generating
     an image for the player to see what his sharacter can see.  I will start with
@@ -38,33 +24,7 @@ public class Camera{
     //--------------------[i]-Here the methods for Map based vew-----------------------------------------------------------------
     
     // + + Tip: for full maze vew use room vew hehe...
-    public static Image CameraTest(Maze maze)
-    {
-        Image exit = new Image(15,15);
-        
-
-
-        for (int i = 0; i<5; i++)
-        {
-            for(int j = 0; j<5; j++)
-            {               
-                exit = Image.AddLayer(exit, Camera.RoomAll(maze.GetRoom(i,j)), i*3, j*3);
-                
-                //this way I can add the Image of a room by
-                //multiplying its position in the maze by 
-                //the room size...
-                //                    +
-                //                    +
-                // + + [!]-Task, generalize the solution + +
-                //                    +
-                //                    +
-            }
-        }
-
-        return exit;
-
-
-    }
+    
     public static Image AllMapFixed(Maze maze)
     {
         int roomSize = maze.GetRoom(0,0).GetSize();
@@ -94,7 +54,7 @@ public class Camera{
     //---------------------[i]-Here the methods for Room based vew-----------------------------------------------------------------
 
     //[!]-remember also thinking in beag rooms formed of some rooms... 
-    public static Image RoomAll(Room room)
+    public static Image RoomFixed(Room room)
     {        
         Image output = new(room.GetSize());
         
@@ -116,6 +76,32 @@ public class Camera{
             }
         }
         
+        return output;
+    }
+
+    public static Image Room(Room room, Player player)
+    {
+        Image output = new Image(room.GetSize() + 1);
+        
+        //generaliza el minitest... 
+
+        output = Image.AddLayer(output, RoomFixed(room), 
+                                room.GetSize() - player.GetRow(),
+                                room.GetSize() - player.GetCol());
+        
+        output = Image.AddLayer(output, Textures.GetTxtr(Tx.Txtr.player1).ToImage(), 
+                                room.GetSize(),
+                                room.GetSize());
+        
+        return output; 
+    }
+
+    public static Image Room(Room room, Player player, Player[] otherPlayers)
+    {
+        Image output = Room(room, player);
+        
+        //for i < otherPlayers.length
+
         return output;
     }
 

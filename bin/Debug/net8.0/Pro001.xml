@@ -4,6 +4,12 @@
         <name>Pro001</name>
     </assembly>
     <members>
+        <member name="T:Resourses.Logic.Level">
+            <summary>
+            This class manages the level's logic. 
+            Here are declared parameters, constructors and get/set methods. 
+            </summary>
+        </member>
         <member name="M:Resourses.Logic.Room.WallSwitch(System.Int32,System.Int32)">
             <summary>
             Method used to get positions in a wall as a one dimentional arr

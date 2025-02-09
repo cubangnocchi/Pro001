@@ -9,7 +9,7 @@ class MiniTest
 {
     
 
-    public static void Run()
+    public static void TestMenue()
     {
         Menue testMenue = 
         new("--- Test Menue ---",
@@ -24,6 +24,20 @@ class MiniTest
         //MovementTest001();
         //TurnTest001();
         
+    }
+
+    public static void Run()
+    {
+        TestMenue();
+
+        /*
+        AnsiConsole.WriteLine("[]");
+        AnsiConsole.WriteLine("[▥     ");
+        AnsiConsole.WriteLine("[][][][][▤[][][][][][][][]");
+        AnsiConsole.WriteLine("[][][][][][][][][][][][][]");
+        AnsiConsole.MarkupLine("[grey][[Monoespace]][/] hola mundo ");
+        Console.WriteLine("Hola mundo");
+        */
         
     }
 
@@ -63,7 +77,7 @@ class MiniTest
         while (true)
         {
             outputImage = Image.AddLayer(new Image(15,15),
-                                     Camera.RoomAll(maze.GetRoom(player1.GetMazeRoomPos())),
+                                     Camera.RoomFixed(maze.GetRoom(player1.GetMazeRoomPos())),
                                      7 - player1.GetRow(), 7 - player1.GetCol());
 
             Image.AddLayer(outputImage, playerTxtr, 7,7).Print();
@@ -157,7 +171,7 @@ class MiniTest
             for(int i = 0; i < 10; i++)
             {
                 outputImage = Image.AddLayer(new Image(15,15),
-                                     Camera.RoomAll(maze.GetRoom(players[who].GetMazeRoomPos())),
+                                     Camera.RoomFixed(maze.GetRoom(players[who].GetMazeRoomPos())),
                                      7 - players[who].GetRow(), 7 - players[who].GetCol());
 
                 outputImage = Image.AddLayer(outputImage, playerTxtr, 7,7);
