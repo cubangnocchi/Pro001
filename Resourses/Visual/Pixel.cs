@@ -24,6 +24,11 @@ namespace Resourses.Visual
             this.chars = new string[2] { leftChar, rightChar };
         }
 
+        public Pixel(char leftChar, char rightChar) : this (leftChar.ToString(), rightChar.ToString())
+        {
+            //converts chars to strings 
+        }
+
         public Pixel(string leftChar, string rightChar, Color leftbackGroundColor, Color rightbackGroundColor, Color lefCharColor, Color rightCharColor)
         {
             this.backGroundColors = new Color[2] { leftbackGroundColor, rightbackGroundColor };
@@ -60,5 +65,8 @@ namespace Resourses.Visual
             output.SetPixel(0,0,this);
             return output;
         }
+
+        //[i]-Get parameter methods
+        public string GetString() => chars[0] + chars[1];
     }
 }
