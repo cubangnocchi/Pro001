@@ -60,6 +60,18 @@ public class Image
         }
 
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="row">determinates the row that will be prined</param>
+    public void PrintLine(int row)
+    {
+        for (int j = 0; j < pixels.GetLength(1); j++)
+        {
+            pixels[row,j].Print();
+        }
+    }
     public void Copy(Image a)
     {
         this.pixels = new Pixel[a.GetLength(0), a.GetLength(1)];

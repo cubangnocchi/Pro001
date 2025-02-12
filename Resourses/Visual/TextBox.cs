@@ -3,23 +3,16 @@ using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using System.Collections.Concurrent;
+using System.ComponentModel;
 namespace Resourses.Visual;
 
 public class TextBox
 {
-    /*esto es para:
-    - convertir un texto a una imagen de nxm
-    - hacer un menue de opciones
-    - mira a ver como hacer una barrita pa subir y bajar jsjsj     
-    */
+    List<Image> pagesImages;
 
-    //[i]-Parameters:
-    List<List<string>> text; //to change the text if nessesary by having the same instance
-    //Image[] pages; //for making scrolling posible
-
-    List<Image> pages;
-
-
+    List<List<string>> pagesLines; 
+    
     public TextBox(string[] theText, int[] size)
     {
         Build(theText, size);
@@ -27,174 +20,165 @@ public class TextBox
 
     //[i] Get information mehtods:
 
-    public int PagesNumber() => pages.Count;
-
-    public Image GetPage(int pageNumber)
-    {
-        return pages[pageNumber]; 
-    }
-
-    public Image GetPage() => GetPage(0);
-
-    public List<Image> GetPages() => pages;
-
-    public int[] GetPageSize() => pages[0].GetSize();
+   
 
     //[i] Set parameters methods:
 
-    public void ChangeText(string[] newText)
-    {
-        Build(newText, pages[0].GetSize());
-    }
-    public void ChangeSize(int[] size)
-    {
-        Build(text, size); //
-    }
+    
 
     //[i] TextBox building methods
 
     private void Build(string[] theText, int[] size)
-    {    
-        Build(TextToWords(theText), size);
-    }
-
-    private void Build(List<List<string>> theText, int[] size)
     {
-        this.text = theText;
+        this.pagesLines = Lines_to_PagesLines(StringParagraphs_To_ListOfLines(theText, size[0]), size[1]);
 
-        this.pages = TextWordsToPages(theText);
-        //start geiting text into Image with justification...
-        //if there is a word that have no space to be writen in 
-        //the (last line -1), add a "(...)" in the las line and 
-        //the keys to scroll... then create a new Image and repeat til 
-        //the text ends and the work is done...
 
     }
 
-    public List<List<string>> TextToWords (string[] theText)
+    private List<List<string>> Lines_to_PagesLines(List<string> lines, int rows)
     {
-        //method for identifying words
-        //to generate a new string[,] where each row is a separated text from []theText
-        //and in each col there is a word
+        List<List<string>> output = new List<List<string>>();
 
-       List<List<string>> output = new List<List<string>>();
+        List<string> auxPage = new List<string>();
 
-
-        string auxWord = "";
-
-        for(int i = 0; i < theText.Length; i++)
+        foreach(string line in lines)
         {
-            List<string> auxList = new List<string>();
-
-            for(int j = 0; j < theText[i].Length; j++)
+            if(auxPage.Count() < rows)
             {
-                if(theText[i][j] != ' ')
-                {
-                    auxWord += theText[i][j];
-                }
-                else
-                {
-                    auxList.Add(auxWord);
-                    auxWord = "";
-                }
+                auxPage.Add(line);
             }
-
-            output.Add(auxList);
+            else
+            {
+                output.Add(auxPage);
+                auxPage = [line];
+            }
         }
 
         return output;
 
     }
 
-    public List<Image> TextWordsToPages(List<List<string>>theText, int[]size)
+    
+    /// <summary>
+    /// this method will make a list of paragraphs that are lists of strings with the same length
+    /// </summary>
+    /// <param name="strings"> each string is a paragraph</param>
+    /// <param name="length"> the max length of a text line</param>
+    /// <returns></returns>
+    private List<string> StringParagraphs_To_ListOfLines(string[] strings, int length)
     {
-        List<List<string>> auxText = theText; //this text can be changed for 
+        //the var that contains the value that will be return
+        List<string> output = new List<string>();
 
-        List<Image> output = new List<Image>();
+        string auxLine = ""; //for saving the line before adding it
 
-        Image auxIMage = new(size[0], size[1]);
-
-        //forma A:
-
-        int pixelRow = 0;
-        int pixelCol = 0; 
-        int pixelAux = new();
-
-        foreach(List<string> paragraph in auxText)
+        foreach(string paragraph in strings)
         {
-            foreach(string word in paragraph)
+            List<string> words = StringToWordsList(paragraph);
+
+            if(words[0] == "")
             {
-                if(pixelRow == auxIMage.GetLength(0) - 1)
-                {
+                output.Add(" ");
 
-                }
-                if(word.Length/2 >= auxIMage.GetSize()[1] - pixelCol)
-                {
-                    if(word.Length/2 >= auxIMage.GetSize()[1])
-                    {
-                        //divide forzosamente la palabra
-                    }
-                    else
-                    {
-                        pixelRow++;
-                    }
-                }
-
-                //si el pixel anterior termina con un espacio:
-                if(pixelCol > 1 && (auxIMage.GetPixel(pixelRow, pixelCol-1).GetString()[1] == ' '))
-                {
-                    for(int i = 0; i < word.Length/2; i++)
-                    {
-                        Pixel pixel;
-                        if(i*2 + 1 >= word.Length)
-                        {
-                            pixel = new(word[i*2], ' ');
-                            
-                            if(pixelCol < (auxIMage.GetLength(1) - 1))
-                            {
-                                pixelCol ++;
-                            }
-                            else
-                            {
-                                pixelCol = 0; pixelRow++;
-                            }
- 
-                        }
-                        else
-                        {
-                            pixel
-                        }
-   
-                    
-                        auxIMage.SetPixel(pixelRow, pixelCol, pixel);
-                    }
-                }
-                else
-                {
-                //si el pixel anterior no tiene un espacio se agrega un espacio delante
-                //se le agrega uno 
-                    
-
-                }
-                
-                
             }
+            else
+            {
+                for (int i = 0; i < words.Count; i++)
+                {
+                    string word = words[i];
+                    if (auxLine.Length == 0)
+                    {
+                        auxLine += word;
+                    }
+                    else if((auxLine.Length + word.Length + 1) <= length)
+                    {
+                        auxLine += " " + word;
+                    }
+                    else if(word.Length <= length)
+                    {
+                        output.Add(auxLine);
+                        auxLine = word;  
+                    }
+                    else if(word.Length > length)
+                    {
+                        List<string> list = WordDivider(word, length);
+                        for (int j = 0; j < list.Count; j++)
+                        {
+                            string w = list[j];
+                            words.Insert(i+j+1, w);
+                        }
+                    }
+                    else 
+                    {
+                        output.Add(auxLine);
+                        auxLine = "";
+                    }
+                    
+                }
+                if(auxLine != "")
+                {
+                    output.Add(auxLine);
+                }
+            }
+            
         }
+        
+        return output;
+    }
 
-        //forma B:
+    private List<string> StringToWordsList(string paragraph)
+    {
+        List<string> output = new List<string>();
 
+        string auxWord = "";
 
+        foreach(char c in paragraph)
+        {
+            if(c != ' ')
+            {
+                auxWord += c;
+            }
+            else
+            {
+                output.Add(auxWord);
+                auxWord = "";
+            }
 
+        }
+        if(auxWord != "") output.Add(auxWord);
 
+        return output;
 
     }
 
-    
+    private List<string> WordDivider(string word, int length)
+    {
+        List<string> output = new List<string>();
 
-    
+        string auxWord = "";
 
+        foreach(char c in word)
+        {
+            if(auxWord.Length < (length - 2))
+            {
+                auxWord += c;
+            }
+            else
+            {
+                output.Add(auxWord + "-");
+                auxWord = "";
+            }
 
+        }
+        if(auxWord != "") output.Add(auxWord);
 
-
+        return output;
+        
+    }
 
 }
+
+
+    
+
+    
