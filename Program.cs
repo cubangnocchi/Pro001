@@ -61,7 +61,7 @@ internal class Program
         Console.WriteLine("Logic");
         Cell.Testing();
         Item.Testing();
-        MapObject.Testing();
+        //MapObject.Testing();
         Maze.Testing();
         Menue.Testing();
         Console.WriteLine("Visual");

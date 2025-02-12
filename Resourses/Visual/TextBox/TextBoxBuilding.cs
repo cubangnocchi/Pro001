@@ -7,30 +7,15 @@ using System.Collections.Concurrent;
 using System.ComponentModel;
 namespace Resourses.Visual;
 
-public class TextBox
+public partial class TextBox
 {
-    List<Image> pagesImages;
-
-    List<List<string>> pagesLines; 
-    
-    public TextBox(string[] theText, int[] size)
-    {
-        Build(theText, size);
-    }
-
-    //[i] Get information mehtods:
-
-   
-
-    //[i] Set parameters methods:
-
-    
 
     //[i] TextBox building methods
-
     private void Build(string[] theText, int[] size)
     {
         this.pagesLines = Lines_to_PagesLines(StringParagraphs_To_ListOfLines(theText, size[0]), size[1]);
+
+        //pages to image will came later...
 
 
     }
@@ -58,7 +43,6 @@ public class TextBox
 
     }
 
-    
     /// <summary>
     /// this method will make a list of paragraphs that are lists of strings with the same length
     /// </summary>

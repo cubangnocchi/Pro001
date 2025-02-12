@@ -47,6 +47,12 @@
                    for now the Camera dont need instanses
                 *
         </member>
+        <member name="M:Resourses.Visual.Image.PrintLine(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="row">determinates the row that will be prined</param>
+        </member>
         <member name="M:Resourses.Visual.Screen.Testing">
                                    +
                                                +
@@ -73,6 +79,14 @@
             
             
                     *
+        </member>
+        <member name="M:Resourses.Visual.TextBox.StringParagraphs_To_ListOfLines(System.String[],System.Int32)">
+            <summary>
+            this method will make a list of paragraphs that are lists of strings with the same length
+            </summary>
+            <param name="strings"> each string is a paragraph</param>
+            <param name="length"> the max length of a text line</param>
+            <returns></returns>
         </member>
     </members>
 </doc>

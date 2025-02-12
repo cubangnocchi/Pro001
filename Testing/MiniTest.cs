@@ -5,7 +5,7 @@ using Resourses.Visual;
 using Resourses.Tools;
 namespace Pro001;
 
-class MiniTest
+public partial class MiniTest
 {
     
 
@@ -13,11 +13,12 @@ class MiniTest
     {
         Menue testMenue = 
         new("--- Test Menue ---",
-            ['1','2','3','x'],
-            ["Generate a maze", "Move in a maze", "Multiplayer ¨find each other¨", "Exit"],
-            [GeneratedMaze001, MovementTest001, TurnTest001, Program.CloseAplication]);
+            ['1','2','3','4','x'],
+            ["Generate a maze", "Move in a maze", "Multiplayer ¨find each other¨","TextBox", "Exit"],
+            [GeneratedMaze001, MovementTest001, TurnTest001, TextBoxTest, Program.CloseAplication]);
 
         testMenue.Print();
+        
         
         testMenue.OptionLoop();
         //GeneratedMaze001();
