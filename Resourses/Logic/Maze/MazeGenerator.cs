@@ -1,7 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
 using Colorful;
-using Spectre.Console.Rendering;
 using Resourses.Tools;
 
 namespace Resourses.Logic;

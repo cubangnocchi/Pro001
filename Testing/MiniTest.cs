@@ -39,6 +39,13 @@ public partial class MiniTest
         AnsiConsole.MarkupLine("[grey][[Monoespace]][/] hola mundo ");
         Console.WriteLine("Hola mundo");
         */
+
+        //  ↖↙⇱⇲▪◘≘≞≛⊚⊠⋰⋱⋮⋯⋮⋮⋯⋯⌖⨝⩍⩵⪥⫘⫘⫴⫵Ξ;⫯⫰ 
+
+        //AnsiConsole.WriteLine("[]⫯⫰[]");
+        //AnsiConsole.WriteLine("[][][]");
+
+        //ConsoleKeyInfo a = Console.ReadKey(true);
         
     }
 

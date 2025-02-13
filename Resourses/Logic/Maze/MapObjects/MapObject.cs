@@ -1,10 +1,43 @@
 using System;
+using System.Diagnostics;
 namespace Resourses.Logic;
-public class MapObject{
+public partial class MapObject{
     
     //Q what parameters do I need....
     int[,] RoomPos;
     int[,] CellPos;
+
+    
+
+    TypeOfObject typeOfObject;
+
+
+
+    
+    
+    enum TypeOfObject
+    {
+        Door,
+        Box,
+        Button,
+        Fence,
+        Stairs, 
+    };
+
+    
+
+    //[i] constructors: 
+    
+        
+    //[i] methods for extracting information:
+    
+    //map objects maybe should be somehow above cells in visual and change cells properties...
+    //like the door changes the walkable of a wall and a desk "[P" the same of ...
+
+
+}
+
+//Actions[] actions;
 
     //positon sytsem example:
 
@@ -28,19 +61,4 @@ public class MapObject{
     //interactions most have names for contextual text...
     //make at once the text box
 
-
-    
-
-    //[i] constructors:
-    public MapObject()
-    {
-        
-    }     
-        
-    //[i] methods for extracting information:
-    
-    //map objects maybe should be somehow above cells in visual and change cells properties...
-    //like the door changes the walkable of a wall and a desk "[P" the same of ...
-
-
-    }
+    //need of an enum TypeOf
