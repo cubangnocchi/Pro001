@@ -10,6 +10,12 @@ public partial class Maze
         return this.GetRoom(roomPos[0], roomPos[1]).GetCell(cellPos).isWalkable();
     }
 
+    public int[] Move(Player player, int theDir)
+    {
+        return Move(player.GetMazeRoomPos(), player.GetRoomCellPos(), theDir);
+
+    }
+
     /// <summary>
     /// 
     /// </summary>

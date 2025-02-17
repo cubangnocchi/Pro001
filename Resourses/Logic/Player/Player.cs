@@ -2,6 +2,7 @@ namespace Resourses.Logic;
 using System;
 using System.Collections.Generic;
 using System.Formats.Asn1;
+using System.Security.Cryptography.X509Certificates;
 using Tools;
 
 public class Player
@@ -9,11 +10,7 @@ public class Player
     //[i]-Parameters
     string name;
     int energy;
-    int row;
-    int col;
-
-
-    int[] mazeRoomPos;
+    int[] position;
 
     //Skill[] skils; ??
     //or should I make some kind of true/false array where 
@@ -29,96 +26,32 @@ public class Player
     public Player(string theName)
     {
         this.name = theName;
-        this.mazeRoomPos = [0, 0];
+        this.position = [0, 0, 1, 1];
     }
-    public Player(string theName, int theMapRow, int theMapCol)
+    public Player(string theName, int[] thePositon)
     {
         this.name = theName;
-        this.mazeRoomPos = [theMapRow, theMapCol];
+        this.position = thePositon;
     }
 
     //[i]-Get parameters
-    public string GetName() => this.name;
-    public int[] Position() => [this.row, this.col];
-    public int GetRow() => this.row;
-    public int GetCol() => this.col;
-    public int[] GetMazeRoomPos() => this.mazeRoomPos;
-
+    public int[] GetPosition() => position; 
+    public int[] GetRoomPos() => [position[0], position[1]];
+    public int[] GetCellPos() => [position[2], position[3]];
+    
 
     //[i]-Set parameters
-
-    public void SetName(string theName) => this.name = theName;
-    public void SetPosition(int theRow, int theCol)
+    public void SetPosition(int[] thePos) => position = thePos;
+    public void SetRoomPos(int[] theRoomPos)
     {
-        SetRow(theRow); SetCol(theCol);
+        position[0] = theRoomPos[0];
+        position[1] = theRoomPos[1];
     }
-    public void SetRow(int theRow) => this.row = theRow;
-    public void SetCol(int theCol) => this.col = theCol;
-
-    public void SetRoom(int theRow, int theCol) => this.mazeRoomPos = [theRow, theCol];
-
-    //[i]-Movement methods
-
-    // + + + + + + [this info should be managed by something else]
-    // + + + + + + partial class GameManager?
-    public void MoveUp(Maze maze)
+    public void SetCellPos(int[] theCellPos)
     {
-        Move(0, maze);
+        position[2] = theCellPos[0];
+        position[3] = theCellPos[1];
     }
-    public void MoveDown(Maze maze)
-    {
-        Move(1, maze);
-    }
-    public void MoveLeft(Maze maze)
-    {
-        Move(2, maze);
-    }
-    public void MoveRight(Maze maze)
-    {
-        Move(3, maze);
-    }
-
-    /// <summary> Move the player in the direction given by the int </summary>
-    /// <param name="theDir">The direction to move in</param>
-    /// <param name="maze">The maze to move in</param>
-    /// <!--aaaa-->
-    public void Move(int theDir, Maze maze)
-    {
-
-        Direction wsad = new();
-        int[] dir = wsad.GetDir(theDir);
-        int roomSize = maze.GetRoom(this.mazeRoomPos).GetSize();
-
-        if (TL.PosStepInRange([row, col], roomSize, roomSize, theDir))
-        {
-
-            bool a = maze.GetRoom(mazeRoomPos).GetCell(TL.PosStep([row, col], theDir)).isWalkable();
-
-            if (a)
-            {
-
-                this.row += dir[0];
-                this.col += dir[1];
-            }
-        }
-        else if (TL.PosStepInRange(mazeRoomPos, maze.GetSize()[0], maze.GetSize()[1], theDir))
-        {
-
-            int[] newRoomPos = TL.PosStep(mazeRoomPos, theDir);
-            int[] newCellPos = TL.PosStepOutside(new int[] { row, col }, new int[] { roomSize, roomSize }, theDir);
-
-
-            if (maze.GetRoom(TL.PosStep(mazeRoomPos, theDir)).GetCell
-               (TL.PosStepOutside([row, col], [roomSize, roomSize], theDir)).isWalkable())
-            {
-
-
-                mazeRoomPos = TL.PosStep(mazeRoomPos, theDir);
-                row = TL.PosStepOutside([row, col], [roomSize, roomSize], theDir)[0];
-                col = TL.PosStepOutside([row, col], [roomSize, roomSize], theDir)[1];
-            }
-        }
-    }
-
+    
 
 }

@@ -11,19 +11,24 @@ public partial class MiniTest
 
     public static void TestMenue()
     {
+        /*
         Menue testMenue = 
         new("--- Test Menue ---",
             ['1','2','3','4','x'],
             ["Generate a maze", "Move in a maze", "Multiplayer ¨find each other¨","TextBox", "Exit"],
-            [GeneratedMaze001, MovementTest001, TurnTest001, TextBoxTest, Program.CloseAplication]);
+            [GeneratedMaze001, MovementTest002, TurnTest001, TextBoxTest, Program.CloseAplication]);
 
         testMenue.Print();
         
         
+        
         testMenue.OptionLoop();
+        */
+
         //GeneratedMaze001();
         //MovementTest001();
         //TurnTest001();
+        
         
     }
 
@@ -63,7 +68,7 @@ public partial class MiniTest
 
     public static void MovementTest001()
     {
-        
+        /*
         Maze maze = new(5, 7);
         maze.Create(Maze.Type.Standard);
 
@@ -81,7 +86,7 @@ public partial class MiniTest
                                 new Menue.OptionMethod[]{player1.MoveUp(maze), player1.MoveDown(maze), player1.MoveLeft(maze), player1.MoveRight(maze), Program.CloseAplication});
         */ //problem with methods that needs parameters...
 
-
+        /*
         while (true)
         {
             outputImage = Image.AddLayer(new Image(15,15),
@@ -117,6 +122,7 @@ public partial class MiniTest
 
             
         }
+        */
 
     }
  
@@ -125,10 +131,9 @@ public partial class MiniTest
         Maze maze = new(4, 7);
         maze.Create(Maze.Type.Standard);
 
-        Player[] players = [new Player("Pepe", 0,0), new Player("Pepe", 3,3)];
+        Player[] players = [new Player("Pepe", [0,0, 3, 3]), new Player("Pepe", [3,3,3,3])];
 
-        players[0].SetPosition(3,3);
-        players[1].SetPosition(3,3);
+        
 
         Image playerTxtr = new Image(1,1);
         Image otherPlayerTxtr = new Image(1,1);
@@ -214,7 +219,7 @@ public partial class MiniTest
                 outputImage.Print();
                 */
 
-                Camera.Room(maze.GetRoom(players[who].GetMazeRoomPos()), players[who],
+                Camera.Room(maze.GetRoom(players[who].GetRoomPos()), players[who],
                             (who == 0? [players[1]] : [players[0]])).Print();
 
                 Console.WriteLine(" ");
@@ -234,22 +239,22 @@ public partial class MiniTest
                     if(keyChar == 'w')
                     {
                         validKey = true;
-                        players[who].MoveUp(maze);
+                        players[who].SetPosition(maze.Move(players[who], 0));
                     } 
                     else if(keyChar == 's')
                     {
                         validKey = true;
-                        players[who].MoveDown(maze);
+                        players[who].SetPosition(maze.Move(players[who], 1));
                     }
                     else if(keyChar == 'a')
                     {
                         validKey = true;
-                        players[who].MoveLeft(maze);
+                        players[who].SetPosition(maze.Move(players[who], 2));
                     }
                     else if(keyChar == 'd')
                     {
                         validKey = true;
-                        players[who].MoveRight(maze);
+                        players[who].SetPosition(maze.Move(players[who], 3));
                     }
                     else if (keyChar == 'x')
                     {

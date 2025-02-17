@@ -4,11 +4,72 @@
         <name>Pro001</name>
     </assembly>
     <members>
+        <member name="T:Resourses.Logic.Actions">
+            <summary>
+            Class for executing interactions between two objects.
+            </summary>
+        </member>
+        <member name="T:Resourses.Logic.Actions.ActionMethod">
+            <summary>
+            delegate method 
+            </summary>
+        </member>
+        <member name="M:Resourses.Logic.Actions.#ctor(Resourses.Logic.Actions.ActionMethod,Resourses.Logic.Actions.ActionMethod,System.Boolean,System.Nullable{System.Boolean},System.Nullable{System.Int32})">
+            <summary>
+            Main constructor
+            </summary>
+            <param name="theAction">method to be executed</param>
+            <param name="theAntiAction">method to be executed once the main method is activated, nullable</param>
+            <param name="thePlayerCanInteract">bool value that defines if the player can interact or not with it</param>
+            <param name="theActivated">bool value that represents the state of the main action, nullable</param>
+            <param name="thecounter">int value to save, nullable</param>
+        </member>
+        <member name="M:Resourses.Logic.Actions.#ctor(Resourses.Logic.Actions.ActionMethod,System.Boolean)">
+            <summary>
+            Constructor for an action without AntiAction and no counter.
+            </summary>
+            <param name="theAction">method to be executed</param>
+            <param name="thePlayerCanInteract">bool value that defines if the player can interact or not with it</param>
+        </member>
+        <member name="M:Resourses.Logic.Actions.#ctor(Resourses.Logic.Actions.ActionMethod,System.Boolean,System.Nullable{System.Int32})">
+            <summary>
+            Constructor for an action without AntiACtion.
+            </summary>
+            /// <param name="theAction">method to be executed</param>
+            <param name="thePlayerCanInteract">bool value that defines if the player can interact or not with it</param>
+            <param name="theCounter">int value to save, nullable</param>
+        </member>
+        <member name="M:Resourses.Logic.Actions.Execute(System.Boolean)">
+            <summary>
+            Can not be delegated 
+            </summary>
+            <param name="mainAction"> 
+            if true, invoque main action
+            if dalse, invoque anti action
+            </param>
+        </member>
         <member name="T:Resourses.Logic.Level">
             <summary>
             This class manages the level's logic. 
             Here are declared parameters, constructors and get/set methods. 
             </summary>
+        </member>
+        <member name="M:Resourses.Logic.Maze.Move(System.Int32[],System.Int32[],System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="initialRoomPos"> initial position of the object to move in maze </param>
+            <param name="initialCellPos"> initial position of the object to move in room</param>
+            <param name="theDir"> direction to move (in terms of Tools.Directios.cs "wsad") </param>
+            <returns>
+            Returns as int[] the new position as resoult of the movement
+            in the next foormat:
+            - position 0 and 1 are the Room position
+            - position 2 and 3 are the Cell position
+            
+            [ℹ️] If the output positions are the same of the input, it means
+            that no movement have been done due to the pr
+            </returns>
         </member>
         <member name="M:Resourses.Logic.Room.WallSwitch(System.Int32,System.Int32)">
             <summary>

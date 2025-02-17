@@ -86,8 +86,8 @@ public class Camera{
         //generaliza el minitest... 
 
         output = Image.AddLayer(output, RoomFixed(room), 
-                                room.GetSize() - player.GetRow(),
-                                room.GetSize() - player.GetCol());
+                                room.GetSize() - player.GetCellPos()[0],
+                                room.GetSize() - player.GetCellPos()[1]);
         
         output = Image.AddLayer(output, Textures.GetTxtr(Tx.Txtr.player1).ToImage(), 
                                 room.GetSize(),
@@ -102,18 +102,17 @@ public class Camera{
         
         for(int i = 0; i < otherPlayers.Length; i++)
         {
-            if(TL.ArrEqual(otherPlayers[i].GetMazeRoomPos(), player.GetMazeRoomPos()))
+            if(TL.ArrEqual(otherPlayers[i].GetRoomPos(), player.GetRoomPos()))
             {
                 output = Image.AddLayer(output, Textures.GetTxtr(Tx.Txtr.player2).ToImage(),
-                                        room.GetSize() - player.GetRow() + otherPlayers[i].GetRow(),
-                                        room.GetSize() - player.GetCol() + otherPlayers[i].GetCol());
+                                        room.GetSize() - player.GetCellPos()[0] + otherPlayers[i].GetCellPos()[0],
+                                        room.GetSize() - player.GetCellPos()[1] + otherPlayers[i].GetCellPos()[1]);
             }
         }
 
-        return output;
-
-        
+        return output;    
     }
+
 
     // public static Image RayTracedVewInMap(){}
     // public static Image RayTracedVewInRoom(){}
