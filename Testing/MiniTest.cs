@@ -11,7 +11,7 @@ public partial class MiniTest
 
     public static void TestMenue()
     {
-        /*
+        
         Menue testMenue = 
         new("--- Test Menue ---",
             ['1','2','3','4','x'],
@@ -23,7 +23,7 @@ public partial class MiniTest
         
         
         testMenue.OptionLoop();
-        */
+        
 
         //GeneratedMaze001();
         //MovementTest001();

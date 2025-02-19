@@ -12,8 +12,7 @@ public partial class Maze
 
     public int[] Move(Player player, int theDir)
     {
-        return Move(player.GetMazeRoomPos(), player.GetRoomCellPos(), theDir);
-
+        return Move(player.GetRoomPos(), player.GetCellPos(), theDir);
     }
 
     /// <summary>
@@ -44,7 +43,7 @@ public partial class Maze
             if(GetRoom(initialRoomPos).GetCell(TL.PosStep(initialCellPos, theDir)).isWalkable())
             {
                 output[2] += dir[0];
-                output[3] += dir[0];
+                output[3] += dir[1];
                 return output;
             }
 

@@ -1,11 +1,13 @@
-namespace Resourses.Logic;
+
 using System;
 using System.Collections.Generic;
 using System.Formats.Asn1;
 using System.Security.Cryptography.X509Certificates;
-using Tools;
 
-public class Player
+
+namespace Resourses.Logic;
+
+public class Player : MazeObject
 {
     //[i]-Parameters
     string name;
