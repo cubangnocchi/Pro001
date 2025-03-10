@@ -4,13 +4,18 @@ namespace Resourses.Logic;
 
 public class MazeObject
 {
-    int[] position;
+    public int[] position;
+
+    // Constructor to initialize position
+    public MazeObject(int[] initialPosition)
+    {
+        this.position = initialPosition;
+    }
 
     //[i]-Get parameters
     public int[] GetPosition() => position; 
-    public int[] GetRoomPos() => [position[0], position[1]];
-    public int[] GetCellPos() => [position[2], position[3]];
-    
+    public int[] GetRoomPos() => new int[] { position[0], position[1] };
+    public int[] GetCellPos() => new int[] { position[2], position[3] };
 
     //[i]-Set parameters
     public void SetPosition(int[] thePos) => position = thePos;
@@ -24,6 +29,4 @@ public class MazeObject
         position[2] = theCellPos[0];
         position[3] = theCellPos[1];
     }
-
-
 }

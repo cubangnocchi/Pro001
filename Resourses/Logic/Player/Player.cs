@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Formats.Asn1;
 using System.Security.Cryptography.X509Certificates;
 
-
 namespace Resourses.Logic;
 
 public class Player : MazeObject
@@ -12,7 +11,7 @@ public class Player : MazeObject
     //[i]-Parameters
     string name;
     int energy;
-    int[] position;
+    
 
     //Skill[] skils; ??
     //or should I make some kind of true/false array where 
@@ -28,32 +27,22 @@ public class Player : MazeObject
     public Player(string theName)
     {
         this.name = theName;
-        this.position = [0, 0, 1, 1];
+        this.position = new int[] { 0, 0, 1, 1 };
+        
+
     }
     public Player(string theName, int[] thePositon)
     {
         this.name = theName;
+         
         this.position = thePositon;
+        MazeObject mazeObject = new MazeObject(this.position);
+
+        MazeObject mazeObject = new MazeObject(this.position);
+
     }
 
-    //[i]-Get parameters
-    public int[] GetPosition() => position; 
-    public int[] GetRoomPos() => [position[0], position[1]];
-    public int[] GetCellPos() => [position[2], position[3]];
     
-
-    //[i]-Set parameters
-    public void SetPosition(int[] thePos) => position = thePos;
-    public void SetRoomPos(int[] theRoomPos)
-    {
-        position[0] = theRoomPos[0];
-        position[1] = theRoomPos[1];
-    }
-    public void SetCellPos(int[] theCellPos)
-    {
-        position[2] = theCellPos[0];
-        position[3] = theCellPos[1];
-    }
     
 
 }

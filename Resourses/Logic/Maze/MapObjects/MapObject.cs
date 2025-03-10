@@ -1,7 +1,8 @@
 using System;
 using System.Diagnostics;
 namespace Resourses.Logic;
-public partial class MapObject{
+public partial class MapObject //: MazeObject
+{
     
     //Q what parameters do I need....
     int[,] RoomPos;
