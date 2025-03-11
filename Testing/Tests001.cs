@@ -31,6 +31,8 @@ public partial class MiniTest
         maze.Create(Maze.Type.Standard);
 
         Player player = new("Pedrito", [0, 0, 3, 3]);
+
+        
         
 
         while (true)
@@ -58,6 +60,8 @@ public partial class MiniTest
             {
                 Program.CloseAplication();
             }
+
+            Program.ClearConsole();
 
 
         }

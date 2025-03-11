@@ -6,11 +6,11 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Resourses.Logic;
 
-public class Player : MazeObject
+public class Player : MazePos
 {
     //[i]-Parameters
     string name;
-    int energy;
+    byte energy;
     
 
     //Skill[] skils; ??
@@ -24,25 +24,18 @@ public class Player : MazeObject
 
     //[i]-Constructors
 
-    public Player(string theName)
+    public Player(string theName):base([0, 0, 1, 1])
     {
+
         this.name = theName;
-        this.position = new int[] { 0, 0, 1, 1 };
         
-
     }
-    public Player(string theName, int[] thePositon)
+    public Player(string theName, int[] thePositon):base(thePositon)
     {
-        this.name = theName;
-         
-        this.position = thePositon;
-        MazeObject mazeObject = new MazeObject(this.position);
 
-        MazeObject mazeObject = new MazeObject(this.position);
+        this.name = theName;
 
     }
 
-    
-    
-
+    public byte Energy { get => energy; set => energy = value; }
 }

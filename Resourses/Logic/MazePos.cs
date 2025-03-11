@@ -2,14 +2,14 @@ using System;
 using System.Diagnostics;
 namespace Resourses.Logic;
 
-public class MazeObject
+public class MazePos
 {
-    public int[] position;
+    int[] position;
 
     // Constructor to initialize position
-    public MazeObject(int[] initialPosition)
+    public MazePos(int[] initialPosition)
     {
-        this.position = initialPosition;
+        this.position = new int[]{initialPosition[0],initialPosition[1],initialPosition[2],initialPosition[3]};
     }
 
     //[i]-Get parameters
