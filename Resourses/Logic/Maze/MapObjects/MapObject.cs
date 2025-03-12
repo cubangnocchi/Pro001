@@ -1,21 +1,12 @@
 using System;
 using System.Diagnostics;
 namespace Resourses.Logic;
-public partial class MapObject //: MazeObject
+public partial class MapObject : MazePos
 {
     
-    //Q what parameters do I need....
-    int[,] RoomPos;
-    int[,] CellPos;
-
-    
-
+    Actions[] actions;
     TypeOfObject typeOfObject;
-
-
-
-    
-    
+ 
     enum TypeOfObject
     {
         Door,
@@ -25,9 +16,13 @@ public partial class MapObject //: MazeObject
         Stairs, 
     };
 
-    
 
     //[i] constructors: 
+
+    public MapObject(int [] thePosition, Actions[] theActions) : base(thePosition)
+    {
+        this.actions = theActions;
+    }
     
         
     //[i] methods for extracting information:
