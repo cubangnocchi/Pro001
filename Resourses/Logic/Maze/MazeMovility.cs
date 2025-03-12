@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.InteropServices;
 using Resourses.Tools;
 
@@ -10,9 +11,37 @@ public partial class Maze
         return this.GetRoom(roomPos[0], roomPos[1]).GetCell(cellPos).isWalkable();
     }
 
-    public int[] Move(Player player, int theDir)
+    public bool IsWalkable(int[] position)
     {
-        return Move(player.GetRoomPos(), player.GetCellPos(), theDir);
+        return IsWalkable([position[0],position[1]],[position[2],position[3]]);
+    }
+
+    /// <summary>
+    /// Moves a MazePos instance in a certain direction
+    /// </summary>
+    /// <param name="mazePos"></param>
+    /// <param name="theDir"></param>
+    /// <returns></returns>
+    public bool MoveObjec(MazePos mazePos, int theDir)
+    {
+        int[] nextPos = Move(mazePos, theDir);
+        if(!TL.ArrEqual(mazePos.GetPosition(), nextPos))
+        {
+            mazePos.SetPosition(nextPos);
+            return true;
+        }
+        return false;
+
+    }
+
+    public int[] Move(MazePos mazePos, int theDir)
+    {
+        return Move(mazePos.GetRoomPos(), mazePos.GetCellPos(), theDir);
+    }
+
+    public int[] Move(int[] position, int theDir)
+    {
+        return Move([position[0],position[1]],[position[2],position[3]], theDir);
     }
 
     /// <summary>

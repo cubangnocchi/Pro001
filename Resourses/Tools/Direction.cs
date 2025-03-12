@@ -97,6 +97,11 @@ public class Direction
         return exit;
     }
 
+    public int GetInt(char theChar)
+    {
+        return dirEnum.GetInt(theChar);
+    }
+
     public int GetInt(int[] dir)
     {
         //Console.WriteLine(" ");

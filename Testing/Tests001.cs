@@ -31,7 +31,12 @@ public partial class MiniTest
         maze.Create(Maze.Type.Standard);
 
         Player player = new("Pedrito", [0, 0, 3, 3]);
+        
+        Direction wsad = new();
 
+        
+
+            
         
         
 
@@ -40,28 +45,17 @@ public partial class MiniTest
             Camera.Room(maze.GetRoom(player.GetRoomPos()), player).Print();
             char keyChar = Caption.GetKey_asChar();
 
-            if (keyChar == 'w')
-            {
-                player.SetPosition(maze.Move(player, 0));   
-            }
-            else if (keyChar == 's')
-            {
-                player.SetPosition(maze.Move(player, 1));  
-            }
-            else if (keyChar == 'a')
-            {
-                player.SetPosition(maze.Move(player, 2));  
-            }
-            else if (keyChar == 'd')
-            {
-                player.SetPosition(maze.Move(player, 3));  
-            }
-            else if (keyChar == 'x')
+            if (keyChar == 'x')
             {
                 Program.CloseAplication();
             }
+            if(keyChar == 'w' || keyChar == 's' || keyChar == 'a' || keyChar == 'd')
+            {
+                maze.MoveObjec(player, wsad.GetInt(keyChar));
+                Program.ClearConsole();
+            }
 
-            Program.ClearConsole();
+            
 
 
         }

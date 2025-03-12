@@ -54,6 +54,14 @@
             Here are declared parameters, constructors and get/set methods. 
             </summary>
         </member>
+        <member name="M:Resourses.Logic.Maze.MoveObjec(Resourses.Logic.MazePos,System.Int32)">
+            <summary>
+            Moves a MazePos instance in a certain direction
+            </summary>
+            <param name="mazePos"></param>
+            <param name="theDir"></param>
+            <returns></returns>
+        </member>
         <member name="M:Resourses.Logic.Maze.Move(System.Int32[],System.Int32[],System.Int32)">
             <summary>
             
