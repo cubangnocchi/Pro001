@@ -7,7 +7,7 @@ public partial class MapObject : MazePos
     Actions[] actions;
     TypeOfObject typeOfObject;
  
-    enum TypeOfObject
+    public enum TypeOfObject
     {
         Door,
         Box,
@@ -16,14 +16,12 @@ public partial class MapObject : MazePos
         Stairs, 
     };
 
-
     //[i] constructors: 
-
-    public MapObject(int [] thePosition, Actions[] theActions) : base(thePosition)
+    public MapObject(int [] thePosition, Actions[] theActions, TypeOfObject theTypeOfObject) : base(thePosition)
     {
         this.actions = theActions;
+        this.typeOfObject = theTypeOfObject;
     }
-    
         
     //[i] methods for extracting information:
     

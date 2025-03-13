@@ -110,7 +110,7 @@ public partial class Room
     /// <param name="i">direction of the wall</param>
     /// <param name="j">psition in the wall line</param>
     /// <returns>int[] position of the position in a wall</returns>
-    private int[] WallSwitch(int i, int j)
+    public int[] WallSwitch(int i, int j)
     {
         int l =  roomCells.GetLength(0) - 1;
 
