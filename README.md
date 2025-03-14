@@ -70,8 +70,8 @@ have to explore, survive, and try to arrive at the next level in a procedurally 
   > [⚠️] more actions will be implemented
 
 ### Actual stage of the project:
-- Working test version where you can explore a procedurally generated maze.
-- Currently working in turns dynamics for multiplayer and player movement optimization.
+- Working test version where you can explore walking in a procedurally generated maze, a sample of maze generation and a demo of turn dynamics.
+- Currently working in doors, traps, obstacules and other interactive objects, how to place them in an inteligent way and making some optimizations.
 
 ## 🛠 Code structure and how it works:
 

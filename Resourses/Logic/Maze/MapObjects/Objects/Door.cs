@@ -16,12 +16,14 @@ public class Door
 
     }
 
-    public Door(TypeOfDoor theTypeOfDoor, int[] theConnectedRoomsPos)
+    public Door(TypeOfDoor theTypeOfDoor, int[] StartRoomPos, int Dir)
     {
         int[] doorPos = DoorPosFromRoomPos(theConnectedRoomsPos);
         //+ + + + + + + + + 
         //+ + Recuerda que perfectamente lo puedes hacer con
         //+ + una dirección y pos de la Room y pan ya
+        //+ + + + + + + + +
+        //+ + 
     }
 
     public int[] DoorPosFromRoomPos(int[] RoomPos)
@@ -36,6 +38,7 @@ public class Door
         {
 
         }
+        if(dx )
         return [1];
     }
 
