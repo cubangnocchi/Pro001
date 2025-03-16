@@ -20,16 +20,13 @@ public class Actions
 
     int? counter;
 
+
     //[i]-parameters Get/Set methods:
 
     public bool CanPLayerInteract() => playerCanInteract;
     public bool? IsActivated() => activated;
 
     
-
-
-
-
 
     //[i]-Constructors:
 
@@ -72,8 +69,9 @@ public class Actions
     public Actions (ActionMethod theAction, bool thePlayerCanInteract, int? theCounter) : this(theAction, null, thePlayerCanInteract, null, theCounter)
     {}
 
+
     //[i] Main methods
-    
+
 
     /// <summary>
     /// Can not be delegated 

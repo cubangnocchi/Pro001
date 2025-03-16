@@ -55,5 +55,18 @@ public class Cell
     }
 
     //Q do I need some kind of private class for making the cells work...
+    
+    public void SetWalcable()
+    {
+        walkable = true;
+    }
+    public void SetUnwalcable()
+    {
+        walkable = false;
+    }
+    public void SwitchWalkability()
+    {
+        walkable = !walkable;
+    }
 }
 

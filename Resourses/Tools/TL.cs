@@ -43,6 +43,38 @@ public class TL
         return output;
     }
 
+    public static int[] VectorScalarMultiplication(int[] vector, int esc)
+    {
+        int[] output = new int[vector.Length];
+
+        for(int i = 0; i < vector.Length; i++)
+        {
+            output[i] = vector[i]*esc;
+        }
+
+        return output;
+    }
+
+    public static int[] ConcatenateArrays(int[] first, int[] second)
+    {
+        int[] output = new int[first.Length + second.Length];
+        
+        int i = 0;
+        foreach (int v in first)
+        {
+            output[i] = v;
+            i++;
+        }
+        foreach (int v in second)
+        {
+            output[i] = v;
+            i++;
+        }
+
+        return output;
+    }
+
+
     public static int CountArrInArrFixed(int[] arr, int[] find)
     {
         if(arr.Length < find.Length || arr.Length%find.Length != 0) return -1;
