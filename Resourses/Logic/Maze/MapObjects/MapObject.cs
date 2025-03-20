@@ -27,9 +27,19 @@ public partial class MapObject : MazePos
     
     //map objects maybe should be somehow above cells in visual and change cells properties...
     //like the door changes the walkable of a wall and a desk "[P" the same of ...
+    public Actions[] GetActions()
+    {
+        return actions;
+    }
+
+    public Actions GetAction(int index)
+    {
+        return actions[index];
+    }
 
 
 }
+
 
 //Actions[] actions;
 
@@ -56,3 +66,4 @@ public partial class MapObject : MazePos
     //make at once the text box
 
     //need of an enum TypeOf
+

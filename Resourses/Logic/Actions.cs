@@ -115,9 +115,27 @@ public class Actions
         }
     }
 
+    public void ExecuteAnti() 
+    {
+        if(antiActionMethod != null)
+        {
+            antiActionMethod.Invoke();
+        }
+    }
+    public void ExecuteMain() 
+    {
+        actionMethod.Invoke();
+    }
+
     public void Activate() => activated = true; //can be delegated
     public void DeActivate() => activated = false; //can be delegated
     public void CounterPlusPlus() => counter++; 
+
+    //[i] Get parameters
+
+    public int? GetCounter() => counter;
+    public bool GetPlayerCanInteract() => playerCanInteract; //+ + + + +
+    public bool? GetActivated() => activated;
 
 
 
