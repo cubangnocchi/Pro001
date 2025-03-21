@@ -25,6 +25,9 @@ public class Actions
 
     public bool CanPLayerInteract() => playerCanInteract;
     public bool? IsActivated() => activated;
+    public int? GetCounter() => counter;
+    public bool GetPlayerCanInteract() => playerCanInteract; //+ important +
+    public bool? GetActivated() => activated;
 
     
 
@@ -131,11 +134,7 @@ public class Actions
     public void DeActivate() => activated = false; //can be delegated
     public void CounterPlusPlus() => counter++; 
 
-    //[i] Get parameters
 
-    public int? GetCounter() => counter;
-    public bool GetPlayerCanInteract() => playerCanInteract; //+ + + + +
-    public bool? GetActivated() => activated;
 
 
 

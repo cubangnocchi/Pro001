@@ -21,6 +21,13 @@ public partial class MapObject : MazePos
     {
         this.actions = theActions;
         this.typeOfObject = theTypeOfObject;
+
+        //metadata
+        
+        for(int i = 0; i < actions.Length; i++)
+        {
+
+        }
     }
         
     //[i] methods for extracting information:
@@ -35,6 +42,20 @@ public partial class MapObject : MazePos
     public Actions GetAction(int index)
     {
         return actions[index];
+    }
+
+    public int[] IndexOfInteractiveActions()
+    {
+        List<int> indexList;
+        for (int i = 0; i < actions.Length; i++)
+        {
+            if(actions[i].CanPLayerInteract())
+            {
+                indexList.Add(i);
+            }
+        }
+
+        return indexList.ToArray();
     }
 
 
