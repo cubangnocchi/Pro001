@@ -46,7 +46,8 @@ public partial class MapObject : MazePos
 
     public int[] IndexOfInteractiveActions()
     {
-        List<int> indexList;
+        List<int> indexList = new List<int>{};
+        
         for (int i = 0; i < actions.Length; i++)
         {
             if(actions[i].CanPLayerInteract())

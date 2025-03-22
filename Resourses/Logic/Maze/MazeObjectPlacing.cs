@@ -15,12 +15,11 @@ public partial class Maze
         // + + + + + + + + + + + + + + + + + +
         //I need to create a Door giving it the 
         //position, the action that connects the cell and the door, and the type of door
+        int[][] twoDoorPos = TwoDoorPosCalculation(StartRoomPos, dir, mazeRooms[0,0].GetSize());
+        Cell[] cells = [mazeRooms[twoDoorPos[0][0],twoDoorPos[0][1]].GetCell(twoDoorPos[0][2], twoDoorPos[0][3]),
+                        mazeRooms[twoDoorPos[1][0],twoDoorPos[1][1]].GetCell(twoDoorPos[1][2], twoDoorPos[1][3])];
+
         
-        
-
-
-
-
     }
 
     public static int[][] TwoDoorPosCalculation(int[] startRoomPos, int dir, int roomSize)

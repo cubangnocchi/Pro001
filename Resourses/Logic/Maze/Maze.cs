@@ -12,6 +12,7 @@ public partial class Maze
                        //or maybe rooms makes easier the work for visual
 
     Room[,] mazeRooms;
+    List<MapObject> mapObjects = new List<MapObject>{};
     //string name; 
     //string seed;
 
@@ -26,15 +27,7 @@ public partial class Maze
         Generator();
     }*/
 
-    /*               +
-                     +
-                     +
-    + + + Room ahora es otra clase... + + +
-                     +
-                     +
-                     +
     
-    */
 
     public Maze(int rows, int cols, int roomSize)
     {

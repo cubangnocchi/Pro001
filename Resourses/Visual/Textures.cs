@@ -11,6 +11,8 @@ namespace Resourses.Visual
             floor,
             player1,
             player2,
+            doorOpen,
+            doorClose,
         }
 
         public static Pixel GetTxtr(Txtr txtr)
@@ -26,6 +28,10 @@ namespace Resourses.Visual
                 Txtr.player2 => new Pixel("(", ":", new Color(0, 255, 0), new Color(0, 255, 0), new Color(0, 0, 0), new Color(0, 0, 0)),
                 
                 //MapObjects
+                //--Close = cell unwalkable + door // Open = wlk + dr
+                Txtr.doorClose => new Pixel("]", "[", new Color(100,100,125), new Color(100,100,125), new Color(50,50,50), new Color(50,50,50)),
+                Txtr.doorOpen => new Pixel("]", "[", new Color(150,150,170), new Color(150,150,170), new Color(100,100,100), new Color(100,100,100)),
+               
                 //Enemies
                 //Items
 

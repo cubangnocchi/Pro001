@@ -20,6 +20,8 @@ public class Actions
 
     int? counter;
 
+    //Item? intem; //an Item needed for dooing the action 
+
 
     //[i]-parameters Get/Set methods:
 
