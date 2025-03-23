@@ -14,8 +14,7 @@ public partial class Maze
     #region Door
     public void DoorPlacing(int[] StartRoomPos, int dir, Door.TypeOfDoor typeOfDoor)
     {
-        // + + + + + + + + + + + + + + + + + +
-        //I need to create a Door giving it the 
+        
         //position, the action that connects the cell and the door, and the type of door
         int[][] twoDoorPos = TwoDoorPosCalculation(StartRoomPos, dir, mazeRooms[0,0].GetSize());
         Cell[] cells = [mazeRooms[twoDoorPos[0][0],twoDoorPos[0][1]].GetCell(twoDoorPos[0][2], twoDoorPos[0][3]),
@@ -24,6 +23,9 @@ public partial class Maze
         Door door = new Door(typeOfDoor, twoDoorPos[0], twoDoorPos[1], cells);
         mapObjects.Add(door.GetDoors()[0]);
         mapObjects.Add(door.GetDoors()[1]);
+
+        cells[0].SetUnwalcable();
+        cells[1].SetUnwalcable();
         
     }
 

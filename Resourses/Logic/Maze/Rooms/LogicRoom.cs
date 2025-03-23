@@ -49,6 +49,35 @@ public partial class Room
         return connected[n];
     }
 
+    public void /*List<int>?*/ ConnectedDirections()
+    {
+        /*
+        List<int>? output;
+        bool isNull = true;
+        for (int i = 0; i < connected.Length; i++)
+        {
+            if(connected[i])
+            {
+                
+                if(isNull)
+                {
+                    output = new List<int>{i};
+                    isNull = false;
+                }
+                else
+                {
+                    output.Add(i);
+                }
+
+            } output.Add(i);
+            
+            
+        }
+        return output;
+        */
+
+    }
+
     
     
     //[i]-Change parameters

@@ -95,7 +95,8 @@ public class Camera{
         
         return output; 
     }
-
+    
+    //Camera from player in room with other players
     public static Image Room(Room room, Player player, Player[] otherPlayers)
     {
         Image output = Room(room, player);
@@ -111,6 +112,80 @@ public class Camera{
         }
 
         return output;    
+    }
+    
+    //Camera from player in room with other players and objects
+    public static Image Room(Room room, Player player, Player[] otherPlayers, MapObject[] mapObjects)
+    {
+        Image output = Room(room, player, otherPlayers);
+
+        for(int i = 0; i < mapObjects.Length; i++)
+        {
+            if(TL.ArrEqual(mapObjects[i].GetRoomPos(), player.GetRoomPos()))
+            {
+                Image txtrToAdd;
+                if(mapObjects[i].GetTheType() == MapObject.TypeOfObject.Door)
+                {
+                    if(room.GetCell(mapObjects[i].GetCellPos()).isWalkable())
+                    {
+                        txtrToAdd = Textures.GetTxtr(Tx.Txtr.doorOpen).ToImage();
+                    }
+                    else
+                    {
+                        txtrToAdd = Textures.GetTxtr(Tx.Txtr.doorClose).ToImage(); 
+                    }
+                }
+                else
+                {
+                    txtrToAdd = Textures.GetTxtr(Tx.Txtr.unknown).ToImage();
+                }
+
+                output = Image.AddLayer(output, txtrToAdd,
+                                        room.GetSize() - player.GetCellPos()[0] + mapObjects[i].GetCellPos()[0],
+                                        room.GetSize() - player.GetCellPos()[1] + mapObjects[i].GetCellPos()[1]);
+            }
+        }
+
+        return output;
+
+
+    }
+
+    ////Camera from player in room with other objects
+    public static Image Room(Room room, Player player, MapObject[] mapObjects)
+    {
+        Image output = Room(room, player);
+
+        for(int i = 0; i < mapObjects.Length; i++)
+        {
+            if(TL.ArrEqual(mapObjects[i].GetRoomPos(), player.GetRoomPos()))
+            {
+                Image txtrToAdd;
+                if(mapObjects[i].GetTheType() == MapObject.TypeOfObject.Door)
+                {
+                    if(room.GetCell(mapObjects[i].GetCellPos()).isWalkable())
+                    {
+                        txtrToAdd = Textures.GetTxtr(Tx.Txtr.doorOpen).ToImage();
+                    }
+                    else
+                    {
+                        txtrToAdd = Textures.GetTxtr(Tx.Txtr.doorClose).ToImage(); 
+                    }
+                }
+                else
+                {
+                    txtrToAdd = Textures.GetTxtr(Tx.Txtr.unknown).ToImage();
+                }
+
+                output = Image.AddLayer(output, txtrToAdd,
+                                        room.GetSize() - player.GetCellPos()[0] + mapObjects[i].GetCellPos()[0],
+                                        room.GetSize() - player.GetCellPos()[1] + mapObjects[i].GetCellPos()[1]);
+            }
+        }
+
+        return output;
+
+
     }
 
 

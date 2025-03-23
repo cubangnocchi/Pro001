@@ -99,7 +99,7 @@ public class TL
     return count;
     }
 
-    //[i]-General array[,] methods
+    //[i]-position methods
     public static bool PosInRange(int[] pos, int rows, int cols)
     {
         //check if a pos is in range
@@ -214,5 +214,28 @@ public class TL
 
             return output;
         }
+
+    public static bool IsCloseTo(int[] posA, int[] posB)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if(ArrEqual(PosStep(posA, i), posB))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static int? IsCloseDir(int[] posA, int[] posB)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if(ArrEqual(PosStep(posA, i), posB))
+            {
+                return i;
+            }
+        }
+        return null;
+    }
 
 }

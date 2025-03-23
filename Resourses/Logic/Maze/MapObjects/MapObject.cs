@@ -50,6 +50,8 @@ public partial class MapObject : MazePos
         return actions[index];
     }
 
+    public TypeOfObject GetTheType() => typeOfObject;
+
     public int[] IndexOfInteractiveActions()
     {
         List<int> indexList = new List<int>{};

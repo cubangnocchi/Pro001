@@ -14,7 +14,7 @@
             delegate method 
             </summary>
         </member>
-        <member name="M:Resourses.Logic.Actions.#ctor(Resourses.Logic.Actions.ActionMethod,Resourses.Logic.Actions.ActionMethod,System.Boolean,System.Nullable{System.Boolean},System.Nullable{System.Int32})">
+        <member name="M:Resourses.Logic.Actions.#ctor(Resourses.Logic.Actions.ActionMethod,Resourses.Logic.Actions.ActionMethod,System.Boolean,System.Nullable{System.Boolean},System.Nullable{System.Int32},System.String)">
             <summary>
             Main constructor
             </summary>
@@ -30,6 +30,13 @@
             </summary>
             <param name="theAction">method to be executed</param>
             <param name="thePlayerCanInteract">bool value that defines if the player can interact or not with it</param>
+        </member>
+        <member name="M:Resourses.Logic.Actions.#ctor(Resourses.Logic.Actions.ActionMethod,System.String)">
+            <summary>
+            Constructor for an interactive action with name and without AntiAction and no counter.
+            </summary>
+            <param name="theAction">method to be executed</param>
+            <param name="theName">bool value that defines if the player can interact or not with it</param>
         </member>
         <member name="M:Resourses.Logic.Actions.#ctor(Resourses.Logic.Actions.ActionMethod,System.Boolean,System.Nullable{System.Int32})">
             <summary>

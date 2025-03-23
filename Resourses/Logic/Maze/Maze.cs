@@ -55,78 +55,34 @@ public partial class Maze
         GeneratorFromSeed();
     }*/
 
-    public Maze()
-    {
-        //TestMazeGenerator();
-    }
-
+    
     //[i] get parameters methods
 
-    
 
     public Room GetRoom(int i, int j) => this.mazeRooms[i, j];
     public Room GetRoom(int[] dir) => this.mazeRooms[dir[0], dir[1]];
 
     public static void Testing() => System.Console.WriteLine("- Maze loaded correctly");
     
-    //[i] maze generation methods: are now in the other file
-
-    
-    //[i]-Get info
-    public Cell GetCell(int col, int row)
-    {
-        //!!!!! use % and /
-
-        //[i]-returns a Cell from its position in the maze.
-        //-------------------------------------------------
-        
-        //get the size of a room for simulaten a cells array 
-        //with all rooms by multiplyng the size of the rooms
-        //with the number of cols and rows of the maze, in 
-        //terms of rooms.
-        int size = this.GetRoom(0,0).GetSize();
-        
-        //gess in what room the cell is by walking through
-        //the cols...
-        for(int i = 0; i < mazeRooms.GetLength(0); i ++)
-        {
-            if((i*size) + size >= col)
-            {
-                //and once I get the col it walks through the
-                //rows...
-                for(int j = 0; j < mazeRooms.GetLength(1); j++)
-                {
-                    if((j*size) + size >= row)
-                    {
-                        //---------------------------------------------
-                        //and now it have enough information for geting
-                        //the room and where is the cell in the room...
-                        //---------------------------------------------
-                        //position in room:
-                        //  {size - (((i+1)*size) - col)} ->for the col
-                        //  {size - (((j+1)*size) - row)} ->for the row
-                        //---------------------------------------------
-
-                        return mazeRooms[i,j].GetCell(size - (((i+1)*size) - col),
-                                                      size - (((j+1)*size) - row));
-                        //[!] - this.tested = False;
-                    }
-                }
-            }           
-        }
-
-        //jutst in case... specialy for the compilator that 
-        //dont belive in me haha
-        return new Cell(Cell.TypeOfCell.Wall);
-
-    }
-    
     public int[] GetSize()
     {
         return [mazeRooms.GetLength(0), mazeRooms.GetLength(1)];
     }
 
+    public MapObject[] GetMapObjects() => mapObjects.ToArray();
+
+
+    //[i] MapObjects methods
+    
+
+
+
+
+
     //revisa bien lo de los nombres...
+
+
+
 
 /*
     private void PathMaker(int row, int col, int counter) //reviiiiisa los apuuuntes -_-# //path number
@@ -352,6 +308,8 @@ public partial class Maze
     []           
     []       o 
     [][][][]◟◞[][][][]??????
+
+    ºπ a key 
 
 
     miraver si encuentras como hacer que dos cosas ocurran en paralelo...

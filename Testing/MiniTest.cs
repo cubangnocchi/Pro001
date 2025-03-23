@@ -14,9 +14,9 @@ public partial class MiniTest
         
         Menue testMenue = 
         new("--- Test Menue ---",
-            ['1','2','3','4','x'],
-            ["Generate a maze", "Move in a maze", "Multiplayer ¨find each other¨","TextBox", "Exit"],
-            [GeneratedMaze001, MovementTest002, TurnTest001, TextBoxTest, Program.CloseAplication]);
+            ['1','2','3','4','5','x'],
+            ["Generate a maze", "Move in a maze", "Multiplayer ¨find each other¨","TextBox", "DoorTest", "Exit"],
+            [GeneratedMaze001, MovementTest002, TurnTest001, TextBoxTest, DoorTest, Program.CloseAplication]);
 
         testMenue.Print();
         

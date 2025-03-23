@@ -13,6 +13,7 @@ namespace Resourses.Visual
             player2,
             doorOpen,
             doorClose,
+            unknown
         }
 
         public static Pixel GetTxtr(Txtr txtr)
@@ -34,6 +35,10 @@ namespace Resourses.Visual
                
                 //Enemies
                 //Items
+
+                //unknown
+                Txtr.unknown => new Pixel("?", "?", new Color(0,0,0), new Color(0,0,0), new Color(0,255,0), new Color(0,255,0)),
+               
 
 
                 _ => new Pixel()
