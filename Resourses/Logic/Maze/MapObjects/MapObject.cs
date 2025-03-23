@@ -3,6 +3,7 @@ using System.Diagnostics;
 namespace Resourses.Logic;
 public partial class MapObject : MazePos
 {
+    #region Parameters
     
     Actions[] actions;
     TypeOfObject typeOfObject;
@@ -15,6 +16,9 @@ public partial class MapObject : MazePos
         Fence,
         Stairs, 
     };
+
+    #endregion
+    #region Constructors
 
     //[i] constructors: 
     public MapObject(int [] thePosition, Actions[] theActions, TypeOfObject theTypeOfObject) : base(thePosition)
@@ -30,6 +34,8 @@ public partial class MapObject : MazePos
         }
     }
         
+    #endregion
+    #region get/set
     //[i] methods for extracting information:
     
     //map objects maybe should be somehow above cells in visual and change cells properties...
@@ -58,7 +64,15 @@ public partial class MapObject : MazePos
 
         return indexList.ToArray();
     }
-
+    public bool IsInteractive()
+    {
+        foreach (Actions act in actions)
+        {
+            if(act.CanPLayerInteract()) return true;
+        }        
+        return false;
+    }
+    #endregion
 
 }
 

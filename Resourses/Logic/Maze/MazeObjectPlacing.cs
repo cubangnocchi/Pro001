@@ -10,6 +10,8 @@ public partial class Maze
     // revisa Doors que ahí están las instrucciones
     // + + + + + + + + + + + ++  ++  +
     // aaaaaaaaaaaaaaaaaaaaahhhh
+
+    #region Door
     public void DoorPlacing(int[] StartRoomPos, int dir, Door.TypeOfDoor typeOfDoor)
     {
         // + + + + + + + + + + + + + + + + + +
@@ -18,7 +20,10 @@ public partial class Maze
         int[][] twoDoorPos = TwoDoorPosCalculation(StartRoomPos, dir, mazeRooms[0,0].GetSize());
         Cell[] cells = [mazeRooms[twoDoorPos[0][0],twoDoorPos[0][1]].GetCell(twoDoorPos[0][2], twoDoorPos[0][3]),
                         mazeRooms[twoDoorPos[1][0],twoDoorPos[1][1]].GetCell(twoDoorPos[1][2], twoDoorPos[1][3])];
-
+        
+        Door door = new Door(typeOfDoor, twoDoorPos[0], twoDoorPos[1], cells);
+        mapObjects.Add(door.GetDoors()[0]);
+        mapObjects.Add(door.GetDoors()[1]);
         
     }
 
@@ -54,4 +59,7 @@ public partial class Maze
         if (n == 1) return roomSize;
         return 0;
     }
+
+    #endregion
+
 }

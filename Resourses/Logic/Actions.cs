@@ -9,6 +9,7 @@ namespace Resourses.Logic;
 /// </summary>
 public class Actions
 {
+
     /// <summary>
     /// delegate method 
     /// </summary>
@@ -19,6 +20,10 @@ public class Actions
     bool? activated;
 
     int? counter;
+    string? name;
+
+
+    
 
     //Item? intem; //an Item needed for dooing the action 
 
@@ -47,14 +52,15 @@ public class Actions
                     ActionMethod? theAntiAction, 
                     bool thePlayerCanInteract, 
                     bool? theActivated,
-                    int? thecounter)
+                    int? thecounter,
+                    string? theName)
     {
         this.actionMethod = theAction;
         this.antiActionMethod = theAntiAction;
         this.playerCanInteract = thePlayerCanInteract;
         this.activated = theActivated;
         this.counter = thecounter;
-        
+        this.name = theName;
     }
 
     /// <summary>
@@ -62,7 +68,15 @@ public class Actions
     /// </summary>
     /// <param name="theAction">method to be executed</param>
     /// <param name="thePlayerCanInteract">bool value that defines if the player can interact or not with it</param>
-    public Actions (ActionMethod theAction, bool thePlayerCanInteract) : this(theAction, null, thePlayerCanInteract, null, null)
+    public Actions (ActionMethod theAction, bool thePlayerCanInteract) : this(theAction, null, thePlayerCanInteract, null, null, null)
+    {}
+
+    /// <summary>
+    /// Constructor for an interactive action with name and without AntiAction and no counter.
+    /// </summary>
+    /// <param name="theAction">method to be executed</param>
+    /// <param name="theName">bool value that defines if the player can interact or not with it</param>
+    public Actions (ActionMethod theAction, string theName) : this(theAction, null, true, null, null, theName)
     {}
 
     /// <summary>
@@ -71,7 +85,7 @@ public class Actions
     /// /// <param name="theAction">method to be executed</param>
     /// <param name="thePlayerCanInteract">bool value that defines if the player can interact or not with it</param>
     /// <param name="theCounter">int value to save, nullable</param>
-    public Actions (ActionMethod theAction, bool thePlayerCanInteract, int? theCounter) : this(theAction, null, thePlayerCanInteract, null, theCounter)
+    public Actions (ActionMethod theAction, bool thePlayerCanInteract, int? theCounter) : this(theAction, null, thePlayerCanInteract, null, theCounter, null)
     {}
 
 
@@ -134,7 +148,22 @@ public class Actions
 
     public void Activate() => activated = true; //can be delegated
     public void DeActivate() => activated = false; //can be delegated
-    public void CounterPlusPlus() => counter++; 
+    public void CounterPlusPlus() => counter++;
+
+    #region Arr/List
+    public static void ExecuteList(List<Actions> acts)
+    {
+        ExecuteArray(acts.ToArray());
+
+    }
+    public static void ExecuteArray(Actions[] acts)
+    {
+        foreach (var act in acts)
+        {
+            act.Execute();
+        }
+    }
+    #endregion 
 
 
 
