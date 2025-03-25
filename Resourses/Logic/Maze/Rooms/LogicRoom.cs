@@ -49,32 +49,27 @@ public partial class Room
         return connected[n];
     }
 
-    public void /*List<int>?*/ ConnectedDirections()
+    public int[] ConnectedDirections()
     {
-        /*
-        List<int>? output;
-        bool isNull = true;
+        
+        int[] output = [-1];
         for (int i = 0; i < connected.Length; i++)
         {
             if(connected[i])
             {
                 
-                if(isNull)
+                if(TL.ArrEqual(output, [-1]))
                 {
-                    output = new List<int>{i};
-                    isNull = false;
+                    output = [i];
                 }
                 else
                 {
-                    output.Add(i);
+                    output = TL.ConcatenateArrays(output, [i]);
                 }
 
-            } output.Add(i);
-            
-            
+            }
         }
-        return output;
-        */
+        return output.ToArray();
 
     }
 

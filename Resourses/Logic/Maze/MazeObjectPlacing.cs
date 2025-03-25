@@ -17,8 +17,11 @@ public partial class Maze
         
         //position, the action that connects the cell and the door, and the type of door
         int[][] twoDoorPos = TwoDoorPosCalculation(StartRoomPos, dir, mazeRooms[0,0].GetSize());
-        Cell[] cells = [mazeRooms[twoDoorPos[0][0],twoDoorPos[0][1]].GetCell(twoDoorPos[0][2], twoDoorPos[0][3]),
-                        mazeRooms[twoDoorPos[1][0],twoDoorPos[1][1]].GetCell(twoDoorPos[1][2], twoDoorPos[1][3])];
+        Cell[] cells = new Cell[] {
+            mazeRooms[twoDoorPos[0][0], twoDoorPos[0][1]].GetCell(twoDoorPos[0][2], twoDoorPos[0][3]),
+            mazeRooms[twoDoorPos[1][0], twoDoorPos[1][1]].GetCell(twoDoorPos[1][2], twoDoorPos[1][3])
+};
+
         
         Door door = new Door(typeOfDoor, twoDoorPos[0], twoDoorPos[1], cells);
         mapObjects.Add(door.GetDoors()[0]);
