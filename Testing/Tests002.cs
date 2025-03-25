@@ -10,8 +10,9 @@ public partial class MiniTest
     public static void DoorTest()
     {
         Maze maze = new(2, 5);
+        maze.Create(Maze.Type.Standard);
         int[] conDir = maze.GetRoom(0,0).ConnectedDirections();
-        Console.WriteLine(conDir[0]);
+        Console.WriteLine(conDir.Length);
         maze.DoorPlacing(new int[] { 0, 0 }, conDir[0], Door.TypeOfDoor.CanOpen);
 
 

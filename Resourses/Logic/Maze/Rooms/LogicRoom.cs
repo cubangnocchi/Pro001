@@ -7,13 +7,13 @@ namespace Resourses.Logic;
 busca como chucha se creó el "public partial class"
 */
 
-    
+
 public partial class Room
 {
     //Cell[,] roomCells; //maybe this should be a task of the Maze to transalate rooms to cells? 
-                         //maybe the trabslation proceso most be in hands of this class?
-                         //              from Room to cell's....
-                         //what if I dont need cels ._. uh... 
+    //maybe the trabslation proceso most be in hands of this class?
+    //              from Room to cell's....
+    //what if I dont need cels ._. uh... 
     //TypeOfRoom typeOfRoom; 
     bool[] walls = new bool[4];
     bool[] connected = new bool[4];
@@ -27,14 +27,14 @@ public partial class Room
     //[i]-Constructors
 
     // -- for now logic constructors are not used 
-    
 
-    
+
+
     //[i]-Get parameters
 
     public bool IsConnected()
     {
-        for(int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++)
         {
             if (connected[i])
             {
@@ -49,39 +49,32 @@ public partial class Room
         return connected[n];
     }
 
+
     public int[] ConnectedDirections()
     {
-        
-        int[] output = [-1];
-        for (int i = 0; i < connected.Length; i++)
-        {
-            if(connected[i])
-            {
-                
-                if(TL.ArrEqual(output, [-1]))
-                {
-                    output = [i];
-                }
-                else
-                {
-                    output = TL.ConcatenateArrays(output, [i]);
-                }
+        List<int> connectedDirs = new List<int>();
 
+        for (int i = 0; i < 4; i++)
+        {
+            if (connected[i])
+            {
+                connectedDirs.Add(i);
             }
         }
-        return output.ToArray();
 
+        // If no directions are connected, return an empty array
+        return connectedDirs.Count > 0 ? connectedDirs.ToArray() : Array.Empty<int>();
     }
 
-    
-    
+
+
     //[i]-Change parameters
     public void Connect(int dir)
     {
-        connected[dir] = true;     
+        connected[dir] = true;
     }
     public void Disconect(int dir)
-    {       
+    {
         connected[dir] = false;
     }
 
@@ -89,30 +82,30 @@ public partial class Room
     {
         walls = theWalls;
         connected[0] = !theWalls[0];
-        connected[1] = !theWalls[1];  
-        connected[2] = !theWalls[2];  
-        connected[3] = !theWalls[3];          
+        connected[1] = !theWalls[1];
+        connected[2] = !theWalls[2];
+        connected[3] = !theWalls[3];
     }
 
     public void SetWall(int wallPos, bool wallBool)
     {
-        if(wallBool == false) connected[wallPos] = true;
+        if (wallBool == false) connected[wallPos] = true;
         walls[wallPos] = wallBool;
     }
 
 
 
-    
+
 
     /*
     /*
     maybe I should add some kind of linked refference or something
     */
- 
+
 
     //------Important!!!!! make separate the simple logical and the complex room like methods and all that----------------------------------------------------------------------------------------------
     //------this just if you decide to do bouth, the "boolean walls room" and the "Cell[,] room"
-        
+
     //public LogicRoom(/*int theHeight, int theWidth,*/ bool theLeftWall, bool theRightWall, bool theUpWall, bool theDownWall)
     /*{
         //roomCells = new Cell[theHeight,theWidth];
@@ -122,40 +115,40 @@ public partial class Room
         downWall = theDownWall;
         //Build();        
     }*/
-    
+
     //public LogicRoom(int size) : this(/*size, size,*/ true, true, true, true) 
     //{
-        //This creates an scuare basic room//
+    //This creates an scuare basic room//
     //}
     //public LogicRoom() : this(9)
     //{
-        //This creates a preset room with 9x9 size
+    //This creates a preset room with 9x9 size
     //}
-    
-/*
-    ***GetLength(dimencion)
 
-    public enum TypeOfRoom
-    {
-        //            number    where it have wals
-        Preset4Walls, //0           all walls
-        Preset0Walls, //1           no walls
-        Walls_L_R_U,  //2           left, right, up
-        Walls_L_R_D,  //3           left, right, down
-        Walls_R_U_D,  //4           right, up, down
-        Walls_L_U_D,  //5           left, up, down
-        Walls_R_L,
-        Walls_U_D,
-        Walls_
-        
-        
-        is this necesary? maybe just with 4 bools will work
-        
+    /*
+        ***GetLength(dimencion)
 
-         
+        public enum TypeOfRoom
+        {
+            //            number    where it have wals
+            Preset4Walls, //0           all walls
+            Preset0Walls, //1           no walls
+            Walls_L_R_U,  //2           left, right, up
+            Walls_L_R_D,  //3           left, right, down
+            Walls_R_U_D,  //4           right, up, down
+            Walls_L_U_D,  //5           left, up, down
+            Walls_R_L,
+            Walls_U_D,
+            Walls_
 
-    }
-*/
+
+            is this necesary? maybe just with 4 bools will work
+
+
+
+
+        }
+    */
 
 
 
@@ -229,60 +222,60 @@ public partial class Room
         
         */
 
-        /*
+    /*
 
-        for(int i=0; i<roomCells.GetLength(0); i++)
-        {
-            for (int j=0; j<roomCells.GetLength(1);j++)
-            {
-                this.roomCells[i,j] = new Cell(Cell.TypeOfCell.presetFloor);
-            }
-        }
-        if (leftWall)
-        {
-            SetWall(0, true);
-        }
-        if (rightWall)
-        {
-
-        }
-        if (upWall)
-        {
-
-        }
-        if(downWall)
-        {
-
-        }
-
-
-
-
-    }
-
-    private void SetWall(int position, bool isHorizontal)
+    for(int i=0; i<roomCells.GetLength(0); i++)
     {
-        if (isHorizontal)
+        for (int j=0; j<roomCells.GetLength(1);j++)
         {
-            for (int i=0;  i<roomCells.GetLength(1); i++)
-            {
-                //this.roomCells[position, i]  
-                //crea un metodo para cambiar el tipo de celda
-            }
+            this.roomCells[i,j] = new Cell(Cell.TypeOfCell.presetFloor);
         }
-        else
-        {
-            for (int i=0; i<roomCells.GetLength(0); i++)
-            {
-
-            }
-        }
+    }
+    if (leftWall)
+    {
+        SetWall(0, true);
+    }
+    if (rightWall)
+    {
 
     }
-    
+    if (upWall)
+    {
 
-    */
-    
+    }
+    if(downWall)
+    {
+
+    }
+
+
+
+
+}
+
+private void SetWall(int position, bool isHorizontal)
+{
+    if (isHorizontal)
+    {
+        for (int i=0;  i<roomCells.GetLength(1); i++)
+        {
+            //this.roomCells[position, i]  
+            //crea un metodo para cambiar el tipo de celda
+        }
+    }
+    else
+    {
+        for (int i=0; i<roomCells.GetLength(0); i++)
+        {
+
+        }
+    }
+
+}
+
+
+*/
+
 }
 
 
@@ -290,4 +283,4 @@ public partial class Room
 
 
 
-    
+
