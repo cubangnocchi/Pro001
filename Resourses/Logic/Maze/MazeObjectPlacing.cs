@@ -14,16 +14,16 @@ public partial class Maze
     #region Door
     public void DoorPlacing(int[] StartRoomPos, int dir, Door.TypeOfDoor typeOfDoor)
     {
-        
+        // ! R E V I S A R
         //position, the action that connects the cell and the door, and the type of door
-        int[][] twoDoorPos = TwoDoorPosCalculation(StartRoomPos, dir, mazeRooms[0,0].GetSize());
-        Cell[] cells = new Cell[] {
-            mazeRooms[twoDoorPos[0][0], twoDoorPos[0][1]].GetCell(twoDoorPos[0][2], twoDoorPos[0][3]),
-            mazeRooms[twoDoorPos[1][0], twoDoorPos[1][1]].GetCell(twoDoorPos[1][2], twoDoorPos[1][3])
-};
+        int[] twoDoorPos = TwoDoorPosCalculation(StartRoomPos, dir, mazeRooms[0,0].GetSize());
+        Cell[] cells = [
+            mazeRooms[twoDoorPos[0], twoDoorPos[1]].GetCell(twoDoorPos[2], twoDoorPos[3]),
+            mazeRooms[twoDoorPos[4], twoDoorPos[5]].GetCell(twoDoorPos[6], twoDoorPos[7])
+        ];
 
-        
-        Door door = new Door(typeOfDoor, twoDoorPos[0], twoDoorPos[1], cells);
+        Door door = new Door(typeOfDoor, [twoDoorPos[0], twoDoorPos[1], twoDoorPos[2], twoDoorPos[3]], 
+                                         [twoDoorPos[4], twoDoorPos[5], twoDoorPos[6], twoDoorPos[7]], cells);
         mapObjects.Add(door.GetDoors()[0]);
         mapObjects.Add(door.GetDoors()[1]);
 
@@ -32,8 +32,13 @@ public partial class Maze
         
     }
 
-    public static int[][] TwoDoorPosCalculation(int[] startRoomPos, int dir, int roomSize)
+    public static int[] TwoDoorPosCalculation(int[] startRoomPos, int dir, int roomSize)
     { 
+        
+        // ! + + + + + + + + + + + + + + + + + + +
+        // ! + + + + + Debug here  + + + + + + + +
+        // ! + + + + + + + + + + + + + + + + + + +
+
         Direction wsad = new();
         int[] step = wsad.GetDir(dir);
         
@@ -45,7 +50,20 @@ public partial class Maze
         int[] start = TL.ConcatenateArrays(startRoomPos, startDoor);
         int[] end = TL.ConcatenateArrays(endRoomPos, endDoor);
 
-        return [start,end];
+        //debug:
+        Console.WriteLine("dir: " + dir);
+        Console.WriteLine("start values");
+        foreach (int a in start)
+        {
+            Console.WriteLine(a);            
+        }
+        Console.WriteLine("End values");
+        foreach (int a in end)
+        {
+            Console.WriteLine(a);            
+        }
+
+        return TL.ConcatenateArrays(start,end);
     }
 
     public static int[] InRoomDoorPos(int[] step, int roomSize)
@@ -61,7 +79,7 @@ public partial class Maze
     public static int StepToDoorPos(int n, int roomSize)
     {
         if (n == 0) return roomSize/2;
-        if (n == 1) return roomSize;
+        if (n == 1) return roomSize-1;
         return 0;
     }
 

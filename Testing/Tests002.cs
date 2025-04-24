@@ -13,9 +13,8 @@ public partial class MiniTest
         maze.Create(Maze.Type.Standard);
         int[] conDir = maze.GetRoom(0,0).ConnectedDirections();
         Console.WriteLine(conDir.Length);
-        maze.DoorPlacing(new int[] { 0, 0 }, conDir[0], Door.TypeOfDoor.CanOpen);
-
-
+        maze.DoorPlacing([0, 0], conDir[0], Door.TypeOfDoor.CanOpen);
+        
         Direction wsad = new();
         Player player = new("Juan", [0,0,3,3]);
         

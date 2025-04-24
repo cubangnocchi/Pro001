@@ -52,7 +52,8 @@ public partial class Room
 
     public int GetSize() => roomSize;
 
-    public Cell GetCell(int i, int j) => roomCells[i,j];
+    // ! System.IndexOutOfRangeException: Index was outside the bounds of the array.
+    public Cell GetCell(int i, int j) => roomCells[i,j]; 
 
     public Cell GetCell(int[] pos) => roomCells[pos[0], pos[1]];
 
