@@ -48,6 +48,7 @@ public partial class MiniTest
                         if(objDir != null)
                         {
                             obj.GetAction(0).Execute();
+                            Program.ClearConsole();
                         }
 
                     }
